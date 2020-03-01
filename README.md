@@ -6,15 +6,15 @@
 |email|string|null: false|
 |password|string|null: false|
 |nickname|string|null: false|
-|Profile_image|text||
-|Profile_text|text||
+|profile_image|text||
+|profile_text|text||
 |last_name|string|null: false|
-|First_name|string|null: false|
-|Last_name_kana|string|null: false|
-|First_name_kana|string|null: false|
-|Birth_year|date|null: false|
-|Birth_month|date|null: false|
-|Birth_day|date|null: false|
+|first_name|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|birth_year|date|null: false|
+|birth_month|date|null: false|
+|birth_day|date|null: false|
 |phone|string|null: false,unique:true|
 
 ### Association
@@ -64,9 +64,9 @@ belongs_to : sell
 |user|references|null: false, foreign_key: true|
 |nummber|string|null: false|
 |prefecture|string|null: false|
-|Municipality|string|null: false|
+|municipality|string|null: false|
 |address|string|null: false|
-|Building name|string||
+|building name|string||
 |address_phone|string|null: false,unique:true|
 
 ### Association
