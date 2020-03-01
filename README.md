@@ -37,14 +37,14 @@
 |size|string|null: false|
 |condition|string|null: false|
 |detail|text|null: false|
-|brand_id|references|null: false, foreign_key: true|
-|category_id|references|null: false, foreign_key: true|
+|brand|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
 |shipping_fee|string||
 |shippng_method|string|null: false|
 |shipping_date|string|null: false|
 |shipping_s_area|string|null: false|
-|sell_id|references|null: false, foreign_key: true|
-|buy_id|references|null: false, foreign_key: true|
+|sell|references|null: false, foreign_key: true|
+|buy|references|null: false, foreign_key: true|
 
 ### Association
 has_many : comments
@@ -61,7 +61,7 @@ belongs_to : sell
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 |nummber|string|null: false|
 |prefecture|string|null: false|
 |Municipality|string|null: false|
@@ -77,7 +77,7 @@ belongs_to : user
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 |card_nummber|string|null: false|
 |card_month|string|null: false|
 |card_year|string|null: false|
@@ -91,7 +91,7 @@ belongs_to : user
 ## SNScredentialsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 |uid|string|null: false|
 |provider|string|null: false|
 
@@ -104,9 +104,8 @@ belongs_to : user
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|created_at|timestamp||
-|product_id|references|null: false, foreign_key: true|
-|user_id|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 
 ### Association
 belongs_to : user
@@ -117,8 +116,7 @@ belongs_to : product
 ## buysテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|created_at|timestamp|null: false|
+|user|references|null: false, foreign_key: true|
 
 ### Association
 has_many : products
@@ -129,7 +127,7 @@ belongs_to : user
 ## sellsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 
 ### Association
 has_many : products
@@ -140,8 +138,8 @@ belongs_to : user
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|null: false, foreign_key: true|
-|user_id|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 
 ### Association
 belongs_to : user
@@ -153,7 +151,7 @@ belongs_to : product
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null: false|
-|product_id|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
 
 ### Association
 belongs_to : product
