@@ -1,0 +1,180 @@
+// html, body, div, span, applet, object, iframe,
+// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+// a, abbr, acronym, address, big, cite, code,
+// del, dfn, em, img, ins, kbd, q, s, samp,
+// small, strike, strong, sub, sup, tt, var,
+// b, u, i, center,
+// dl, dt, dd, ol, ul, li,
+// fieldset, form, label, legend,
+// table, caption, tbody, tfoot, thead, tr, th, td,
+// article, aside, canvas, details, embed,
+// figure, figcaption, footer, header, hgroup,
+// menu, nav, output, ruby, section, summary,
+// time, mark, audio, video {
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   font: inherit;
+//   font-size: 100%;
+//   vertical-align: baseline;
+// }
+
+// html {
+//   line-height: 1;
+// }
+
+ol, ul {
+  list-style: none;
+}
+
+// table {
+//   border-collapse: collapse;
+//   border-spacing: 0;
+// }
+
+// caption, th, td {
+//   text-align: left;
+//   font-weight: normal;
+//   vertical-align: middle;
+// }
+
+// q, blockquote {
+//   quotes: none;
+// }
+// q:before, q:after, blockquote:before, blockquote:after {
+//   content: "";
+//   content: none;
+// }
+
+// a img {
+//   border: none;
+// }
+
+// article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+//   display: block;
+// }
+
+
+
+
+body{
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+.default-container{
+  width: 100%;
+  height: 100%;
+}
+
+.mypage-container{
+  margin: 40px auto 0;
+  width: 1020px;
+  display: flex;
+}
+
+
+.my-side{
+  width: 280px;
+  margin: 0 40px 0 0;
+  height: 1252px;
+  position: relative;
+}
+
+
+.my-nav{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  &__list{
+    width:100%;
+    height: 685px;
+    padding-left: 0 !important;
+    margin: 0 !important;
+    border-style: solid;
+    border-width: 0;
+
+    &__item{
+      display: inline-block;
+      padding: 16px;
+      height: 16px;
+      font-size: 14px;
+      width: 248px;
+      text-decoration: none;
+      color: #333333;
+      line-height: 16px;
+      background-color: #ffffff;
+    }
+
+
+    &__one{
+      height: 96px;
+      width:100%;
+      padding-left: 0 !important;
+      margin: 0 !important;
+      li{
+        width: 100%;
+        height: 48px;
+        border-top: 1px solid #eee;
+      }
+    }
+    &__two{
+      height: 336px;
+      width:100%;
+      padding-left: 0 !important;
+      margin: 0 !important;
+      li{
+        width: 100%;
+        height: 48px;
+        border-top: 1px solid #eee;
+      }
+    }
+  
+    li{
+      width: 100%;
+      height: 48px;
+      border-top: 1px solid #eee;
+    }
+  }
+  &__head{
+    height: 16px;
+    margin: 40px 0 8px 0  !important;
+    font-size: 16px;
+  }  
+
+}
+
+.icon-arrow::before{
+  content: ">";
+  height: 14px;
+  width: 14px;
+  display: inline-block;
+  float: right;
+  font-weight: bold;
+  color: #ccc;
+}
+
+
+
+
+
+
+
+
+
+
+
+.my-content{
+  width: 700px;
+  height: 1189px;
+  float: right;
+}
+.my-user-icon{
+  background-image: url(assets/);;
+}
+.mypage-nav__list{
+
+}
