@@ -1,0 +1,71 @@
+.my-content
+  %section.my-user-icon
+    %a{ href: '#', class: 'mypage-nav__list'  }
+      %figure.my-prof
+        = image_tag "oldman_77.png", size: "100x80", alt: "顔写真"
+      .boldd
+        old man
+      .my-number
+        .evaluation
+        %span.bold
+        .exhibition
+        %span.bold
+
+  %section.my-tab-todo
+    .tab_wrap
+      %input#tab1{:checked => "checked", :name => "tab_btn", :type => "radio"}/
+      %input#tab2{:name => "tab_btn", :type => "radio"}/
+      .tab_area
+        %label.tab1_label{:for => "tab1"} お知らせ
+        %label.tab2_label{:for => "tab2"} やることリスト
+      .panel_area
+        %ul#panel1.tab_panel
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+              %figure.furimapic
+                = image_tag "frmlogoo.png", size: "58x47", alt: "顔写真"
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+        %ul#panel2.tab_panel
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+  %aside.modal
+  %section.mytab-container
+    %h2.mytab-head
+      購入した商品
+    .tab_wrap2
+      %input#tabb1{:checked => "checked", :name => "tab_btnn", :type => "radio"}/
+      %input#tabb2{:name => "tab_btnn", :type => "radio"}/
+      .tab_areaa
+        %label.tabb1_label{:for => "tabb1"} 取引中
+        %label.tabb2_label{:for => "tabb2"} 過去の取引
+      .panel_areaa
+        %ul#panell1.tab_panell
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+        %ul#panell2.tab_panell
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+          %li
+            %a{ href: '#', class: 'my-item-link' }
+      
