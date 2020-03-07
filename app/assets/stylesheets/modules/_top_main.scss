@@ -1,0 +1,328 @@
+.main {
+  background-color: #f8f8f8;
+}
+​
+.visual {
+  background-image: url(http://furima.tokyo/assets/bg-mainVisual-pict_pc-a1a4be0d864c29338b03d163957f9fd26b20f7c1fa0d05c17b603ec54d249ebe.jpg);
+  width:100%;
+  height: 560px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  position: relative;
+  padding: 0 60px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  .content {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 35px 0 0 0;
+    &__subtitle {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 60px;
+      line-height: 1.2;
+      color: #fff;
+      font-weight: normal;
+    }
+    &__text {
+      font-size: 18px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      line-height: 1.77778;
+      color: #fff;
+      margin: 16px 0 0 0;
+    }
+    &__btn {
+      display: flex;
+      margin: 24px 0 0 0;
+      &__a-btn {
+        width: 180px;
+        margin-right: 10px;
+      }
+      &__g-btn {
+        width: 180px;
+      }
+    }
+  }
+  .picture {
+    position: absolute;
+    top: 0;
+    right: 210px;
+  }
+}
+​
+.top-introduction {
+  padding: 60px 20px;
+  .subtitle {
+    text-align: center;
+    font-size: 26px;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
+    &::after {
+      content: "";
+      background-color: #3ccace;
+      width: 70px;
+      height: 4px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .lists {
+    text-align: center;
+    display: flex;
+    max-width: 1020px;
+    width: 100%;
+    margin: 0 auto;
+    .list {
+      width: 30%;
+      margin: 16px 5% 0 0;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__pict {
+        position: relative;
+        margin-bottom: 20px;
+        &__number {
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-radius: 4%;
+          font-size: 30px;
+          text-align: center;
+          margin: 0 5px 0 0;
+          padding: 10px 20px;
+          background-color: #3ccace;
+          color: #fff;
+        }
+      }
+      &__text {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 50px;
+        margin: 0 0 0 2px;
+        span {
+          color: #3ccace;
+        }
+      }
+      &__description {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 16px 0 0;
+      }
+    }
+    .list__last {
+      width: 30%;
+      margin: 16px 0 0;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+​
+.top-middle-dl {
+  background-image: url(http://furima.tokyo/assets/bg-topMiddleDl-pict-5042a3aa7eef6dd93330080028e3a781daf47c390c00a4fb5d7e7b06caae68c9.jpg);
+  background-position: bottom right;
+  height: 400px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  .inner {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    text-align: left;
+    max-width: 1040px;
+    width: 100%;
+    margin: 0 auto;
+    &__subtitle {
+      font-size: 27px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__text {
+      font-size: 18px;
+      margin: 20px 0 30px;
+      line-height: 1.5;
+    }
+    &__btn {
+      display: flex;
+      a {
+        margin-right: 10px;
+        .a-btn {
+          width: 180px;
+        }
+        .g-btn {
+          width: 180px;
+        }
+      }
+    }
+  }
+}
+​
+.top-key-features {
+  padding: 60px 100px;
+  background-color: #fff;
+  box-sizing: border-box;
+  .head {
+    font-size: 27px;
+    text-align: center;
+    margin: 0 0 40px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
+    &::after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: #3CCACE;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .items {
+    max-width: calc(1040px + 20px);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    .item {
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      text-align: center;
+      padding: 0 20px;
+      box-sizing: border-box;
+      &__img {
+        width: 70%;
+        margin: 0 auto;
+        line-height: 120px;
+      }
+      &__subtitle {
+        margin: 38px 0 10px;
+        font-size: 19px;
+        font-weight: bold;
+      }
+      &__detail {
+        margin: 0 0 40px;
+        font-size: 17px;
+        font-weight: 200;
+        text-align: left;
+      }
+    }
+  }
+}
+​
+.pickup-container {
+  padding: 80px 0 0;
+  background-color: #f8f8f8;
+  height: 100%;
+  .head {
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+  .product-box {
+    text-align: center;
+    .product-head {
+      text-align: center;
+      a {
+        font-size: 24px;
+        text-decoration: none;
+        color: #3CCACE;
+        h3 {
+          font-weight: bold;
+          font-size: 100%;
+        }
+      }
+    }
+    .product-lists {
+      width: 780px;
+      margin: 26px auto;
+      display: flex;
+      justify-content: space-around;
+      a {
+        text-decoration: none;
+        position: relative;
+      }
+      .list {
+        width: 220px;
+        display: inline-block;
+        float: left;
+        a {
+          background-color: #fff;
+          display: inline-block;
+          .list__img {
+            width: 220px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            z-index: auto;
+            img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              z-index: auto;
+              height: 150px;
+              object-fit: cover;
+            }
+          }
+          .list__body {
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            .name {
+              overflow: hidden;
+              line-height: 1.5;
+              font-size: 16px;
+              text-align: left;
+            }
+            .details {
+              font-size: 16px;
+              ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .fa {
+                  display: inline-block;
+                  font: normal normal normal 14px/1 FontAwesome;
+                  font-size: inherit;
+                  text-rendering: auto;
+                  -webkit-font-smoothing: antialiased;
+                  .fa-star:before {
+                    content: "\f005";
+                  }
+                }
+              }
+              p {
+                font-size: 10px;
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+​
+.pickup-container:last-child {
+  padding-bottom: 80px;
+}
