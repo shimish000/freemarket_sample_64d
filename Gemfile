@@ -75,3 +75,7 @@ gem 'fog-aws'
 #画像のアップロード
 gem 'mini_magick'
 gem 'carrierwave'
+
+gem'haml-rails'
+
+gem'font-awesome-sass'
