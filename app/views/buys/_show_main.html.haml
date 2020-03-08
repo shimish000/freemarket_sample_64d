@@ -1,7 +1,7 @@
 .header
   .header__logo-box
     .header__logo-box__logo
-      %img{:src => "http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg" }/
+      = image_tag src='http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg'
 .main-contents
   .main-contents__inner
     .buy-header 購入内容の確認 
@@ -9,7 +9,7 @@
       .buy-item__inner
         .item-box
           .item-box__img
-            %img{:src => "https://static.mercdn.net/thumb/photos/m94088928415_1.jpg?1578891440" }/
+            = image_tag src= 'https://static.mercdn.net/thumb/photos/m94088928415_1.jpg?1578891440'
           .detail
             .detail__item-name ehka sopoジャンパー  
             .detail__item-price
@@ -23,17 +23,17 @@
             %li.buy-price-row
               .payment-amount 支払い金額
               .buy-price-cell
-                %span{"data-buy-pay" => "880"} ￥15,000
+                %span{"data-buy-pay": "880"} ￥15,000
           %ul.point-inner
             %li.point-inner-parent
               .checkbox-default
-                %input{:disabled => "disabled", :type => "checkbox"}/
+                %input{disabled: "disabled", type: "checkbox"}/
                 %i.icon-check
                 %label ポイントを使用 (所持ポイント: P0)
-          %section.buy-content{"data-buy" => "pay-method"}
+          %section.buy-content{"data-buy": "pay-method"}
             .buy-content__inner
               %h1 支払い方法
-              %a{:href => "＃"}
+              =link_to "＃" do
                 %p.buy-user-info-text
                   %i.fas.fa-plus-circle
                   
@@ -41,11 +41,11 @@
           %section.buy-content
             .buy-content__inner
               %h1 配送先
-              %a{:href => "#"}
+              =link_to  "＃" do
                 %p.buy-user-info-text
                   %i.fas.fa-plus-circle
                   %span.buy-register-text 登録してください
 
           .purchase
-            %button.btn-default.btn-red.bold{:disabled => "disabled", :type => "submit"} 購入する
+            %button.btn-default.btn-red.bold{disabled: "disabled",type: "submit"} 購入する
               
