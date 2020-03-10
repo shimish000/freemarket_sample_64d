@@ -1,7 +1,4 @@
-.header
-  .header__logo-box
-    .header__logo-box__logo
-      = image_tag src='http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg'
+= render "second_header"
 .main-contents
   .main-contents__inner
     .buy-header 購入内容の確認 
@@ -33,7 +30,7 @@
           %section.buy-content{"data-buy": "pay-method"}
             .buy-content__inner
               %h1 支払い方法
-              =link_to "＃" do
+              =link_to "#" do
                 %p.buy-user-info-text
                   %i.fas.fa-plus-circle
                   
@@ -41,7 +38,7 @@
           %section.buy-content
             .buy-content__inner
               %h1 配送先
-              =link_to  "＃" do
+              =link_to  "#" do
                 %p.buy-user-info-text
                   %i.fas.fa-plus-circle
                   %span.buy-register-text 登録してください
