@@ -12,12 +12,10 @@ CarrierWave.configure do |config|
       aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
       region: 'ap-northeast-1'
     }
+    config.fog_directory  = '64dimage'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/64dimage'
   else
     config.storage :file
     config.enable_processing = false if Rails.env.test?
   end
-
-    config.fog_directory  = '64dimage'
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/64dimage'
-  
 end
