@@ -1,9 +1,5 @@
-* {
-  box-sizing: border-box;
-}
-
 .appBanner{
-  background-image: url(http://furima.tokyo/assets/bg-appBanner-pict-ce684a4c4d5fa2da43c30a3839923591af75a642a3a906ad975065771ef3d72f.jpg);
+  background-image: url(bg-appBanner-pict.jpg);
     padding: 100px 40px;
     position: relative;
     background-size: cover;
@@ -31,17 +27,12 @@
     display: flex;
     justify-content: center;
     margin: 20px auto 0;
+    a {
+      width: 180px;
+    }
 
     a:first-child{
       margin-right: 10px;
-    }
-
-    .a-btn{
-      width: 180px;
-    }
-
-    .g-btn{
-      width: 180px;
     }
   }
 }
