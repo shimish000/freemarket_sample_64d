@@ -218,3 +218,31 @@
     }  
   }
 }
+
+.single-footer {
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: center;
+  .clearfix {
+    li {
+      display: inline-block;
+      margin: 0 0 0 16px;
+      font-size: 12px;
+      a {
+        display: block;
+        color: #333;
+        text-decoration: none;
+      }
+    }
+  }
+  .footer__logo {
+    max-width: 160px;
+    width: 100%;
+    margin: 40px auto 0;
+  }
+  p{
+    font-size: 14px;
+  }
+}
