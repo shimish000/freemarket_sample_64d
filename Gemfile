@@ -71,9 +71,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-gem 'haml-rails'
-gem 'erb2haml'
-gem 'pry-rails'
-gem 'momentjs-rails'
-gem 'jquery-rails'
-gem 'font-awesome-sass'
+gem 'fog-aws'
+
+#画像のアップロード
+gem 'mini_magick'
+gem 'carrierwave'
+
+gem'haml-rails'
+
+gem'font-awesome-sass'
+
