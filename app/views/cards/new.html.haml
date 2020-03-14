@@ -1,1 +1,15 @@
-.add-credit-content
+.wrapper
+  .default-container
+    .bread-crumbsss
+      %ul.breadcrumbss
+        %li.breadcrumbss-item
+          %a.pastlist{:href => "/"} メルカリ
+          %i#bread-arrow
+        %li.breadcrumbss-item
+          %a.pastlist{:href => "/"} マイページ
+          %i#bread-arrow
+        %li.breadcrumbss-item.active{"aria-current" => "page"} 支払い方法
+    .add-credit-content
+      =render "users/side-bar"
+      
+    
