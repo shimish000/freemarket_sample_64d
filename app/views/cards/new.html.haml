@@ -1,5 +1,6 @@
 .wrapper
   .default-container
+    =render "products/header"
     .bread-crumbsss
       %ul.breadcrumbss
         %li.breadcrumbss-item
@@ -9,7 +10,8 @@
           %a.pastlist{:href => "/"} マイページ
           %i#bread-arrow
         %li.breadcrumbss-item.active{"aria-current" => "page"} 支払い方法
-    .add-credit-content
+    .mypage-container
       =render "users/side-bar"
-      
-    
+      =render "add-credit"
+    =render "products/app_banner"
+    =render "products/footer"
