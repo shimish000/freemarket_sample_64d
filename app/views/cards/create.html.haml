@@ -4,15 +4,18 @@
     .bread-crumbsss
       %ul.breadcrumbss
         %li.breadcrumbss-item
-          %a.pastlist{href: "/"} メルカリ
+          =link_to root_path, class:"pastlist" do
+            メルカリ
           %i#bread-arrow
         %li.breadcrumbss-item
-          %a.pastlist{href: "/"} マイページ
+          =link_to users_path(:id), class:"pastlist" do
+            マイページ
           %i#bread-arrow
         %li.breadcrumbss-item
-          %a.pastlist{href: "/"} 支払い方法
+          =link_to new_card_path(:id), class: "pastlist" do
+            支払い方法
           %i#bread-arrow
-        %li.breadcrumbss-item.active{"aria-current" => "page"} クレジットカード情報入力
+        %li.breadcrumbss-item.active{"aria-current": "page"} クレジットカード情報入力
     .mypage-container
       =render "users/side-bar"
       =render "register-credit"

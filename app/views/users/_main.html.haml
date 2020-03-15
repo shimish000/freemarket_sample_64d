@@ -1,23 +1,27 @@
 .my-content
   %section.my-user-icon
-    %a{ href: '#', class: 'mypage-nav__list'  }
+    =link_to  "#", class:"mypage-nav__list" do
       %figure.my-prof
         = image_tag "oldman_77.png", size: "100x80", alt: "顔写真"
       .boldd
         old man
       .my-number
         .evaluation
-        %span.bold
+          評価
+        %span.boldddd
+          ０
         .exhibition
-        %span.bold
+          出品数
+        %span.boldddd
+          ０
 
   %section.my-tab-todo
     .tab_wrap
-      %input#tab1{:checked => "checked", :name => "tab_btn", :type => "radio"}/
-      %input#tab2{:name => "tab_btn", :type => "radio"}/
+      %input#tab1{checked: "checked", name: "tab_btn", type: "radio"}/
+      %input#tab2{name: "tab_btn", type: "radio"}/
       .tab_area
-        %label.tab1_label{:for => "tab1"} お知らせ
-        %label.tab2_label{:for => "tab2"} やることリスト
+        %label.tab1_label{for: "tab1"} お知らせ
+        %label.tab2_label{for: "tab2"} やることリスト
       .panel_area
         %ul#panel1.tab_panel
           %li
@@ -152,11 +156,11 @@
     %h2.mytab-head
       購入した商品
     .tab_wrap2
-      %input#tabb1{:checked => "checked", :name => "tab_btnn", :type => "radio"}/
-      %input#tabb2{:name => "tab_btnn", :type => "radio"}/
+      %input#tabb1{checked: "checked", name: "tab_btnn", type: "radio"}/
+      %input#tabb2{name: "tab_btnn", type: "radio"}/
       .tab_areaa
-        %label.tabb1_label{:for => "tabb1"} 取引中
-        %label.tabb2_label{:for => "tabb2"} 過去の取引
+        %label.tabb1_label{for: "tabb1"} 取引中
+        %label.tabb2_label{for: "tabb2"} 過去の取引
       .panel_areaa
         %ul#panell1.tab_panell
           取引中の商品がありません

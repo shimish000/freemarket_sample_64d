@@ -4,10 +4,12 @@
     .bread-crumbsss
       %ul.breadcrumbss
         %li.breadcrumbss-item
-          %a.pastlist{:href => "/"} メルカリ
+          =link_to root_path, class:"pastlist" do
+            メルカリ
           %i#bread-arrow
         %li.breadcrumbss-item
-          %a.pastlist{:href => "/"} マイページ
+          =link_to users_path(:id), class:"pastlist" do
+            マイページ
           %i#bread-arrow
         %li.breadcrumbss-item.active{"aria-current" => "page"} ログアウト
     .mypage-container
