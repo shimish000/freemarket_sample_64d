@@ -1,0 +1,45 @@
+%header.pcHeader
+  .headerInner
+    .mainHeader
+      %h1.icon
+        = link_to root_path do
+          = image_tag "logo.png"
+     
+      .searchBox
+        %form{"accept-charset": "UTF-8", action:"#", method:"get"}
+          %input{name:"utf8",type:"hidden",value:"✓"}/
+          %input#searchInput.searchBox__input{name:"key", placeholder:"キーワードから探す"}/
+          %button{type:"submit"}
+            .searchBox__icon 
+              = image_tag "icon-search 1.png"
+          %input{name:"authenticity_token", type:"hidden", value:"SSuOmGK1w/I26KuBb26X15s7ogBn1Xg/zZ0X0iUaurgeXwHcMYyu5WAn7FMHSQVqNndbczep7xjkiyrYNwgkUA=="}/
+      %ul.resultLists
+    .nav
+      %ul.listsLeft
+        %li.listsLeft__item.listsLeft__item--first
+          = link_to "#", id:"catBtn" do
+            カテゴリー
+        %li.listsLeft__item
+          = link_to "#", id:"brandBtn" do
+            ブランド
+          %ul.brandsPulldown.displayNone
+          
+      %ul.listsRight
+        %li
+          = icon('far', 'heart', class: 'h_icon')
+          = link_to "#" do 
+            いいね！一覧
+        %li
+          = icon('far', 'bell', class: 'h_icon')
+          = link_to "#" do 
+            お知らせ
+        %li
+          = icon('fas', 'check', class: 'h_icon')
+          = link_to "#" do 
+            やることリスト
+        %li   
+          = icon('fas', 'user', class: 'h_icon')
+          = link_to "#" do 
+            マイページ
+  
+  

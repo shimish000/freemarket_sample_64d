@@ -15,3 +15,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+function ShowLength(str) {
+  document.getElementById("inputlength").innerHTML = str.length + "/1000";
+}
