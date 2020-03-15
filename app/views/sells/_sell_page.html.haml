@@ -20,7 +20,7 @@
             .photos_3
 
               = icon('fas', 'camera', class: 'icon')
-              %p.photos_3__text
+              .photos_3__text
                 ドラッグアンドドロップ
                 %br>/
                 またはクリックしてファイルをアップロード
@@ -46,7 +46,7 @@
               %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
               %textarea{onkeyup:"ShowLength(value)",name:"description", placeholder:"商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", rows:"7"}
             .form_counter
-              %span{id:"inputlength"} 0/1000
+              %span#inputlength 0/1000
 
 
       %hr.form__underbar
