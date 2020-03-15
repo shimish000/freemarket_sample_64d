@@ -1,0 +1,135 @@
+.header.pcHeader{
+  padding: 0 60px;
+  background-color: #fff;
+}
+
+.headerInner{
+  max-width: 1040px;
+  width: 100%;
+  min-height: 82px;
+  margin: 0 auto;
+  padding: 15px 0 0;
+}
+
+.mainHeader{
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.icon{
+  font-size: 25px;
+  padding-bottom: 10px;
+  margin-right: 30px;
+  border-radius: 4px;
+  a{
+    width: 140px;
+    display: block;  
+  }
+  img{
+    width: 100%;
+    vertical-align: bottom;
+  }
+}
+
+.searchBox{
+  margin-left: auto;
+  width: 100%;
+
+  button {
+    width: 36px;
+    border: 0;
+    cursor: pointer;
+    background-color: #3CCACE;
+    padding: 8px;
+  }
+
+  form{
+    width: 100%;
+    display: flex;
+    margin-bottom: 5px;
+  }
+  
+  &__input{
+    width: calc(100% - 26px);
+    height: 36px;
+    padding: 0 0 0 5px;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  
+  &__icon{
+    margin-left: auto;
+    width: 100%;
+    
+    img{
+      width: 100%;
+      vertical-align: bottom;
+    }
+  }
+  .resultLists{
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 36px;
+    z-index: 2;
+  }
+}
+
+
+.nav{
+  font-size: 14px;
+  display: flex;
+  margin-bottom: 10px;
+}  
+
+.listsLeft{
+  float: left;
+  display: flex;
+
+  .listsLeft__item.listsLeft__item--first {
+    text-decoration: none;
+    padding: 0;
+  }
+  
+  a{
+    color: #333;
+    text-decoration: none;
+    line-height: 32px;
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    padding-right: 30px;
+  }
+
+  &__item {
+    display: flex;
+    line-height: 38px;
+    padding: 0 0 0 16px;
+  }
+}
+
+.listsRight{
+  margin-left: auto;
+  display: flex;
+  li{
+    color: #333;
+    line-height: 38px;
+    padding: 0 0 0 16px;
+  }
+  a{
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    line-height: 32px;
+  }
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+  border: 0;
+}
