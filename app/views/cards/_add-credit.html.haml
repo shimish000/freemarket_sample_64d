@@ -1,6 +1,16 @@
-.logout-content
+.add-credit-content
+  .i-chapter-head
+    支払い方法
   .i-chapter-container
+    .s-single-content
+      クレジットカード一覧
     %form.single-innerarea
-      .l-single-content
-        %button.logout-btn
+      =link_to cards_path,class: "l-single-content",method: :post do
+        %button.add-btn
+          %i.far.fa-credit-card
           クレジットカードを追加する
+    .method-pay
+      = link_to "#",class: "method-pay__content" do
+        %span.pay-text
+          支払い方法について
+        .pay-arrow

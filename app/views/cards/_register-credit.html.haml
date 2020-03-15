@@ -1,0 +1,71 @@
+.register-credit-content
+  .i-chapter-head
+    支払い方法
+  %form.l-single-inner
+    .single-contenttt
+      .form-group-regi1
+        %label.labelsize
+          カード番号
+        %span.spannn
+          必須
+        %input{placeholder: :"半角数字のみ"}
+        %ul.creditcard-list
+          %li
+            = image_tag "visa.svg", size: "49x20", alt: "visa", class: "visac"
+          %li
+            = image_tag "master.svg", size: "49x20", alt: "master", class: "masterc"
+          %li
+            = image_tag "jcb.svg", size: "49x20", alt: "jcb", class: "jcbc"
+          %li
+            = image_tag "ameexp.svg", size: "49x20", alt: "ameexp", class: "ameexpc"
+          %li
+            = image_tag "dinersclub.svg", size: "49x20", alt: "diners", class: "dinersc"
+          %li
+            = image_tag "discover.svg", size: "49x20", alt: "discover", class: "discoverc"
+      .form-group-regi2
+        %label.labelsize
+          有効期限
+        %span.spannn
+          必須
+        .selectym
+          .selectm
+            %select.selectmon
+              %option{value: :"01"} 01
+              %option{value: :"02"} 02
+              %option{value: :"03"} 03
+              %option{value: :"04"} 04
+              %option{value: :"05"} 05
+              %option{value: :"06"} 06
+              %option{value: :"07"} 07
+              %option{value: :"08"} 08
+              %option{value: :"09"} 09
+              %option{value: :"10"} 10
+            %span.ymtext
+              月
+          .selectm
+            %select.selectmon
+              %option{value: :"20"} 20
+              %option{value: :"21"} 21
+              %option{value: :"22"} 22
+              %option{value: :"23"} 23
+              %option{value: :"24"} 24
+              %option{value: :"25"} 25
+              %option{value: :"26"} 26
+              %option{value: :"27"} 27
+              %option{value: :"28"} 28
+              %option{value: :"29"} 29
+              %option{value: :"30"} 30
+            %span.ymtext
+              年
+      .form-group-regi3
+        %label.labelsize
+          セキュリティーコード
+        %span.spannn
+          必須
+        %input.inputtt{placeholder: :"カード背面4桁もしくは3桁の番号"}
+        .signup-seqcode
+          %span.credit-question
+            ?
+          カードの裏面の番号とは？
+      %button.btnnn-green
+        追加する

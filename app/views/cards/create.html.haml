@@ -1,0 +1,21 @@
+.wrapper
+  .default-container
+    =render "products/header"
+    .bread-crumbsss
+      %ul.breadcrumbss
+        %li.breadcrumbss-item
+          %a.pastlist{href: "/"} メルカリ
+          %i#bread-arrow
+        %li.breadcrumbss-item
+          %a.pastlist{href: "/"} マイページ
+          %i#bread-arrow
+        %li.breadcrumbss-item
+          %a.pastlist{href: "/"} 支払い方法
+          %i#bread-arrow
+        %li.breadcrumbss-item.active{"aria-current" => "page"} クレジットカード情報入力
+    .mypage-container
+      =render "users/side-bar"
+      =render "register-credit"
+    =render "products/app_banner"
+    =render "products/footer"
+    = render "products/sell_button"
