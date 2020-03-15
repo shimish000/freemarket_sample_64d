@@ -15,14 +15,17 @@
             / 
             枚までアップロードできます
           
-          .photos_3
-            %input.sc-cqPOvA.kdnXmt{accept:"image/png,image/jpeg", autocomplete:"off", multiple:"multiple", style:"display:none", tabindex:"-1", type:"file"}/
-            %svg.sc-fjhmcy.jMTqzY{"aria-hidden":"true", fill:"#222222", "fill-rule":"evenodd", height:"24", viewbox:"0 0 24 24", width:"24"}
-              %path{d:"M19.3,5H16.73l-.8-1.61A.7.7,0,0,0,15.3,3H8.7a.7.7,0,0,0-.63.39L7.27,5H4.7A2.7,2.7,0,0,0,2,7.7V18.3A2.7,2.7,0,0,0,4.7,21H19.3A2.7,2.7,0,0,0,22,18.3V7.7A2.7,2.7,0,0,0,19.3,5ZM12,17.3A4.3,4.3,0,1,1,16.3,13,4.31,4.31,0,0,1,12,17.3Z"}
-            %p.photos_3__text
-              ドラッグアンドドロップ
-              %br>/
-              またはクリックしてファイルをアップロード
+          
+          %label{for:"aaa"}
+            .photos_3
+
+              = icon('fas', 'camera', class: 'icon')
+              %p.photos_3__text
+                ドラッグアンドドロップ
+                %br>/
+                またはクリックしてファイルをアップロード
+            
+              %input{name:"input-box__image", type:"file", id:"aaa",style:"display:none"}/
 
       %hr.form__underbar
     
@@ -41,12 +44,10 @@
             .form_Label
               %label 商品の説明
               %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
-              %textarea.style_textarea__24aZZ.common_fontFamily__3-3Si.style_fluid__10CPG{name:"description", placeholder:"商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", rows:"7"}
+              %textarea{onkeyup:"ShowLength(value)",name:"description", placeholder:"商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", rows:"7"}
             .form_counter
-              %span 0
-              \/
-              / 
-              1000
+              %span{id:"inputlength"} 0/1000
+
 
       %hr.form__underbar
 
