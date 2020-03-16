@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
 
@@ -14,3 +15,4 @@ class ApplicationController < ActionController::Base
     end
   end
 end
+
