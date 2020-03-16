@@ -35,11 +35,11 @@
             お知らせ
         %li
           = icon('fas', 'check', class: 'h_icon')
-          =link_to users_path(:id) do
+          = link_to "#" do 
             やることリスト
         %li   
-          = icon('fas', 'user', class: 'h_icon')
-          = link_to "#" do 
+          = icon('fas', 'user', class: 'h_icon')          
+          =link_to users_path(:id) do
             マイページ
   
   
