@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
 
-
-
-  root to: 'cards#create'
-
-  
-
-  # root to: 'products#index'
+  root to: 'products#index'
 
 
   resources :products, only: [:show] do
