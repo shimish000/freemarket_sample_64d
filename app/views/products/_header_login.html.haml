@@ -1,7 +1,7 @@
 %header.pcHeader
   .headerInner
     .mainHeader
-      %h1.icon
+      %h1.m-h_icon
         = link_to root_path do
           = image_tag "logo.png"
      
@@ -16,30 +16,32 @@
       %ul.resultLists
     .nav
       %ul.listsLeft
-        %li.listsLeft__item.listsLeft__item--first
-          = link_to "#", id:"catBtn" do
-            カテゴリー
-        %li.listsLeft__item
-          = link_to "#", id:"brandBtn" do
-            ブランド
-          %ul.brandsPulldown.displayNone
-          
-      %ul.listsRight
         %li
-          = icon('far', 'heart', class: 'h_icon')
+          = link_to "#", id:"catBtn" do
+            = icon('fas', 'list-ul', class: 'h-n-l_icon')
+            カテゴリーから探す
+        %li
+          = link_to "#", id:"brandBtn" do
+            = icon('fas', 'tag', class: 'h-n-l_icon')
+            ブランドから探す
+          
+          
+      %ul.listsRight_log
+        %li
           = link_to "#" do 
+            = icon('far', 'heart', class: 'h-n_icon')
             いいね！一覧
         %li
-          = icon('far', 'bell', class: 'h_icon')
           = link_to "#" do 
+            = icon('far', 'bell', class: 'h-n_icon')
             お知らせ
         %li
-          = icon('fas', 'check', class: 'h_icon')
           = link_to "#" do 
+            = icon('fas', 'check', class: 'h-n_icon')
             やることリスト
         %li   
+        =link_to users_path(:id) do
           = icon('fas', 'user', class: 'h_icon')          
-          =link_to users_path(:id) do
             マイページ
   
   
