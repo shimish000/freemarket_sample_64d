@@ -1,0 +1,16 @@
+.wrapper
+  .default-container
+    =render "products/header_login"
+    .bread-crumbsss
+      %ul.breadcrumbss
+        %li.breadcrumbss-item
+          =link_to root_path, class:"pastlist" do
+            トップページ
+          %i#bread-arrow
+        %li.breadcrumbss-item.active{"aria-current": "page"} マイページ
+    .mypage-container
+      =render "side-bar"
+      =render "main"
+    = render "products/app_banner"
+    = render "products/footer"
+    = render "products/sell_button"

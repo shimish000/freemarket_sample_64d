@@ -1,0 +1,20 @@
+.wrapper
+  .default-container
+    =render "products/header_login"
+    .bread-crumbsss
+      %ul.breadcrumbss
+        %li.breadcrumbss-item
+          =link_to root_path, class:"pastlist" do
+            トップページ
+          %i#bread-arrow
+        %li.breadcrumbss-item
+          =link_to users_path(:id), class:"pastlist" do
+            マイページ
+          %i#bread-arrow
+        %li.breadcrumbss-item.active{"aria-current": "page"} 支払い方法
+    .mypage-container
+      =render "users/side-bar"
+      =render "add-credit"
+    =render "products/app_banner"
+    =render "products/footer"
+    = render "products/sell_button"

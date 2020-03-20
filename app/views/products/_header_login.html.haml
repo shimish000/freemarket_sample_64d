@@ -14,7 +14,6 @@
               = image_tag "icon-search 1.png"
           %input{name:"authenticity_token", type:"hidden", value:"SSuOmGK1w/I26KuBb26X15s7ogBn1Xg/zZ0X0iUaurgeXwHcMYyu5WAn7FMHSQVqNndbczep7xjkiyrYNwgkUA=="}/
       %ul.resultLists
-
     .nav
       %ul.listsLeft
         %li
@@ -26,12 +25,23 @@
             = icon('fas', 'tag', class: 'h-n-l_icon')
             ブランドから探す
           
-
-      %ul.listsRight
-        %li.listsRight__login
+          
+      %ul.listsRight_log
+        %li
           = link_to "#" do 
-            ログイン
-        %li.listsRight__new
+            = icon('far', 'heart', class: 'h-n_icon')
+            いいね！一覧
+        %li
           = link_to "#" do 
-            新規会員登録
+            = icon('far', 'bell', class: 'h-n_icon')
+            お知らせ
+        %li
+          = link_to "#" do 
+            = icon('fas', 'check', class: 'h-n_icon')
+            やることリスト
+        %li   
+          = link_to users_path(:id) do
+            = icon('fas', 'user', class: 'h_icon')          
+            マイページ
+  
   
