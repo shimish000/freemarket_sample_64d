@@ -81,3 +81,6 @@ gem'haml-rails'
 
 gem'font-awesome-sass'
 
+
+# パンくず
+gem 'ancestry'
