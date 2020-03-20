@@ -15,7 +15,6 @@
  *= require_self
  */
 
-
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "config/reset";
@@ -35,4 +34,5 @@
 @import "cards/create";
 @import "modules/sell_page";
 @import "modules/header_login";
-
+@import "users/sign_up";
+@import "users/phone";
