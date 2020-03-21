@@ -78,9 +78,13 @@ gem 'mini_magick'
 gem 'carrierwave'
 
 gem'haml-rails'
-
+gem 'jquery-rails'
 gem'font-awesome-sass'
+
 
 
 # パンくず
 gem 'ancestry'
+
+
+
