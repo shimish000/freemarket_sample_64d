@@ -701,11 +701,11 @@
       display: flex;
       height: 46px;
       
-      div{  
-      margin-right: auto;
-      white-space: nowrap;
-    }
-      span{
+      .product_price-fee{  
+        margin-right: auto;
+        white-space: nowrap;
+      }
+      .right_bar{
         font-size: 14px;
       }
     }
@@ -718,12 +718,12 @@
       display: flex;
       height: 46px;
 
-      .div{  
+      .product_profit{  
         margin-right: auto;
         white-space: nowrap;
       }
 
-      span{
+      .right_bar_2{
         font-size: 14px;
       }
    }

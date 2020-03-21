@@ -231,21 +231,22 @@
             .formLabel 
               %label 販売価格
               %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
-          %span.sc-bqjOQT.grphBa ¥
-          .textField
-            .input_area
-              %input{autocomplete:"off", name:"price", placeholder:"0", type:"number", value:""}/
             
-        .price_2
-          .sc-lcpuFF.cfsYNp{"data-test" => "fee-label"}
-            %div 販売手数料（10%）
-          %span.sc-jkCMRl.hGbbBN{"data-test" => "fee-value"} —
+          
+          .textField
+            %span.sc-bqjOQT.grphBa ¥ 
+            .input_area
+              %input#price_calc.price_form-box{autocomplete:"off", name:"price", placeholder:"0", type:"number", value:""}/
+            
+        .price_2  
+          .product_price-fee 販売手数料（10%）
+          .right_bar ー
 
         %hr.form__underbar
 
         .price_3
-          .div 販売利益
-          %span.sc-jkCMRl.hGbbBN{"data-test" => "total-value"} —
+          .product_profit 販売利益
+          .right_bar_2 ー
 
         .price_4
           %button{tabindex:"0", type:"submit"} 出品する
