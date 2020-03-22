@@ -2,7 +2,7 @@
   .sign_up
     .header
       .header__logo-box
-        =link_to "＃" do
+        =link_to root_path do
           = image_tag src='logo.png'
       %nav.progress-bar.signup-bar
         %ol.clearfix
@@ -19,10 +19,9 @@
     .info-content
       .info-container
         .info-header 会員情報入力
-        %form#register-form{action: "#", method: "POST",novalidate: "novalidate"}
-          %input{name: "__csrf_value", type: "hidden", value: "c59854c81adcdb96f8211f6b3d28f9bf6dad03c39591d74e8250d08e66dc424c8a7ec7455cd972b52ca3fa2532c87e50f7626f1cc5c987574d0e92e9219abdfda"}/
+        = form_for(@user, url: user_registration_path) do |f|        
+          = render "devise/shared/error_messages", resource: @user
           .personal-info
-          
             .form-group
               %label{for: "nickname"} ニックネーム
               %span.form-require 必須
@@ -31,8 +30,12 @@
               %label{for: "email"} メールアドレス
               %span.form-require 必須
               %input.input-default{name: "email", placeholder: "PC・携帯どちらでも可", type: "email", value:""}/
-            %input{name: "login_type", type: "hidden", value:"google"}/
-            %input{name: "google_access_token", type: "hidden", value:"ya29.a0Adw1xeUQCkdZRnAPOj6JKI85JXYtiX-wJkLPrMxqkvsTZMp-huvSQKYujDaFYXoLVZ8Zf0GcdxWB6qNSn8P_1Z85jeAqAWju_Qed6GeSR4q3NjwU6loTAMvuQSOGcwg_2CpX-_bBkGxm6mKCbNcDAs66j_mL-cPduk-K"}/
+            .form-group
+              %label{for: "password"} パスワード
+              %span.form-require 必須
+              %input.input-default{name: "password", placeholder: "英数字7文字以上", type: "password", autocomplete: "off"}/
+            %p.form-info-text
+              ※ 英字と数字の両方を含めて設定してください
             .form-group
               %h3.identification 本人確認
               %p.identification__text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
@@ -41,17 +44,17 @@
                 %label お名前(全角)
                 %span.form-require 必須
               .name_group
-                %input.input-default.half{name: "family_name_kanji", placeholder: "例) 山田", type: "text", value:""}/
-                %input.input-default.half{name: "first_name_kanji", placeholder: "例) 彩", type: "text", value:""}/
+                %input.input-default.half{name: "first_name", placeholder: "例) 中田", type: "text", value:""}/
+                %input.input-default.half{name: "last_name", placeholder: "例)　康友", type: "text", value:""}/
             .form-group
               %div
-                %label{for: "family_name_kanji"} お名前カナ(全角)
+                %label{for: "first_name"} お名前カナ(全角)
                 %span.form-require 必須
               .name_group 
-                %input.input-default.half{name: "family_name_kana", placeholder: "例) ヤマダ", type: "text", value:""}/
-                %input.input-default.half{name: "first_name_kana", placeholder: "例) アヤ", type: "text", value:""}/
+                %input.input-default.half{name: "first_name_kana", placeholder: "例) ヤマダ", type: "text", value:""}/
+                %input.input-default.half{name: "last_name_kana", placeholder: "例) アヤ", type: "text", value:""}/
             .form-group
-              %label{for: "birthday"} 生年月日
+              %label 生年月日
               %span.form-require 必須
               %br/
               .birthday-select-wrap
@@ -234,34 +237,29 @@
                     %option{value:"30"} 30
                     %option{value:"31"} 31
                 %span 日
-              %input{name: "birthday", type: "hidden", value:"20090101"}/
               .clearfix
             %p.form-info-text
               ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           .notice
-            %input{name: "after_save_callback", type: "hidden", value:""}/
-            %input#g-recaptcha-v3{name: "g_recaptcha_response_v3", type: "hidden"}/
-            %input#recaptcha-version{name: "recaptcha_version", type: "hidden", value:"3"}/
-            %input#g-recaptcha-v3-site-key{type: "hidden", value:"6LelCcAUAAAAAGYBvpuT3hj7TOnrIElDM5ZsTuAy"}/
             .form-group
               %p.notice-text
                 「次へ進む」のボタンを押すことにより、
                 =link_to "/jp/tos_list/", target: "_blank" do
-                  > 利用規約
+                  利用規約
                 に同意したものとみなします
             %button.next-btn{type: "submit"} 次へ進む
             .info-text
               %p
-                =link_to"/jp/help_center/article/423/", target: "_blank"  do
+                =link_to"#", target: "_blank"  do
                   本人情報の登録について
                 %i.fas.fa-chevron-right
             .privacy-policy
               %p
                 This site is protected by reCAPTCHA and the Google
-                =link_to 'https://policies.google.com/privacy', target: "_blank" do
+                =link_to '#', target: "_blank" do
                   Privacy Policy
                 and
-                =link_to "https://policies.google.com/terms", target: "_blank" do
+                =link_to "#", target: "_blank" do
                   Terms of Service
                 apply.
     = render "buys/second_footer"

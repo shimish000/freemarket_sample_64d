@@ -6,6 +6,6 @@ class CreatePhones < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_index :users, :phone, unique: true
+    add_index :phones, :phone, unique: true
   end
 end

@@ -19,8 +19,8 @@
     %main.phone-main
       %section.phone-container
         .confirm 電話番号の確認
-        %form.phone-input-form{action: "#", method: "POST", novalidate: "novalidate"}
-          %input{name: "after_save_callback", type: "hidden", value: ""}/
+        = form_for @phone do |f|
+          = render "devise/shared/error_messages", resource: @phone
           .phone-content
             .form-group
               %label{for: "phone_number"} 携帯電話の番号
