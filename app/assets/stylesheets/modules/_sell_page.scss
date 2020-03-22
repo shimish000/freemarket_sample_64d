@@ -149,7 +149,7 @@
         position: relative;
         width: 100%;
   
-        input{
+        .p_name_input{
           border: 1px solid #ccc;
           border-radius: 4px;
           box-sizing: border-box;
@@ -187,7 +187,7 @@
           line-height: 1.4em;
         }
   
-        textarea{
+        .p_textarea{
           margin-top: 16px;
           width: 100%;
           border: 1px solid #ccc;
@@ -321,7 +321,7 @@
           position: relative;
           width: inherit;
 
-          input{
+          .b_input{
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
@@ -368,7 +368,7 @@
         // width: inherit;
         width: 100%;
 
-        select{
+        .s_select{
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none;
@@ -452,7 +452,7 @@
         position: relative;
         width: 100%;
 
-          select{
+          .shipping_select{
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -511,7 +511,7 @@
         position: relative;
         width: 100%;
 
-          select{
+          .hassou_moto{
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -570,7 +570,7 @@
         position: relative;
         width: 100%;
 
-          select{
+        .send_date{
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -676,7 +676,7 @@
           position: relative;
           width: inherit;
 
-          input{
+          .price_input{
             text-align: right;
             border: 1px solid #ccc;
             border-radius: 4px;
