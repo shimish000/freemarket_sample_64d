@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
-    @phone = @user.phone
+    @phone = @user.build_phone
     render :new_phone
   end
 
@@ -67,4 +67,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def create_phone
+    @user = User.new(session["devise.regist_data"]["user"])
+    @phone = Phone.new(phone_params)
+    unless @phone.valid?
+      flash.now[:alert] = @phone.errors.full_messages
+      render :new_phone and return
+    end
+    @user.build_phone(@phone.attributes)
+    @user.save
+    sign_in(:user, @user)
+  end
+
+  protected
+
+  def phone_params
+    params.require(:phone).permit(:zipcode, :phone)
+  end
+
 end
