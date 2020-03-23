@@ -1,16 +1,15 @@
 %body.sell_page
   .sell-page-main
     .form
-      = form_for @product do |f|
+      = form_for @product, url: new_sell_path do |f|
         .form__header
           .form__header__contents
             .photos_1
-              =f.label 
-                出品画像
+              = f.label :hoge, '出品画像'
               %span 必須
             %p.photos_2
               最大10枚までアップロードできます
-            =f.label for:"aaa"
+            =f.label :hoge, for: "aaa"
             .photos_3
               = icon('fas', 'camera', class: 'icon')
               .photos_3__text
@@ -19,36 +18,37 @@
                 またはクリックしてファイルをアップロード
             
               = f.fields_for :products do |image|
-                = image.file_field :image, id: "sell-img", id:"aaa",style:"display:none"
-                
-              =link_to  '編集', edit_product_sell_path(product) 
-                .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :image, id: "sell-img", id:"aaa",style:"display:none"                
+                = link_to '編集', '#' 
+                .js-file_group{"data-index" => 0}
                   = image.file_field :src, class: 'js-file'
                   %br/
                   %span.js-remove 削除
                 - if @product.persisted?
                   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-        -# %hr.form__underbar
-        -# .form__product_name
-        -#   .form__product_name__1
-        -#     %div{name:"name"}
-        -#     .form_Label
-        -#       %label 商品名
-        -#       %span 必須
-        -#     .input_area
-        -#       = f.text_field :name, class: "p_name_input", placeholder: "40文字まで"
 
-        -#   .form__product_name__2
-        -#     %div{name:"description"}
-        -#       .form_Label
-        -#         %label 商品の説明
-        -#         %span 必須
-        -#       .form_counter
-        -#         = f.text_field :description, class: "p_textarea", placeholder:"商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", onkeyup:"ShowLength(value)"
-        -#         %span#inputlength 0/1000
+        %hr.form__underbar
+        
+        .form__product_name
+          .form__product_name__1
+            %div{name:"name"}
+            .form_Label
+              %label 商品名
+              %span 必須
+            .input_area
+              = f.text_field :name, class: "p_name_input", placeholder: "40文字まで"
+
+          .form__product_name__2
+            %div{name:"name"}
+              .form_Label
+                %label 商品の説明
+                %span 必須
+              .form_counter
+                = f.text_area :name, class: "p_textarea", placeholder:"商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", onkeyup:"ShowLength(value)"
+                %span#inputlength 0/1000
 
 
-        -# %hr.form__underbar
+        %hr.form__underbar
 
 
         -# .form__product_detail

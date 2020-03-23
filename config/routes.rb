@@ -5,10 +5,11 @@ Rails.application.routes.draw do
 
   resources :products, only: [:show] do
     resources :buys, only: [:index]
-    resources :sells, only: [:index, :new, :create, :edit, :update, :destroy]
   end
+  
+  resources :sells, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :users, only: [:index, :destroy] 
-  resources :cards, only: [:create, :new]
+  resources :cards, only: [:create, :new] 
   
 end
 
