@@ -33,65 +33,50 @@
           .form__product_name__1
             %div{name:"name"}
             .form_Label
-              %label 商品名
+              = f.label '商品名'
               %span 必須
             .input_area
               = f.text_field :name, class: "p_name_input", placeholder: "40文字まで"
 
           .form__product_name__2
-            %div{name:"name"}
+            %div{name:"detail"}
               .form_Label
-                %label 商品の説明
+                = f.label '商品の説明'
                 %span 必須
               .form_counter
-                = f.text_area :name, class: "p_textarea", placeholder:"商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", onkeyup:"ShowLength(value)"
+                = f.text_area :detail, class: "p_textarea", placeholder:"商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", onkeyup:"ShowLength(value)"
                 %span#inputlength 0/1000
 
 
         %hr.form__underbar
 
 
-        -# .form__product_detail
-        -#   %p 商品の詳細
-        -#   .detail_1
-        -#     .formLabel
-        -#       %label カテゴリー
-        -#       %span.style_tag 必須
+        .form__product_detail
+          %p 商品の詳細
+          .detail_1
+            .formLabel
+              = f.label 'カテゴリー', class: 'catelabel'
+              %span.style_tag 必須
+            .select_area
+              = f.select :category_id, Category.where(ancestry: nil), {}, {class: 'select', id: 'parent_form'}
+              %svg{"aria-hidden":"true", fill: "#888888", "fill-rule":"evenodd", height:"24", viewbox: "0 0 24 24", width:"24"}
+                %path{d:"M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+
+
+          -# .detail_2
+          -#   .formLabel
+          -#     = f.label 'ブランド'
+          -#     %span.style_tag 任意
             
-        -#     .select_area
-        -#       = f.collection_select :category_id, @parents, :id, :name, {prompt: "---"}, class: "select", id: "parent_form"
-        -#         -# %option{"aria-selected":"true", label:"選択してください", selected:"selected", value:""} 選択してください
-        -#         -# %option{"aria-selected":"false", label:"レディース", value:"1"} レディース
-        -#         -# %option{"aria-selected":"false", label:"メンズ", value:"2"} メンズ
-        -#         -# %option{"aria-selected":"false", label:"ベビー・キッズ", value:"3"} ベビー・キッズ
-        -#         -# %option{"aria-selected":"false", label:"インテリア・住まい・小物", value:"4"} インテリア・住まい・小物
-        -#         -# %option{"aria-selected":"false", label:"本・音楽・ゲーム", value:"5"} 本・音楽・ゲーム
-        -#         -# %option{"aria-selected":"false", label:"おもちゃ・ホビー・グッズ", value:"1328"} おもちゃ・ホビー・グッズ
-        -#         -# %option{"aria-selected":"false", label:"コスメ・香水・美容", value:"6"} コスメ・香水・美容
-        -#         -# %option{"aria-selected":"false", label:"家電・スマホ・カメラ", value:"7"} 家電・スマホ・カメラ
-        -#         -# %option{"aria-selected":"false", label:"スポーツ・レジャー", value:"8"} スポーツ・レジャー
-        -#         -# %option{"aria-selected":"false", label:"ハンドメイド", value:"9"} ハンドメイド
-        -#         -# %option{"aria-selected":"false", label:"チケット", value:"1027"} チケット
-        -#         -# %option{"aria-selected":"false", label:"自動車・オートバイ", value:"1318"} 自動車・オートバイ
-        -#         -# %option{"aria-selected":"false", label:"その他", value:"10"} その他
-        -#       %svg{"aria-hidden":"true", fill: "#888888", "fill-rule":"evenodd", height:"24", viewbox: "0 0 24 24", width:"24"}
-        -#         %path{d:"M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+          -#   .textField
+          -#     .input_area
+          -#       = f.text_field :hoge, placeholder: "例）シャネル", class: "b_input", id: "input_brand_box"
+          -#         = f.hidden_field :brand_id
 
-
-        -#   .detail_2
-        -#     .formLabel
-        -#       %label ブランド
-        -#       %span.style_tag 任意
-            
-        -#     .textField
-        -#       .input_area
-        -#         = f.text_field :brand_id, placeholder: "例）シャネル", class: "b_input", id: "input_brand_box"
-        -#           = f.hidden_field :brand_id
-
-        -#   .detail_3
-        -#     .formLabel
-        -#       %label 商品の状態
-        -#       %span.style 必須
+          -# .detail_3
+          -#   .formLabel
+          -#     %label 商品の状態
+          -#     %span.style 必須
             
         -#     .select_area
         -#       = f.select :condition, Item.conditions.keys.to_a, {prompt: "---"}, class: "s_select"
