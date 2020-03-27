@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 2020_03_20_105420) do
     t.string "last_name_kana", null: false
     t.text "profile_image"
     t.text "profile_text"
-    t.date "birth_year", null: false
-    t.date "birth_month", null: false
-    t.date "birth_day", null: false
+    t.integer "birth_year_id", null: false
+    t.integer "birth_month_id", null: false
+    t.integer "birth_day_id", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

@@ -22,6 +22,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_phone
   end
 
+  def create_phone
+    @user = User.new(session["devise.regist_data"]["user"])
+    @phone = Phone.new(phone_params)
+    unless @phone.valid?
+      flash.now[:alert] = @phone.errors.full_messages
+      render :new_phone and return
+    end
+    @user.build_phone(@phone.attributes)
+    @user.save!
+    sign_in(:user, @user)
+  end
   # GET /resource/edit
   # def edit
   #   super
@@ -50,9 +61,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute, :birth_year_id, :birth_month_id, :birth_day_id])
   end
 
+  def phone_params
+    params.require(:phone).permit(:phone)
+  end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
@@ -68,22 +82,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def create_phone
-    @user = User.new(session["devise.regist_data"]["user"])
-    @phone = Phone.new(phone_params)
-    unless @phone.valid?
-      flash.now[:alert] = @phone.errors.full_messages
-      render :new_phone and return
-    end
-    @user.build_phone(@phone.attributes)
-    @user.save
-    sign_in(:user, @user)
-  end
-
-  protected
-
-  def phone_params
-    params.require(:phone).permit(:zipcode, :phone)
-  end
 
 end

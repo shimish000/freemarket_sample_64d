@@ -21,18 +21,17 @@
         .confirm 電話番号の確認
         = form_for @phone do |f|
           = render "devise/shared/error_messages", resource: @phone
-          .phone-content
-            .form-group
-              %label{for: "phone_number"} 携帯電話の番号
-              %input.input-default{name: "phone_number", placeholder: "携帯電話の番号を入力", type: "tel", value: ""}/
-            %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-            %button.sns-btn{type: "submit"} SMSを送信する
-            %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-            .form-group.text-right
-              =link_to "/jp/help_center/article/244/", target: "_blank" do
-                電話番号の確認が必要な理由
-                %i.fas.fa-chevron-right
-          %input{name: "__csrf_value", type: "hidden", value: "c59854c81adcdb96f8211f6b3d28f9bf6dad03c39591d74e8250d08e66dc424c8a7ec7455cd972b52ca3fa2532c87e50f7626f1cc5c987574d0e92e9219abdfda"}/
-          %input{name: "id", type: "hidden", value: "486309664"}/
+          .phone-input-form
+            .phone-content
+              .form-group
+                = f.label :phone, "携帯電話の番号" 
+                = f.text_field :phone, placeholder: "携帯電話の番号を入力", class: "input-default", value: ""
+              %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+              = f.submit "SMSを送信する", class: "sns-btn"
+              %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+              .form-group.text-right
+                =link_to "/jp/help_center/article/244/", target: "_blank" do
+                  電話番号の確認が必要な理由
+                  %i.fas.fa-chevron-right
       = render "buys/second_footer"
    
