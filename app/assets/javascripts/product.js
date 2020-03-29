@@ -81,9 +81,5 @@ $(function() {
       $(".now-selected-green3").removeClass("now-selected-green3");
       $('#' + id).addClass("now-selected-green3");
     });
-
-
-
-    
-  });
+});
  
