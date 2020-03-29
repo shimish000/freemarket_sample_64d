@@ -12,13 +12,20 @@
             マイページ
           %i#bread-arrow
         %li.breadcrumbss-item
-          =link_to new_user_card_path(:user_id), class: "pastlist" do
-            支払い方法
+          =link_to new_user_address_path(:user_id), class: "pastlist" do
+            発送元・お届け先住所変更
           %i#bread-arrow
-        %li.breadcrumbss-item.active{"aria-current": "page"} クレジットカード情報入力
+        %li.breadcrumbss-item.active{"aria-current": "page"} 住所登録完了
     .mypage-container
       =render "users/side-bar"
-      =render "register-credit"
+      .create-address-content
+        .i-chapter-head
+          発送元・お届け先住所変更
+        .create-content
+          %p ありがとうございます。
+          %p 住所登録が完了しました。
+          = link_to users_path(:id) , class: "sns-btn" do
+            マイページへ戻る
     =render "products/app_banner"
     =render "products/footer"
     = render "products/sell_button"

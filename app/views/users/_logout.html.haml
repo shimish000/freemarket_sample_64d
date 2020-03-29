@@ -2,4 +2,6 @@
   .i-chapter-containerrr
     %form.single-innerareaaa
       .l-single-content
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
+        =link_to destroy_user_session_path, method: :delete do
+          %button.logout-btn
+            ログアウト

@@ -67,7 +67,7 @@ belongs_to : sell
 |municipality|string|null: false|
 |address|string|null: false|
 |building name|string||
-|address_phone|string|null: false,unique:true|
+|address_phone|string||
 
 ### Association
 belongs_to : user

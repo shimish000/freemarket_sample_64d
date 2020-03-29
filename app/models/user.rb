@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :birth_year_id, :birth_month_id, :birth_day_id, presence: true
   has_one :phone
+  has_one :address
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :birth_year
