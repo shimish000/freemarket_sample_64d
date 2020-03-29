@@ -109,6 +109,16 @@
     position: relative;
   }
 
+  #brandBtn{
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    line-height: 32px;
+    padding-right: 10px;
+    position: relative;
+  }
+
   .categoriesss{
     color: #333;
     display: flex;
@@ -116,6 +126,7 @@
     margin-right: 15px;
     font-weight: bold;
   }
+  
   .brandsss{
     color: #333;
     display: flex;
@@ -124,6 +135,14 @@
     font-weight: bold;
   }
 
+  .brandsss{
+    color: #333;
+    display: flex;
+    line-height: 38px;
+    margin-right: 15px;
+    font-weight: bold;
+  }
+  
   .h-n-l_icon{
     margin: 2px 5px 0 0;
     font-size: 15px;
