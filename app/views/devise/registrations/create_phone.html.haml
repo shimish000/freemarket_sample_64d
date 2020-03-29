@@ -23,6 +23,7 @@
           .create-content
             %p ありがとうございます。
             %p 会員登録が完了しました。
-            %button.sns-btn{type: "submit"} FURIMAをはじめる
+            = link_to root_path , class: "sns-btn" do
+              FURIMAをはじめる
     = render "buys/second_footer"
    
