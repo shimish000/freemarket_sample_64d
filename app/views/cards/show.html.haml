@@ -25,13 +25,26 @@
             クレジットカード一覧
           .payment-list
             %li
-        -# %br
-        -# = "**** **** **** " + @default_card_information.last4
-        -# %br
-        -# - exp_month = @default_card_information.exp_month.to_s
-        -# - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-        -# = exp_month + " / " + exp_year
-        -# = form_tag(card_path(current_user.id), method: :delete, id: 'charge-form',  name: "inputForm") do
-          %input{ type: "hidden", name: "card_id", value: "" }
-          %button.delete-btn 削除する
+              .form-main
+                .figure
+                  = image_tag "ameexp.svg", alt: "ameexp", class: "ameexpc"
+                .payment-nummber
+                -# = "**** **** **** " + @default_card_information.last4
+                .payment-nummber
+                  07/24
+                -# - exp_month = @default_card_information.exp_month.to_s
+                -# - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                -# = exp_month + " / " + exp_year
+                -# = form_tag(card_path(current_user.id), method: :delete, id: 'charge-form',  name: "inputForm") do
+                %input{ type: "hidden", name: "card_id", value: "" }
+                %button.delete-btn 削除する
+        .method-of-payment
+          %a{:href => "/jp/help_center/category/6/", :target => "_blank"}
+            %span 支払い方法について
+            .fas.fa-chevron-right
+
+.payment-footer
+  =render "products/app_banner"
+  =render "products/footer"
+
     

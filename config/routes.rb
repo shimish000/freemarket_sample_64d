@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'phones', to: 'users/registrations#new_phone'
     post 'phones', to: 'users/registrations#create_phone'
   end
-  root to: 'products#index'
+  root to: 'cards#show'
   
 
   resources :products, only: [:show] do

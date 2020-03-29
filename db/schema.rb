@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2020_03_28_065733) do
     t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
+  create_table "phones", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "phone", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["phone"], name: "index_phones_on_phone", unique: true
     t.index ["user_id"], name: "index_phones_on_user_id"
   end
