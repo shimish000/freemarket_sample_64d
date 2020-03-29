@@ -11,6 +11,9 @@ $(function() {
       }
     });
 
+    
+    // カテゴリのトップページの実装で後に使います！
+
     // $(".category_list").mouseout(function(){
     //   $(".category_list").hide();
     // });
