@@ -92,21 +92,23 @@
   text-decoration: none;
   line-height: 32px;
   
-  a{
+  #catBtn{
     display: flex;
     align-items: center;
     color: #333;
     text-decoration: none;
     line-height: 32px;
     padding-right: 10px;
+    position: relative;
   }
 
-  li{
+  .categoriesss{
     color: #333;
     display: flex;
     line-height: 38px;
     margin-right: 15px;
     font-weight: bold;
+    
   }
 
   .h-n-l_icon{
@@ -147,3 +149,45 @@ img {
   border: 0;
 }
 
+
+
+
+// カテゴリ
+.category_list{
+  position: absolute;
+  top: 100px;
+  z-index: 1;
+  background-color: #fff;
+  display: flex;
+}
+
+.parents_list{
+  display: none;
+}
+.parent_category{
+  display: list-item;
+  margin-left: 5px;
+  width: 200px;
+}
+
+.now-selected-green{
+  background-color: #3ccace;
+}
+.now-selected-green2{
+  background-color: #3ccace;
+}
+.now-selected-green3{
+  background-color: #3ccace;
+}
+
+.child_category{
+  display: list-item;
+  margin-left: 5px;
+  width: 300px;
+}
+
+.grand_child_category{
+  display: list-item;
+  margin-left: 5px;
+  width: 300px;
+}

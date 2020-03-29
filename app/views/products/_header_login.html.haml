@@ -1,3 +1,4 @@
+
 %header.pcHeader
   .headerInner
     .mainHeader
@@ -16,22 +17,36 @@
       %ul.resultLists
     .nav
       %ul.listsLeft
-        %li
-          = link_to "#", id:"catBtn" do
+        %li.categoriesss
+          = link_to "categories", id:"catBtn" do
             = icon('fas', 'list-ul', class: 'h-n-l_icon')
             カテゴリーから探す
-          %ul.category1
-            - @parents.each do |parent|
-              %li.parent__list
-                = link_to parent.name
-                %ul.category2
-                  - parent.children.each do |child|
-                    %li.child__list
-                      =link_to child.name
-                      %ul.category3
-                        - child.children.each do |grandchild|
-                          %li.grandchild__list
-                            = link_to grandchild.name
+            
+            .category_list
+              .parents_list
+                - @parents.each do |parent|
+                  = link_to "#{parent.name}", categories_path(parent), class: "parent_category",id: "#{parent.id}"
+              .children_list
+              .grand_children_list
+
+
+
+
+                
+            -# %ul.category1#headcate
+            -#   - @parents.each do |parent|
+
+            -#     %li.parent__li
+            -#       = link_to parent.name
+            -#       %ul.category2
+            -#         - parent.children.each do |child|
+            -#           %li.child
+            -#             =link_to child.name
+            -#             %ul.category3
+            -#               - child.children.each do |grandchild|
+            -#                 %li.grandchild
+            -#                   = link_to grandchild.name
+
         %li
           = link_to "#", id:"brandBtn" do
             = icon('fas', 'tag', class: 'h-n-l_icon')

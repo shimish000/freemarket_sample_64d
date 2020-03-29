@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
   
-  # root to: 'categories#index'
-
   resources :products, only: [:show] do
     resources :buys, only: [:index]
     resources :sells, only: [:index, :new, :create, :edit, :update, :destroy] do
@@ -16,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :destroy] 
   resources :cards, only: [:create, :new]
-  resources :categories, only: [:index]
+  resources :categories, only: [:index, :new]
 
 end
 
