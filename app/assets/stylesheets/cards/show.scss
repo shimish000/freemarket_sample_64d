@@ -1,0 +1,29 @@
+.form-content{
+  width: 700px;
+  height: 360px;
+  background: #fff;
+  &__head{
+    font-weight: bold;
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    color: #333;
+  }
+  &__middle{
+    padding: 64px;
+    height: 307px;
+    .card-list{
+      max-width: 320px;
+      margin: 0 auto;
+      font-weight: bold;
+    }
+    .payment-list{
+    li{
+      padding: 24px 0;
+      border-bottom: 1px solid #eee;
+      list-style: none;
+    }
+  }
+  }
+}

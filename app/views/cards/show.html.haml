@@ -1,0 +1,37 @@
+.wrapper
+  .default-container
+    =render "products/header_login"
+    .bread-crumbsss
+      %ul.breadcrumbss
+        %li.breadcrumbss-item
+          =link_to root_path, class:"pastlist" do
+            トップページ
+          %i#bread-arrow
+        %li.breadcrumbss-item
+          =link_to users_path(:id), class:"pastlist" do
+            マイページ
+          %i#bread-arrow
+        %li.breadcrumbss-item.active{"aria-current": "page"} 支払い方法
+.deletecard-content
+  .mypage-container
+    =render "users/side-bar"
+    =render "products/sell_button"
+    .form-content
+      .form-content__head
+        支払い方法
+      .form-content__middle
+        %section
+          .card-list
+            クレジットカード一覧
+          .payment-list
+            %li
+        -# %br
+        -# = "**** **** **** " + @default_card_information.last4
+        -# %br
+        -# - exp_month = @default_card_information.exp_month.to_s
+        -# - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        -# = exp_month + " / " + exp_year
+        -# = form_tag(card_path(current_user.id), method: :delete, id: 'charge-form',  name: "inputForm") do
+          %input{ type: "hidden", name: "card_id", value: "" }
+          %button.delete-btn 削除する
+    

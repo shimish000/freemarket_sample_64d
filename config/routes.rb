@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'cards#create'
+  root to: 'cards#show'
 
 
   resources :products, only: [:show] do
