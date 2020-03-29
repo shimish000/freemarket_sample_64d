@@ -1,0 +1,37 @@
+%body.user-sign-up
+  .sign_up
+    .header
+      .header__logo-box
+        =link_to "＃" do
+          = image_tag src='logo.png'
+      %nav.progress-bar.signup-bar
+        %ol.clearfix
+          %li.first-phone
+            会員情報
+            .progress-status
+          %li.second-phone
+            電話番号認証
+            .progress-status
+          %li.third
+            完了
+            .progress-status
+
+    %main.phone-main
+      %section.phone-container
+        .confirm 電話番号の確認
+        = form_for @phone do |f|
+          = render "devise/shared/error_messages", resource: @phone
+          .phone-input-form
+            .phone-content
+              .form-group
+                = f.label :phone, "携帯電話の番号" 
+                = f.text_field :phone, placeholder: "携帯電話の番号を入力", class: "input-default", value: ""
+              %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+              = f.submit "SMSを送信する", class: "sns-btn"
+              %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+              .form-group.text-right
+                =link_to "/jp/help_center/article/244/", target: "_blank" do
+                  電話番号の確認が必要な理由
+                  %i.fas.fa-chevron-right
+      = render "buys/second_footer"
+   

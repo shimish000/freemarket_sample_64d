@@ -80,6 +80,14 @@ gem 'carrierwave'
 gem'haml-rails'
 
 gem'font-awesome-sass'
+
+gem 'devise'
+
 gem 'jquery-rails'
 
+
 gem 'payjp'
+gem 'active_hash'
+
+gem 'pry-rails'
+

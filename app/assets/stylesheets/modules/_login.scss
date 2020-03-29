@@ -20,7 +20,7 @@
         text-decoration: none;
       }
     }
-    .login-form-inner {
+    .login-form-inner-sns {
       border-top: 1px solid #eee;
       padding: 32px 64px;
       .btn-sns-facebook {
@@ -63,7 +63,7 @@
         }
       }
     }
-    .login-form-inner:first-child {
+    .login-form-inner {
       padding: 24px 64px 32px;
       border: 0;
       .form-group:first-child {
@@ -85,8 +85,8 @@
       }
       .login-submit {
         margin: 24px 0 0;
-        background: #ea352d;
-        border: 1px solid #ea352d;
+        background: #3CCACE;
+        border: 1px solid #3CCACE;
         color: #fff;
         display: block;
         width: 100%;
