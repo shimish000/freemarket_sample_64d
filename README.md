@@ -67,7 +67,7 @@ belongs_to : sell
 |municipality|string|null: false|
 |address|string|null: false|
 |building name|string||
-|address_phone|string|null: false,unique:true|
+|address_phone|string||
 
 ### Association
 belongs_to : user
@@ -78,13 +78,16 @@ belongs_to : user
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
-|card_nummber|string|null: false|
-|card_month|string|null: false|
-|card_year|string|null: false|
-|security_code|string|null: false|
+|card|string|null: false|
+|costomer|string|null: false|
 
-### Association
-belongs_to : user
+
+
+## phonesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, foreign_key: true|
+|phone|string|null: false,unique:true|
 
 
 
@@ -173,7 +176,6 @@ has_many : products
 |------|----|-------|
 |name|string|null: false|
 |ancestry|string||
-|parent_id|string||
 
 ### Association
 has_many : products

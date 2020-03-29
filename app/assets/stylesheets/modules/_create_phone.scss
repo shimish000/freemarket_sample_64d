@@ -1,0 +1,176 @@
+.user-sign-up{
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  .sign_up{
+    
+    .header{
+      height: 128px;
+      text-align: center;
+      &__logo-box{
+        margin: 40px 0 0;
+        display: inline-block;
+        a{
+          width: 185px;
+          height: 49px;
+          line-height: 49px;
+          img{
+            width: 185px;
+            height: 49px;
+          }
+        }
+      }
+
+      nav{
+        padding: 40px 0 0 44px;
+        margin: 0 40px 0 0;
+        border: 0;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        min-width: 60px;
+        li{
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          color: #888;
+          margin: 0 40px 0 0;
+          min-width: 60px;
+          .progress-status {
+            width: 12px;
+            height: 12px;
+            margin: 8px auto 0;
+            background: #ccc;
+            border-radius: 50%;
+          }
+          
+        }
+        .first-create {
+          font-weight: 600;
+          color: #ccc;
+          min-width: 60px;
+          .progress-status {
+            background: #3ccace;
+          }
+          .progress-status:after {
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #3ccace;
+            left: 50%;
+          }
+        }
+        .second-create {
+          font-weight: 600;
+          color: #ccc;
+          min-width: 60px;
+          .progress-status {
+            background: #3ccace;
+          }
+          .progress-status:after {
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #3ccace;
+            left: 50%;
+          }
+          .progress-status:before {
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #3ccace;
+            right: 50%;
+          }
+        }
+        .third-create {
+          margin: 0;
+          min-width: 60px;
+          color: #3ccace;
+          font-weight: 600;
+          .progress-status {
+            background: #3ccace;
+          }
+          .progress-status:before {
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #3ccace;
+            right: 50%;
+          }
+        }
+        .crearfix:after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+      }
+    }
+    main{
+      display: block;
+      .create-container{
+        background: #fff;
+        width: 700px;
+        margin: 0 auto;
+        .confirm{
+          font-size: 22px;
+          padding: 0 32px 32px 32px;
+          border-bottom: 1px solid #f5f5f5;
+          text-align: center;
+          h2 {
+            padding: 32px;
+          }
+          .create-content{
+            max-width: 320px;
+            margin: 0 auto;
+            border-top: 1px solid #f5f5f5;
+            padding-top: 15px;
+            p{
+              margin: 8px 0 0;
+              line-height: 1.5;
+            }
+            .sns-btn{
+              margin: 24px 0 0;
+              background: #3ccace;
+              border: 1px solid #3ccace;
+              color: #fff;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              border: 1px solid transparent;
+              -webkit-transition: all ease-out .3s;
+              transition: all ease-out .3s;
+              cursor: pointer;
+              text-align: center;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

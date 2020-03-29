@@ -1,7 +1,12 @@
 class Product < ApplicationRecord
+
+  belongs_to :category
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
+<<<<<<< HEAD
+end
+=======
 
   enum size: {
     "---": nil,
@@ -171,4 +176,7 @@ class Product < ApplicationRecord
 
 
 
+
+  
 end
+>>>>>>> 6b20a6a38cd616363096d1fed63396e3f58c5b02

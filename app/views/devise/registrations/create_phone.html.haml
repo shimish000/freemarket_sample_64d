@@ -1,0 +1,29 @@
+%body.user-sign-up
+  .sign_up
+    .header
+      .header__logo-box
+        =link_to "＃" do
+          = image_tag src='logo.png'
+      %nav.progress-bar.signup-bar
+        %ol.clearfix
+          %li.first-create
+            会員情報
+            .progress-status
+          %li.second-create
+            電話番号認証
+            .progress-status
+          %li.third-create
+            完了
+            .progress-status
+  
+    %main.create-main
+      %section.create-container
+        .confirm 
+          %h2 会員登録完了
+          .create-content
+            %p ありがとうございます。
+            %p 会員登録が完了しました。
+            = link_to root_path , class: "sns-btn" do
+              FURIMAをはじめる
+    = render "buys/second_footer"
+   

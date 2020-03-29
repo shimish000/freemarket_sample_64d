@@ -17,11 +17,18 @@
 
     .nav
       %ul.listsLeft
-        %li
+        %li.categoriesss
           = link_to "#", id:"catBtn" do
             = icon('fas', 'list-ul', class: 'h-n-l_icon')
             カテゴリーから探す
-        %li
+            .category_list
+              .parents_list
+                - @parents.each do |parent|
+                  = link_to "#{parent.name}", categories_path(parent), class: "parent_category",id: "#{parent.id}"
+              .children_list
+              .grand_children_list
+
+        %li.brandsss
           = link_to "#", id:"brandBtn" do
             = icon('fas', 'tag', class: 'h-n-l_icon')
             ブランドから探す
@@ -29,9 +36,9 @@
 
       %ul.listsRight
         %li.listsRight__login
-          = link_to "#" do 
+          = link_to new_user_session_path do
             ログイン
         %li.listsRight__new
-          = link_to "#" do 
+          = link_to new_user_registration_path do
             新規会員登録
   
