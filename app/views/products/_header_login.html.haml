@@ -31,22 +31,6 @@
 
 
 
-
-                
-            -# %ul.category1#headcate
-            -#   - @parents.each do |parent|
-
-            -#     %li.parent__li
-            -#       = link_to parent.name
-            -#       %ul.category2
-            -#         - parent.children.each do |child|
-            -#           %li.child
-            -#             =link_to child.name
-            -#             %ul.category3
-            -#               - child.children.each do |grandchild|
-            -#                 %li.grandchild
-            -#                   = link_to grandchild.name
-
         %li
           = link_to "#", id:"brandBtn" do
             = icon('fas', 'tag', class: 'h-n-l_icon')

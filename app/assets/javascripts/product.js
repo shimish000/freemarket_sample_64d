@@ -11,11 +11,19 @@ $(function() {
       }
     });
 
-    $(".category_list").mouseout(function(){
-      $(".category_list").hide();
-    });
-   
-  
+    // $(".category_list").mouseout(function(){
+    //   $(".category_list").hide();
+    // });
+
+    // $('.categoriesss').hover(
+    //   function() {
+    //     $(this).append(html);
+    //   },
+    //   function() {
+    //     $(this).find(".parent_category").remove();
+    //   }
+    // );
+    
 
 
     $(".parent_category").on("mouseover", function() {
@@ -70,5 +78,9 @@ $(function() {
       $(".now-selected-green3").removeClass("now-selected-green3");
       $('#' + id).addClass("now-selected-green3");
     });
+
+
+
+    
   });
  
