@@ -96,15 +96,23 @@
         border-image: initial;
         transition: all 0.5s ease-out 0s;
 
-        &__text{
-          font-size: 12px;
-          line-height: 1.4em;
-          text-align: center;
-          width: 100%;
+      
+        .photos_3_intext{
+        font-size: 12px;
+        line-height: 1.4em;
+        text-align: center;
+        width: 100%;
         }
+
+        .photo{
+          width:114px;
+          height:80px;
+        }
+        
+        
       } 
     }
-  }
+}
    &__underbar{ 
     border-top-color: #efefef;
     border-left: 0 solid #efefef;
@@ -186,9 +194,18 @@
           font-weight: 600;
           line-height: 1.4em;
         }
+      }
   
+      .form_counter{
+        text-align: right;
+        color: #888;
+        font-size: 12px;
+        line-height: 1.4em;
+        margin-top: 16px;
+      
+
         .p_textarea{
-          margin-top: 16px;
+          height: 155px;
           width: 100%;
           border: 1px solid #ccc;
           border-radius: 4px;
@@ -200,15 +217,6 @@
           resize: vertical;
           vertical-align: middle;
         }
-      }
-
-
-      .form_counter{
-        text-align: right;
-        color: #888;
-        font-size: 12px;
-        line-height: 1.4em;
-        margin-top: 16px;
       }
     }
   }

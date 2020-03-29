@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  root to: 'sells#new'
+  root to: 'products#index'
 
 
-  resources :products, only: [:show] do
+  resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :buys, only: [:index]
   end
   
-  resources :sells, only: [:index, :new, :create, :edit, :update, :destroy]
+  # resources :sells, only: [:index, :new]
   resources :users, only: [:index, :destroy] 
   resources :cards, only: [:create, :new] 
   

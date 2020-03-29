@@ -1,3 +1,11 @@
+.pcHeader {
+  img {
+    width: 100%;
+    vertical-align: bottom;
+    border: 0;
+  }
+}
+
 .header.pcHeader{
   padding: 0 60px;
   background-color: #fff;
@@ -141,9 +149,5 @@
   }
 }
 
-img {
-  width: 100%;
-  vertical-align: bottom;
-  border: 0;
-}
+
 
