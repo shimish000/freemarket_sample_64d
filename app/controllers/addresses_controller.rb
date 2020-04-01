@@ -5,11 +5,11 @@ class AddressesController < ApplicationController
   end
 
   def create
-    @address = Address.new(address_params)
+    Address.create(address_params)
   end
   
   private
   def address_params
-    # params.require(:address).permit(:first_name, :last_name).merge(user_id: current_user.id)
+    params.require(:address).permit(:first_name, :last_name).merge(user_id:)
   end
 end
