@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_03_29_111251) do
+
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -27,12 +30,14 @@ ActiveRecord::Schema.define(version: 2020_03_29_111251) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+
   create_table "buys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_buys_on_user_id"
   end
+
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_111251) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "src"
     t.bigint "product_id"
@@ -48,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_111251) do
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_images_on_product_id"
   end
+
 
   create_table "phones", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "phone", null: false
