@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'phones', to: 'users/registrations#new_phone'
     post 'phones', to: 'users/registrations#create_phone'
   end
-  root to: 'cards#show'
+  root to: 'products#index'
   
 
   resources :products, only: [:show] do
@@ -17,8 +17,12 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :destroy] do
     resources :addresses, only: [:new, :create]
-    resources :cards, only: [:create, :new]
+    resources :cards, only: [:index, :new, :create, :show, :destroy] do
+      collection do
+        post 'pay', to: 'cards#pay'
+      end
+    end
   end
-  
 end
+
 

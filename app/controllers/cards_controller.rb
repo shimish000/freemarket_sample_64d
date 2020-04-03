@@ -1,8 +1,15 @@
 class CardsController < ApplicationController
 
+  def index
+  end
+
   def new
-    card = Card.where(user_id: currrent_user.id)
+    card = Card.where(user_id: current_user.id)
     redirect_to card_path(current_user.id) if card.exists?
+  end
+
+  def create
+    render :show
   end
 
 
@@ -17,7 +24,10 @@ class CardsController < ApplicationController
         metadata: {user_id: current_user.id}
       )
       @card = Card.new(user_id: current_user, customer_id: customer.id, card_id: customer.default_card)
+      binding.pry
       if @card.save
+        redirect_to pay_cards_path(current_user.id)
+      else
         redirect_to pay_cards_path
       end
     end
@@ -36,13 +46,13 @@ class CardsController < ApplicationController
   end
 
   def show
-    # card = Card.find_by(user_id: current_user.id)
-    # if card.blank?
-    #   redirect_to new_card_path
-    # else
-    #   Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
-    #   customer = Payjp::Customer.retrieve(card.customer_id)
-    #   @default_card_information = customer.cards.retrieve(card.card_id)
-    # end
+    card = Card.find_by(user_id: current_user.id)
+    if card.blank?
+      redirect_to new_user_card_path(:user_id)
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 end
