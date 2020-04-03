@@ -65,7 +65,7 @@
             .listing-product-detail__category.formLabel
               = f.label 'カテゴリー', class: 'listing-default__label'
               %span.style_tag.listing-default--require 必須
-              .listing-select-wrapper
+              .listing-select-wrapper.select_area
                 .listing-select-wrapper__box
                   = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                   %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down

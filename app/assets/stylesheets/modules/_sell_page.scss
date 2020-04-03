@@ -257,14 +257,60 @@
           line-height: 1.4em;
         }
       }
-        .select_area{
-          margin-top: 16px;
-          align-items: center;
-          display: inline-flex;
-          width: 100%;
-          position: relative;
+      .select_area{
+        margin-top: 16px;
+        align-items: center;
+        display: inline-flex;
+        width: 100%;
+        position: relative;
 
-          select{
+        .listing-select-wrapper__box{
+          width: 100%;
+          &--select{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #222;
+            font-size: 16px;
+            height: 48px;
+            line-height: 1;
+            margin: 0;
+            outline: none;
+            padding: 0 56px 0 16px;
+            width: 100%;
+          }
+        }
+      }
+      .listing-select-wrapper__added{
+        margin-top: 16px;
+        align-items: center;
+        display: inline-flex;
+        width: 100%;
+        position: relative;
+        .listing-select-wrapper__box{
+          width: 100%;
+          #child_category{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #222;
+            font-size: 16px;
+            height: 48px;
+            line-height: 1;
+            margin: 0;
+            outline: none;
+            padding: 0 56px 0 16px;
+            width: 100%;
+          }
+          #grandchild_category{
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -282,16 +328,15 @@
             width: 100%;
           }
 
-          svg{
-            bottom: 0;
-            margin: auto;
-            pointer-events: none;
-            position: absolute;
-            right: 16px;
-            top: 0;
-          }
-          
         }
+      }
+      .fas.fa-chevron-down{
+        margin: auto;
+        pointer-events: none;
+        position: absolute;
+        right: 16px;
+        top: 16px;
+      }
     }
 
     .detail_2{
