@@ -33,13 +33,6 @@ ActiveRecord::Schema.define(version: 2020_04_04_080327) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "buys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_buys_on_user_id"
-  end
-
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "ancestry"
@@ -70,29 +63,22 @@ ActiveRecord::Schema.define(version: 2020_04_04_080327) do
     t.text "detail", null: false
     t.string "size", null: false
     t.integer "condition_id", null: false
-    t.bigint "brand_id", null: false
-    t.bigint "category_id", null: false
     t.string "shipping_fee_id"
     t.string "shipping_date_id", null: false
     t.string "shipping_s_area_id", null: false
     t.bigint "seller_id", null: false
     t.bigint "buyer_id"
-    t.bigint "sell_id", null: false
-    t.bigint "buy_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brand_id"], name: "index_products_on_brand_id"
-    t.index ["buy_id"], name: "index_products_on_buy_id"
-    t.index ["category_id"], name: "index_products_on_category_id"
-    t.index ["sell_id"], name: "index_products_on_sell_id"
+    t.index ["buyer_id"], name: "index_products_on_buyer_id"
+    t.index ["seller_id"], name: "index_products_on_seller_id"
   end
 
   create_table "sells", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buyer_id"], name: "index_products_on_buyer_id"
-    t.index ["seller_id"], name: "index_products_on_seller_id"
+    t.index ["user_id"], name: "index_sells_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -118,4 +104,5 @@ ActiveRecord::Schema.define(version: 2020_04_04_080327) do
   end
 
   add_foreign_key "images", "products"
+  add_foreign_key "sells", "users"
 end
