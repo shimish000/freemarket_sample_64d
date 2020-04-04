@@ -49,7 +49,7 @@ $(function(){
         var html= `<div class='item-image' data-image="${file.name}">
                     <div class=' item-image__content'>
                       <div class='item-image__content--icon'>
-                        <img src=${src} width="114" height="80" >
+                        <img src=${src} width="115px" height="100px" >
                       </div>
                     </div>
                     <div class='item-image__operetion'>

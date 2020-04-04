@@ -77,6 +77,11 @@
         }
       }
       
+      #image-box{
+        display:flex;
+        flex-wrap:wrap;
+      }
+
       .kkk{
         margin-top: 16px;
         height: 150px;
