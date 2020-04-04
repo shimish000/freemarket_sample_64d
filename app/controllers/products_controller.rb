@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
       Category.where(ancestry: nil).each do |parent|
           @category_parent_array << parent.name
       end
+      binding.pry
     else
       redirect_to new_user_registration_path
     end
@@ -29,14 +30,14 @@ class ProductsController < ApplicationController
     
 
  def create
-    @product = product.new(product_params)
-    if @product.save!
-     product = product.find(@product.id)             
-     redirect_to root_path
+    @product = Product.new(product_params)
+    # binding.pry
+    if @product.save
+      product = product.find(@product.id)             
+      redirect_to root_path
     else
-     redirect_to new_product_path
+      redirect_to new_product_path
     end
-    redirect_to root_path
   end
 
   def edit
@@ -67,7 +68,7 @@ class ProductsController < ApplicationController
   private
   
   def product_params
-    params.require(:product).permit(:name, :price, images_attributes:  [:src, :_destroy, :id],brand_attributes: [:id, :name], category_ids: [])
+    params.require(:product).permit(:name, :price, :detail, :size, :condition_id, :shipping_fee_id, :shipping_date_id, :shipping_s_area_id, images_attributes:  [:src, :_destroy, :id],brand_attributes: [:id, :name], category_ids: [])
   end
   
   def set_product
