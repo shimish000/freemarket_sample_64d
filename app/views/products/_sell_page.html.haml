@@ -75,7 +75,7 @@
               %span.style 必須
             
             .select_area
-              = f.collection_select(:condition_id, Condition.all, :id, :name, {prompt: "---"}, {class: "s_select"})
+              = f.collection_select(:condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, {class: "s_select"})
               %svg{"aria-hidden":"true", fill: "#888888", "fill-rule":"evenodd", height: "24", viewbox: "0 0 24 24", width:"24"}
                 %path{d:"M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
 
@@ -91,7 +91,7 @@
                 %label 配送料の負担
                 %span 必須
               .select_area
-                = f.collection_select(:shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "---"}, {class: "shipping_select"})
+                = f.collection_select(:shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "選択してください"}, {class: "shipping_select"})
                 %svg{"aria-hidden":"true", fill: "#888888", "fill-rule":"evenodd", height: "24", viewbox: "0 0 24 24", width:"24"}
                   %path{d:"M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
 
@@ -101,7 +101,7 @@
                 %label 発送元の地域
                 %span 必須
               .select_area
-                = f.collection_select(:shipping_s_area_id, ShippingSArea.all, :id, :name, {prompt: "---"}, {class: "hassou_moto"})
+                = f.collection_select(:shipping_s_area_id, ShippingSArea.all, :id, :name, {prompt: "選択してください"}, {class: "hassou_moto"})
                 %svg{"aria-hidden":"true", fill: "#888888", "fill-rule":"evenodd", height: "24", viewbox: "0 0 24 24", width:"24"}
                   %path{d:"M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
 
@@ -111,7 +111,7 @@
                 %label 発送までの日数
                 %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
               .select_area
-                = f.collection_select(:shipping_date_id, ShippingDate.all, :id, :name, {prompt: "--"}, {class: "send_date"})
+                = f.collection_select(:shipping_date_id, ShippingDate.all, :id, :name, {prompt: "選択してください"}, {class: "send_date"})
                 %svg{"aria-hidden":"true", fill: "#888888", "fill-rule":"evenodd", height: "24", viewbox: "0 0 24 24", width:"24"}
                   %path{d:"M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
 
