@@ -77,6 +77,11 @@
         }
       }
       
+      #image-box{
+        display:flex;
+        flex-wrap:wrap;
+      }
+
       .kkk{
         margin-top: 16px;
         height: 150px;
@@ -136,8 +141,21 @@
       .item-num-9{
         width: 106px;
       }
-    }
+
+      .item-image{
+        height: 150px;
+        margin-top: 35px;
+      }
+
+      .item-image__operetion--delete{
+        text-align: center;
+        color:rgb(0, 149, 238);
+        margin-top: 5px;
+        cursor: pointer
+      }
+    }  
 }
+
    &__underbar{ 
     border-top-color: #efefef;
     border-left: 0 solid #efefef;
@@ -146,8 +164,7 @@
     border-top-style: solid;
     margin: 0;  
     border-top-width: 1px;
-  }
-  
+  } 
   
   // 商品名
 
