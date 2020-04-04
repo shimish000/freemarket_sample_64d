@@ -8,9 +8,9 @@ class SellsController < ApplicationController
     @products = Product.includes(:images).order('created_at DESC')
 
     @category_parent_array = ["---"]
-      Category.where(ancestry: nil).each do |parent|
-         @category_parent_array << parent.name
-      end
+    Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+    end
   end
 
   def create
