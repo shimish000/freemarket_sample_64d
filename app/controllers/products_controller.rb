@@ -18,17 +18,19 @@ class ProductsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
        @category_parent_array << parent.name
     end
+    @product.build_brand
  end
   
   
     
 
-  def create
-    @product = Product.new(product_params)
-    if @product.save
-      redirect_to root_path
+ def create
+    @product = product.new(product_params)
+    if @product.save!
+     product = product.find(@product.id)             
+     redirect_to root_path
     else
-      render :new
+     redirect_to new_product_path
     end
   end
 
@@ -60,7 +62,7 @@ class ProductsController < ApplicationController
   private
   
   def product_params
-    params.require(:product).permit(:name, :price, images_attributes:  [:src, :_destroy, :id])
+    params.require(:product).permit(:name, :price, images_attributes:  [:src, :_destroy, :id],brand_attributes: [:id, :name], category_ids: []).merge(seller_id: current_user.id)
   end
   
   def set_product

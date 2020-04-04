@@ -72,13 +72,12 @@
            
             
           .detail_2
-            .formLabel
-              %label ブランド
-              %span.style_tag 任意
-            
-            -# .textField
-            -#   .input_area
-            -#     = f.text_field :brand_id, placeholder: "例）シャネル", class: "b_input", id: "input_brand_box"
+            .form-group.brand--container.formLabel
+              = f.fields_for :brand do |brand|
+                %label ブランド
+                %span.form-require-gray.style_tag 任意
+                %div.select_area
+                  = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input-default"
                   = f.hidden_field :brand_id
 
           .detail_3
