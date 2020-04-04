@@ -37,7 +37,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute, :birth_year_id, :birth_month_id, :birth_day_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute, :birth_year_id, :birth_month_id, :birth_day_id, :nickname])
   end
 
   def phone_params
