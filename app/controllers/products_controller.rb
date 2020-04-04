@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
     if user_signed_in?
       @product = Product.new
       @product.images.new
+      @product.build_brand
       @category_parent_array = ["---"]
       Category.where(ancestry: nil).each do |parent|
           @category_parent_array << parent.name
@@ -22,7 +23,6 @@ class ProductsController < ApplicationController
     else
       redirect_to new_user_registration_path
     end
-    @product.build_brand
  end
   
   
@@ -67,7 +67,7 @@ class ProductsController < ApplicationController
   private
   
   def product_params
-    params.require(:product).permit(:name, :price, images_attributes:  [:src, :_destroy, :id],brand_attributes: [:id, :name], category_ids: []).merge(seller_id: current_user.id)
+    params.require(:product).permit(:name, :price, images_attributes:  [:src, :_destroy, :id],brand_attributes: [:id, :name], category_ids: [])
   end
   
   def set_product
