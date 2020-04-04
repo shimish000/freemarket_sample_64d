@@ -3,8 +3,8 @@ function ShowLength(str) {
 }
 
 $(function(){
-  $('#price_calc').on('input', function(){   
-    var data = $('#price_calc').val(); 
+  $('#item_price').on('input', function(){   
+    var data = $('#item_price').val(); 
     var profit = Math.round(data * 0.9)  
     var fee = (data - profit) 
     $('.right_bar').html(fee) 
@@ -53,7 +53,7 @@ $(function(){
                       </div>
                     </div>
                     <div class='item-image__operetion'>
-                      <div class='item-image__operetion--delete'>削除</div>
+                      <div class='item-image__operetion--delete'>削除</div>                 
                     </div>
                   </div>`
         //image_box__container要素の前にhtmlを差し込む

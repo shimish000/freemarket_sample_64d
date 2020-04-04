@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_111251) do
+ActiveRecord::Schema.define(version: 2020_03_28_065733) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -25,13 +25,6 @@ ActiveRecord::Schema.define(version: 2020_03_29_111251) do
     t.integer "address_phone"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
-  end
-
-  create_table "buys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_buys_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -67,19 +60,12 @@ ActiveRecord::Schema.define(version: 2020_03_29_111251) do
     t.string "shipping_fee_id"
     t.string "shipping_date_id", null: false
     t.string "shipping_s_area_id", null: false
-    t.bigint "sell_id", null: false
-    t.bigint "buy_id", null: false
+    t.bigint "seller_id", null: false
+    t.bigint "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buy_id"], name: "index_products_on_buy_id"
-    t.index ["sell_id"], name: "index_products_on_sell_id"
-  end
-
-  create_table "sells", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sells_on_user_id"
+    t.index ["buyer_id"], name: "index_products_on_buyer_id"
+    t.index ["seller_id"], name: "index_products_on_seller_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -104,7 +90,5 @@ ActiveRecord::Schema.define(version: 2020_03_29_111251) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "buys", "users"
   add_foreign_key "images", "products"
-  add_foreign_key "sells", "users"
 end

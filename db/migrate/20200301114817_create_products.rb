@@ -11,8 +11,8 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :shipping_fee_id
       t.string :shipping_date_id, null: false
       t.string :shipping_s_area_id, null: false
-      t.references :sell, null: false
-      t.references :buy, null: false
+      t.references :seller, null: false
+      t.references :buyer
       
       t.timestamps
     end

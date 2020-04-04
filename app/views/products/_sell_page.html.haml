@@ -142,26 +142,25 @@
             .product_profit 販売利益
             .right_bar_2 ー
 
-          -# .price_4
-          -#   %button{type:"submit"} 
-          -#   = link_to '出品する', sells_path
-          -#   %br/
-          -#   =link_to root_path do
-          -#     もどる
-            
-          -# %p.attention
-          -#   禁止されている
-          -#   =link_to "/jp/help_center/getting_started/prohibited_conduct/", rel: "noopener noreferrer", target:"_blank" do
-          -#     行為
-          -#   および
-          -#   =link_to "/jp/help_center/getting_started/prohibited_items/", rel: "noopener noreferrer", target:"_blank" do
-          -#     出品物
-          -#   を必ずご確認ください。
-          -#   =link_to "/jp/help_center/getting_started/counterfeit_goods/", rel: "noopener noreferrer", target:"_blank" do
-          -#     偽ブランド品
-          -#   や
-          -#   =link_to "/jp/help_center/getting_started/report_counterfeit_goods/", rel: "noopener noreferrer", target:"_blank" do
-          -#     盗品物
-          -#   などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
-          -#   =link_to "/jp/seller_terms/", rel: "noopener noreferrer", target:"_blank" do
-          -#     加盟店規約に同意したことになります。
+          .price_4
+            %button{type:"submit"} 
+              出品する
+            = link_to root_path do
+              もどる
+              
+          %p.attention
+            禁止されている
+            =link_to "/jp/help_center/getting_started/prohibited_conduct/", rel: "noopener noreferrer", target:"_blank" do
+              行為
+            および
+            =link_to "/jp/help_center/getting_started/prohibited_items/", rel: "noopener noreferrer", target:"_blank" do
+              出品物
+            を必ずご確認ください。
+            =link_to "/jp/help_center/getting_started/counterfeit_goods/", rel: "noopener noreferrer", target:"_blank" do
+              偽ブランド品
+            や
+            =link_to "/jp/help_center/getting_started/report_counterfeit_goods/", rel: "noopener noreferrer", target:"_blank" do
+              盗品物
+            などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+            =link_to "/jp/seller_terms/", rel: "noopener noreferrer", target:"_blank" do
+              加盟店規約に同意したことになります。

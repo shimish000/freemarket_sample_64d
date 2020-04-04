@@ -12,11 +12,15 @@ class ProductsController < ApplicationController
 
 
   def new
-    @product = Product.new
-    @product.images.new
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-       @category_parent_array << parent.name
+    if user_signed_in?
+      @product = Product.new
+      @product.images.new
+      @category_parent_array = ["---"]
+      Category.where(ancestry: nil).each do |parent|
+          @category_parent_array << parent.name
+      end
+    else
+      redirect_to new_user_registration_path
     end
  end
   
@@ -30,6 +34,7 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+    redirect_to root_path
   end
 
   def edit
