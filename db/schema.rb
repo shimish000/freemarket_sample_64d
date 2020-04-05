@@ -62,13 +62,11 @@ ActiveRecord::Schema.define(version: 2020_04_04_080327) do
     t.string "shipping_fee_id"
     t.string "shipping_date_id", null: false
     t.string "shipping_s_area_id", null: false
-    t.bigint "seller_id", null: false
-    t.bigint "buyer_id"
+    t.integer "saler_id", null: false
+    t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buyer_id"], name: "index_products_on_buyer_id"
     t.index ["category_id"], name: "index_products_on_category_id"
-    t.index ["seller_id"], name: "index_products_on_seller_id"
   end
 
   create_table "sells", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
