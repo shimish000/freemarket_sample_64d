@@ -410,14 +410,21 @@
           width: 100%;
           position: relative;
           height: 48px;
-          input{
-            height: 100%;
-            width: 100%;
+          .input-default{
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: inherit;
+            height: 48px;
+            margin: 0;
+            outline: none;
             padding: 0 16px;
+            width: inherit;
           }
         }
       }
-    
+      
       .textField{
         margin-top: 16px;
         align-items: center;

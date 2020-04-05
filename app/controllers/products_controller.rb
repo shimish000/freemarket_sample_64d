@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
     if user_signed_in?
       @product = Product.new
       @product.images.new
-      @product.build_brand
       @category_parent_array = ["---"]
       Category.where(ancestry: nil).each do |parent|
           @category_parent_array << parent.name
@@ -30,7 +29,8 @@ class ProductsController < ApplicationController
 
  def create
     @product = Product.new(product_params)
-    if @product.save!
+    binding.pry
+    if @product.save
       product = product.find(@product.id)             
       redirect_to root_path
     else
@@ -66,7 +66,7 @@ class ProductsController < ApplicationController
   private
   
   def product_params
-    params.require(:product).permit(:name, :price, :detail, :condition_id, :shipping_fee_id, :shipping_date_id, :shipping_s_area_id, images_attributes:  [:src, :_destroy, :id],brand_attributes: [:id, :name], category_ids: [])
+    params.require(:product).permit(:name, :price, :detail, :brand, :condition_id, :shipping_fee_id, :shipping_date_id, :shipping_s_area_id, images_attributes:  [:src, :_destroy, :id], category_ids: [])
   end
   
   def set_product
