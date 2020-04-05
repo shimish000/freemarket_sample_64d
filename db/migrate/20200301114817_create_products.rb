@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.integer :price, null: false
       t.text :detail, null: false
-      t.string :size, null: false
+      t.string :size
       t.integer :condition_id, null: false
       t.references :brand, null: false
       t.references :category, null: false
