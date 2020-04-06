@@ -82,16 +82,6 @@ $(function() {
       $('#' + id).addClass("now-selected-green3");
     });
 
-
-
-
-
-
-
-
-
-
-
   // 商品出品のカテゴリ
 
   function appendOption(category){
@@ -155,10 +145,6 @@ $(function() {
       $('#brand_wrapper').remove();
     }
   });
-
-
-
-
 
   $('.listing-product-detail__category').on('change', '#child_category', function(){
     var childId = $('#child_category option:selected').data('category');

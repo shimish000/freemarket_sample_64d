@@ -48,10 +48,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def destroy
-    @product.destroy
-    redirect_to root_path
-  end
+
 
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
