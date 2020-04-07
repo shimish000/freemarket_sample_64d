@@ -1,7 +1,7 @@
 .register-credit-content
   .i-chapter-head
     クレジットカード情報入力
-  %form.l-single-inner{name: "inputForm"}
+  = form_with(url: pay_user_cards_path, html: { class: 'l-single-inner', name: "inputForm"}) do |f|
     .single-contenttt
       .form-group-regi1
         %label.labelsize
@@ -42,6 +42,8 @@
               %option{value: :"08"} 08
               %option{value: :"09"} 09
               %option{value: :"10"} 10
+              %option{value: :"11"} 11
+              %option{value: :"12"} 12
             %span.ymtext
               月
           .selectm

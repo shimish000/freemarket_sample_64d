@@ -20,11 +20,12 @@ document.addEventListener(
             $("#cvc").removeAttr("name");
             $("#exp_month").removeAttr("name");
             $("#exp_year").removeAttr("name");
-            $("#card_token").append(
+            $(".single-contenttt").append(
               $('<input type="hidden" name="payjp-token">').val(response.id)
             );
             document.inputForm.submit();
             alert("登録が完了しました"); 
+            
           } else {
             alert("カード情報が正しくありません。"); 
           }
