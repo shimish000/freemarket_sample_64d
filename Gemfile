@@ -78,6 +78,7 @@ gem 'mini_magick'
 gem 'carrierwave'
 
 gem'haml-rails'
+
 gem 'erb2haml'
 gem'font-awesome-sass'
 
@@ -89,7 +90,12 @@ gem 'jquery-rails'
 
 
 gem 'payjp'
-gem 'active_hash'
 
+
+gem 'active_hash'
 gem 'pry-rails'
+
+# パンくず
+gem 'ancestry'
+
 
