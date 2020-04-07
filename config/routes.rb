@@ -8,15 +8,14 @@ Rails.application.routes.draw do
     post 'phones', to: 'users/registrations#create_phone'
   end
   root to: 'products#index'
-  
-  resources :products, only: [:show] do
-    resources :buys, only: [:index]
-    resources :sells, only: [:index, :new, :create, :edit, :update, :destroy] do
-      collection do
-        get 'category_children' 
-        get 'category_grandchildren'
-      end
+
+  resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
+    resources :buys, only: [:index]
+    resources :sells, only: [:index, :new, :create, :edit, :update, :destroy] 
   end
 
   resources :users, only: [:index, :destroy] do
@@ -24,6 +23,7 @@ Rails.application.routes.draw do
     resources :cards, only: [:create, :new]
   end
   resources :categories, only: [:index, :new]
+
   
 
 end

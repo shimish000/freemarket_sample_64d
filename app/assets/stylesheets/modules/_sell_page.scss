@@ -77,7 +77,12 @@
         }
       }
       
-      .photos_3{
+      #image-box{
+        display:flex;
+        flex-wrap:wrap;
+      }
+
+      .kkk{
         margin-top: 16px;
         height: 150px;
         align-content: center;
@@ -95,16 +100,62 @@
         border-color: rgb(204, 204, 204);
         border-image: initial;
         transition: all 0.5s ease-out 0s;
-        
-        &__text{
-          font-size: 12px;
-          line-height: 1.4em;
-          text-align: center;
-          width: 100%;
+
+      
+        .photos_3_intext{
+        font-size: 12px;
+        line-height: 1.4em;
+        text-align: center;
+        width: 100%;
         }
       } 
-    }
-  }
+
+      .item-num-0{
+        width: 100%;
+      }
+      .item-num-1{
+        width: 491px;
+      }
+      .item-num-2{
+        width: 363px;
+      }
+      .item-num-3{
+        width: 234px;
+      }
+      .item-num-4{
+        width: 106px;
+      }
+      //下段のfile_field
+      .item-num-5{
+        width: 100%;
+      }
+      .item-num-6{
+        width: 491px;
+      }
+      .item-num-7{
+        width: 363px;
+      }
+      .item-num-8{
+        width: 234px;
+      }
+      .item-num-9{
+        width: 106px;
+      }
+
+      .item-image{
+        height: 150px;
+        margin-top: 35px;
+      }
+
+      .item-image__operetion--delete{
+        text-align: center;
+        color:rgb(0, 149, 238);
+        margin-top: 5px;
+        cursor: pointer
+      }
+    }  
+}
+
    &__underbar{ 
     border-top-color: #efefef;
     border-left: 0 solid #efefef;
@@ -113,8 +164,7 @@
     border-top-style: solid;
     margin: 0;  
     border-top-width: 1px;
-  }
-  
+  } 
   
   // 商品名
 
@@ -149,7 +199,7 @@
         position: relative;
         width: 100%;
   
-        input{
+        .p_name_input{
           border: 1px solid #ccc;
           border-radius: 4px;
           box-sizing: border-box;
@@ -186,9 +236,18 @@
           font-weight: 600;
           line-height: 1.4em;
         }
+      }
   
-        textarea{
-          margin-top: 16px;
+      .form_counter{
+        text-align: right;
+        color: #888;
+        font-size: 12px;
+        line-height: 1.4em;
+        margin-top: 16px;
+      
+
+        .p_textarea{
+          height: 155px;
           width: 100%;
           border: 1px solid #ccc;
           border-radius: 4px;
@@ -200,15 +259,6 @@
           resize: vertical;
           vertical-align: middle;
         }
-      }
-
-
-      .form_counter{
-        text-align: right;
-        color: #888;
-        font-size: 12px;
-        line-height: 1.4em;
-        margin-top: 16px;
       }
     }
   }
@@ -249,14 +299,60 @@
           line-height: 1.4em;
         }
       }
-        .select_area{
-          margin-top: 16px;
-          align-items: center;
-          display: inline-flex;
-          width: 100%;
-          position: relative;
+      .select_area{
+        margin-top: 16px;
+        align-items: center;
+        display: inline-flex;
+        width: 100%;
+        position: relative;
 
-          select{
+        .listing-select-wrapper__box{
+          width: 100%;
+          &--select{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #222;
+            font-size: 16px;
+            height: 48px;
+            line-height: 1;
+            margin: 0;
+            outline: none;
+            padding: 0 56px 0 16px;
+            width: 100%;
+          }
+        }
+      }
+      .listing-select-wrapper__added{
+        margin-top: 16px;
+        align-items: center;
+        display: inline-flex;
+        width: 100%;
+        position: relative;
+        .listing-select-wrapper__box{
+          width: 100%;
+          #child_category{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #222;
+            font-size: 16px;
+            height: 48px;
+            line-height: 1;
+            margin: 0;
+            outline: none;
+            padding: 0 56px 0 16px;
+            width: 100%;
+          }
+          #grandchild_category{
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -274,16 +370,15 @@
             width: 100%;
           }
 
-          svg{
-            bottom: 0;
-            margin: auto;
-            pointer-events: none;
-            position: absolute;
-            right: 16px;
-            top: 0;
-          }
-          
         }
+      }
+      .fas.fa-chevron-down{
+        margin: auto;
+        pointer-events: none;
+        position: absolute;
+        right: 16px;
+        top: 16px;
+      }
     }
 
     .detail_2{
@@ -308,8 +403,28 @@
           font-weight: 600;
           line-height: 1.4em;
         }
+        .select_area{
+          margin-top: 16px;
+          align-items: center;
+          display: inline-flex;
+          width: 100%;
+          position: relative;
+          height: 48px;
+          .input-default{
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: inherit;
+            height: 48px;
+            margin: 0;
+            outline: none;
+            padding: 0 16px;
+            width: inherit;
+          }
+        }
       }
-    
+      
       .textField{
         margin-top: 16px;
         align-items: center;
@@ -321,7 +436,7 @@
           position: relative;
           width: inherit;
 
-          input{
+          .b_input{
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
@@ -368,7 +483,7 @@
         // width: inherit;
         width: 100%;
 
-        select{
+        .s_select{
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none;
@@ -452,7 +567,7 @@
         position: relative;
         width: 100%;
 
-          select{
+          .shipping_select{
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -511,7 +626,7 @@
         position: relative;
         width: 100%;
 
-          select{
+          .hassou_moto{
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -570,7 +685,7 @@
         position: relative;
         width: 100%;
 
-          select{
+        .send_date{
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -676,7 +791,7 @@
           position: relative;
           width: inherit;
 
-          input{
+          .price_input{
             text-align: right;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -755,6 +870,7 @@
         vertical-align: middle;
         white-space: nowrap;
         word-break: break-word;
+        cursor: pointer
       }
 
       a{

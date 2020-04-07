@@ -79,6 +79,7 @@ gem 'carrierwave'
 
 gem'haml-rails'
 gem'font-awesome-sass'
+
 gem 'devise'
 gem 'jquery-rails'
 gem 'active_hash'
@@ -86,4 +87,5 @@ gem 'pry-rails'
 
 # パンくず
 gem 'ancestry'
+
 
