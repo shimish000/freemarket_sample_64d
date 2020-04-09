@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
   
   def show
-
+    @parents = Category.where(ancestry: nil)
   end
 
 
