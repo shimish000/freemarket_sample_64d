@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
   
   def show
-
+    @product = Product.find(params[:id])
   end
 
 
@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
           @category_parent_array << parent.name
       end
     else
-      redirect_to new_user_registration_path
+      redirect_to new_user_session_path
     end
  end
   
@@ -37,6 +37,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
 
@@ -49,6 +50,13 @@ class ProductsController < ApplicationController
   end
 
 
+  def destroy
+    if @product.destroy
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
 
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
