@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   def index
+    @parents = Category.where(ancestry: nil)
   end
 
   def show
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
 
 
   def destroy
+    @parents = Category.where(ancestry: nil)
   end
 
 

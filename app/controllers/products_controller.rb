@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
   
   def show
-
+    @parents = Category.where(ancestry: nil)
   end
 
 
@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
           @category_parent_array << parent.name
       end
     else
-      redirect_to new_user_registration_path
+      redirect_to new_user_session_path
     end
  end
   
@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
 
  def create
     @product = Product.new(product_params)
-    if @product.save!  
+    if @product.save
       redirect_to root_path
     else
       redirect_to new_product_path
@@ -49,6 +49,13 @@ class ProductsController < ApplicationController
   end
 
 
+  def destroy
+    if @product.destroy
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
 
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
@@ -61,7 +68,7 @@ class ProductsController < ApplicationController
   private
   
   def product_params
-    params.require(:product).permit(:name, :price, :detail, :condition_id, :brand, :category_id, :shipping_fee_id, :shipping_date_id, :shipping_s_area_id, images_attributes:  [:src, :_destroy, :id]).merge(saler_id: current_user.id)
+    params.require(:product).permit(:name, :price, :detail, :condition_id, :brand, :category_id, :shipping_fee_id, :shipping_date_id, :shipping_s_area_id, images_attributes:  [:image_url, :_destroy, :id]).merge(saler_id: current_user.id)
   end
   
   def set_product
