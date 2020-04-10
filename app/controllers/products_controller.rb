@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :index_category_set, only: :index
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
@@ -75,6 +76,16 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-
-
+  def index_category_set
+    array = [1, 2, 3, 4]
+      for num in array do
+        search_anc = Category.where('ancestry LIKE(?)', "#{num}/%")
+        ids = []
+        search_anc.each do |i|
+          ids << i[:id]
+        end
+        products = Product.where(category_id: ids).order("id DESC").limit(10)
+        instance_variable_set("@cat_no#{num}", products)
+      end
+   end
 end
