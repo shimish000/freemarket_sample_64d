@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'buyers/index'
+  get 'buyers/done'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -15,7 +17,14 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
-    resources :buys, only: [:index]
+  resources :products do
+    resources :buyers, only: [:index, :create] do
+      collection do
+        get 'create', to: 'buyers#create'
+        post 'pay', to: 'buyers#pay'
+      end
+    end
+  end 
     resources :sells, only: [:index, :new, :create, :edit, :update, :destroy] 
   end
 

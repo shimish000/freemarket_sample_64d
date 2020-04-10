@@ -1,0 +1,12 @@
+%body.done
+  = render "second_header"
+  %main.done-main
+    %section.done-container
+      .confirm 
+        %h2 購入が完了しました
+        .done-content
+          %p ありがとうございます
+          %p 支払い金額 90000円
+          = link_to root_path , class: "sns-btn" do
+            トップページへ戻る
+  = render "buys/second_footer"
