@@ -21,10 +21,7 @@ class ProductsController < ApplicationController
     else
       redirect_to new_user_session_path
     end
- end
-  
-  
-    
+ end  
 
  def create
     @product = Product.new(product_params)
@@ -36,12 +33,24 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    if @product.saler_id == current_user.id
+        @category_parent_array = ["---"]
+        Category.where(ancestry: nil).each do |parent|
+            @category_parent_array << parent.name
+      end
+
+      @category_child_array = @product.category.parent.parent.children
+      @category_grandchild_array = @product.category.parent.children
+
+    else
+      redirect_to product_path (@product)
+    end
   end
 
 
   def update
     if @product.update(product_params)
-      redirect_to root_path
+      redirect_to product_path
     else
       render :edit
     end
@@ -73,7 +82,6 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
-
 
 
 end

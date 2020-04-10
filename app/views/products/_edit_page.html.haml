@@ -1,0 +1,163 @@
+%body.edit_page
+  .edit-page-main
+    .form
+      = form_for @product do |f|
+        .form__header
+          .form__header__contents
+            .photos_1
+              %label 出品画像
+              %span 必須
+            %p.photos_2
+              最大10枚までアップロードできます
+              #image-box
+                .item-num-0#image-box__container
+                  = f.fields_for :images do |i|
+                    .photos_3
+                      = i.file_field :image_url, type: 'file', style: "display:none", id:"aaa", name: "product[images_attributes][][image_url]", value:""
+                      %label{for: "aaa",class:"kkk"}
+                        = icon('fas', 'camera', class: 'icon')
+                        .photos_3_intext
+                          ドラッグアンドドロップ
+                          %br
+                          またはクリックしてファイルをアップロード
+
+                  
+
+        %hr.form__underbar
+
+        .form__product_name
+          .form__product_name__1
+            %div{name:"name"}
+            .form_Label
+              %label 商品名
+              %span 必須
+            .input_area
+              = f.text_field :name, class: "p_name_input", placeholder: "40文字まで"
+
+          .form__product_name__2
+            %div{name:"name"}
+              .form_Label
+                %label 商品の説明
+                %span 必須
+              .form_counter
+                = f.text_area :detail, class: "p_textarea", placeholder:"商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", onkeyup:"ShowLength(value)"
+                %span#inputlength 0/1000
+
+
+        %hr.form__underbar
+
+
+        .form__product_detail
+          %p 商品の詳細
+          .listing-form-box.detail_1
+            .listing-product-detail__category.formLabel
+              = f.label 'カテゴリー', class: 'listing-default__label'
+              %span.style_tag.listing-default--require 必須
+              .listing-select-wrapper.select_area
+                .listing-select-wrapper__box
+                  = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                  %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+           
+            
+          .detail_2
+            .form-group.brand--container.formLabel
+              %label ブランド
+              %span.form-require-gray.style_tag 任意
+              %div.select_area
+                = f.text_field :brand, class: "input-default", placeholder: "例）シャネル"
+
+          .detail_3
+            .formLabel
+              %label 商品の状態
+              %span.style 必須
+            
+            .select_area
+              = f.collection_select(:condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, {class: "s_select"})
+              %svg{"aria-hidden":"true", fill: "#888888", "fill-rule":"evenodd", height: "24", viewbox: "0 0 24 24", width:"24"}
+                %path{d:"M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+
+        %hr.form__underbar
+
+        .form__delivery
+          %p.sc-cJOK.izFmkF
+            配送について
+            
+          .delivery_1
+            %div{name:"shippingPayer"}
+              .formLabel
+                %label 配送料の負担
+                %span 必須
+              .select_area
+                = f.collection_select(:shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "選択してください"}, {class: "shipping_select"})
+                %svg{"aria-hidden":"true", fill: "#888888", "fill-rule":"evenodd", height: "24", viewbox: "0 0 24 24", width:"24"}
+                  %path{d:"M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+
+          .delivery_2
+            .div{name:"shippingFromArea"}
+              .formLabel
+                %label 発送元の地域
+                %span 必須
+              .select_area
+                = f.collection_select(:shipping_s_area_id, ShippingSArea.all, :id, :name, {prompt: "選択してください"}, {class: "hassou_moto"})
+                %svg{"aria-hidden":"true", fill: "#888888", "fill-rule":"evenodd", height: "24", viewbox: "0 0 24 24", width:"24"}
+                  %path{d:"M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+
+          .delivery_3
+            %div{name:"shippingDuration"}
+              .formLabel
+                %label 発送までの日数
+                %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
+              .select_area
+                = f.collection_select(:shipping_date_id, ShippingDate.all, :id, :name, {prompt: "選択してください"}, {class: "send_date"})
+                %svg{"aria-hidden":"true", fill: "#888888", "fill-rule":"evenodd", height: "24", viewbox: "0 0 24 24", width:"24"}
+                  %path{d:"M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+
+        %hr.form__underbar
+
+        .form__price
+          %p.price_yourself
+            価格（¥300〜9,999,999）
+            
+
+          .price_1
+            .price_1__left{name:"price"}
+              .formLabel 
+                %label 販売価格
+                %span 必須
+            .textField
+              %span ¥ 
+              .input_area
+                = f.text_field :price, placeholder: "0", class: "price_input", id: "item_price"
+                
+          .price_2  
+            .product_price-fee 販売手数料（10%）
+            .right_bar ー
+
+          %hr.form__underbar
+
+          .price_3
+            .product_profit 販売利益
+            .right_bar_2 ー
+
+          .price_4
+            %button{type:"submit"} 
+              変更する
+            = link_to product_path do
+              キャンセル
+              
+          %p.attention
+            禁止されている
+            =link_to "/jp/help_center/getting_started/prohibited_conduct/", rel: "noopener noreferrer", target:"_blank" do
+              行為
+            および
+            =link_to "/jp/help_center/getting_started/prohibited_items/", rel: "noopener noreferrer", target:"_blank" do
+              出品物
+            を必ずご確認ください。
+            =link_to "/jp/help_center/getting_started/counterfeit_goods/", rel: "noopener noreferrer", target:"_blank" do
+              偽ブランド品
+            や
+            =link_to "/jp/help_center/getting_started/report_counterfeit_goods/", rel: "noopener noreferrer", target:"_blank" do
+              盗品物
+            などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+            =link_to "/jp/seller_terms/", rel: "noopener noreferrer", target:"_blank" do
+              加盟店規約に同意したことになります。
