@@ -91,7 +91,7 @@
           %h3.title 新規投稿商品
       .product-lists
         .list
-          = link_to product_path(:id) do
+          = link_to  pay_product_buyers_path(:product_id) do
             %figure.list__img
               = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png'
             .list__body

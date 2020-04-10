@@ -3,11 +3,12 @@ class CardsController < ApplicationController
   def index 
     card = Card.find_by(user_id: current_user.id)
     redirect_to user_card_path(card, card) if card.present? 
+    @parents = Category.where(ancestry: nil)
   end
   
 
   def new
-    
+    @parents = Category.where(ancestry: nil)
   end
 
   def create
@@ -47,6 +48,7 @@ class CardsController < ApplicationController
 
   def show
     @card = Card.find_by(user_id: current_user.id)
+    @parents = Category.where(ancestry: nil)
     if @card.blank?
       redirect_to new_user_card_path(:user_id)
     else
