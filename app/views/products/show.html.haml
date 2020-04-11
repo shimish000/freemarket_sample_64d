@@ -21,6 +21,7 @@
             .postManage
               = link_to "編集", edit_product_path(@product.id), class: "postManage__edit"
               = link_to "削除", product_path(@product.id), method: :delete, class: "postManage__delete"
+              = link_to "購入画面", product_buyers_path(:product_id), class: "postManage__edit"
               
     = render "app_banner"
     = render "footer"

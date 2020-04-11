@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get 'phones', to: 'users/registrations#new_phone'
     post 'phones', to: 'users/registrations#create_phone'
   end
-  root to: 'products#index'
+  root to: 'buyers#index'
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     collection do

@@ -18,7 +18,7 @@ class BuyersController < ApplicationController
   def pay
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
     Payjp::Charge.create(
-      :amount => @item.price, #支払金額を引っ張ってくる
+      :amount => @product.price, #支払金額を引っ張ってくる
       :customer => @card.customer_id,  #顧客ID
       :currency => 'jpy',              #日本円
     )
@@ -29,7 +29,6 @@ class BuyersController < ApplicationController
   end
 
   private
-
   def set_card
     @card = Card.find_by(user_id: current_user.id)
   end
