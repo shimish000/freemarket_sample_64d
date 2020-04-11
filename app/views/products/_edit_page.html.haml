@@ -9,7 +9,22 @@
               %span 必須
             %p.photos_2
               最大10枚までアップロードできます
-              #image-box
+
+            #image-box
+              .file_preview
+                %ul#preview_list
+                
+                  - i = 0
+                  - @product.images[0..4].each do |image|
+                    %li.upload-sell-product{id: i}
+                      - i += 1
+                      .preview
+                        .item__image
+                          = image_tag @product.images.first.image_url.url,size:'115x100'
+                        .preview__delete
+                          .item-image__operetion--delete
+                            削除
+
                 .item-num-0#image-box__container
                   = f.fields_for :images do |i|
                     .photos_3
@@ -20,6 +35,7 @@
                           ドラッグアンドドロップ
                           %br
                           またはクリックしてファイルをアップロード
+                  
 
                   
 
@@ -54,8 +70,9 @@
               = f.label 'カテゴリー', class: 'listing-default__label'
               %span.style_tag.listing-default--require 必須
               .listing-select-wrapper.select_area
+
                 .listing-select-wrapper__box
-                  = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                                  = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                   %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
            
             
