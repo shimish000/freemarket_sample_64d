@@ -5,7 +5,7 @@ class BuyersController < ApplicationController
   def index
     if @card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to new_card_path
+      redirect_to new_user_card_path(current_user.id)
     else
       Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       #保管した顧客IDでpayjpから情報取得
@@ -25,7 +25,7 @@ class BuyersController < ApplicationController
     redirect_to done_item_buyers_path #完了画面に移動
   end
 
-  def crete
+  def done
   end
 
   private

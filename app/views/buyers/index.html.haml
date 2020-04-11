@@ -4,49 +4,50 @@
     .main-contents__inner
       .buy-header 購入内容の確認 
       .buy-item
-        - @product.each do |product|
-          .buy-item__inner
-            .item-box
-              .item-box__img
-                = image_tag src= 'https://static.mercdn.net/thumb/photos/m94088928415_1.jpg?1578891440'
-              .detail
-                .detail__item-name
-                  = product.name 
-                .detail__item-price
-                  %span￥15,000
-                  %span.detail__item-price__shopping-fee (税込) 送料込み
+        .buy-item__inner
+          .item-box
+            .item-box__img
+              = image_tag "#{@product.images[0].image_url.url}"
+            .detail
+              .detail__item-name
+                = @product.name 
+              .detail__item-price
+                %span
+                  = "¥#{@product.price}"
+                %span.detail__item-price__shopping-fee (税込) 送料込み
 
-        %section.payment
-          .payment__inner
-            %form.buy-form
-              %ul.buy-price-table
-                %li.buy-price-row
-                  .payment-amount 支払い金額
-                  .buy-price-cell
-                    %span{"data-buy-pay": "880"} ￥15,000
-              %ul.point-inner
-                %li.point-inner-parent
-                  .checkbox-default
-                    %input{disabled: "disabled", type: "checkbox"}/
-                    %i.icon-check
-                    %label ポイントを使用 (所持ポイント: P0)
-              %section.buy-content{"data-buy": "pay-method"}
-                .buy-content__inner
-                  %h1 支払い方法
-                  =link_to "#" do
-                    %p.buy-user-info-text
-                      %i.fas.fa-plus-circle
-                      
-                      %span.buy-register-text 登録してください
-              %section.buy-content
-                .buy-content__inner
-                  %h1 配送先
-                  =link_to  "#" do
-                    %p.buy-user-info-text
-                      %i.fas.fa-plus-circle
-                      %span.buy-register-text 登録してください
+      %section.payment
+        .payment__inner
+          %form.buy-form
+            %ul.buy-price-table
+              %li.buy-price-row
+                .payment-amount 支払い金額
+                .buy-price-cell
+                  %span{"data-buy-pay": "880"}
+                    = "¥#{@product.price}"
+            %ul.point-inner
+              %li.point-inner-parent
+                .checkbox-default
+                  %input{disabled: "disabled", type: "checkbox"}/
+                  %i.icon-check
+                  %label ポイントを使用 (所持ポイント: P0)
+            %section.buy-content{"data-buy": "pay-method"}
+              .buy-content__inner
+                %h1 支払い方法
+                =link_to "#" do
+                  %p.buy-user-info-text
+                    %i.fas.fa-plus-circle
+                    
+                    %span.buy-register-text 登録してください
+            %section.buy-content
+              .buy-content__inner
+                %h1 配送先
+                =link_to  "#" do
+                  %p.buy-user-info-text
+                    %i.fas.fa-plus-circle
+                    %span.buy-register-text 登録してください
 
-              .purchase
-                %button.btn-default.btn-red.bold{disabled: "disabled",type: "submit"} 購入する
-    = render "second_footer"
-                  
+            .purchase
+              %button.btn-default.btn-red.bold{disabled: "disabled",type: "submit"} 購入する
+  = render "second_footer"
+                
