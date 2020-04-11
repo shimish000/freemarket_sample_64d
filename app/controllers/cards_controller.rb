@@ -6,7 +6,6 @@ class CardsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
   
-
   def new
     @parents = Category.where(ancestry: nil)
   end
