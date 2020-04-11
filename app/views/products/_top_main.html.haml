@@ -92,8 +92,21 @@
       %ul.product-lists
         - @cat_no1.each do |product|
           %li.list
-            - if user_signed_in? && current_user.id == product.user_id
-              = link_to edit_product_path(:id) do
+            - if user_signed_in? && current_user.id == product.saler_id
+              = link_to edit_product_path(product.id) do
+                %figure.list__img
+                  = image_tag "#{product.images[0].image_url.url}"
+                .list__body
+                  %h3.name 
+                    = product.name
+                  .details
+                    %ul
+                      %li
+                        = "¥#{product.price}"
+                      %li
+                        %i.fas.fa-star.like-icon
+                        0
+                    %p (税込)
             - else
               = link_to product_path(product.id) do
                 %figure.list__img
