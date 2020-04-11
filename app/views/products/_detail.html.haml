@@ -28,14 +28,15 @@
     .content-right
       .top-content
         .item-box
-          %h2.item-box__name product3
+          %h2.item-box__name 
+            = @product.name
           .item-box__body
             %ul
               %li
-                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+                = image_tag @product.images.first.image_url.url, width: "285px"
                 %ul
                   %li
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", width: "75"
+                    -# = image_tag @product.images.second.image_url.url, width: "285px"
                   %li
                     = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", width: "75"
                   %li
@@ -52,35 +53,34 @@
             購入画面に進む
 
           .item-detail 
-            親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。
-            別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。
-            小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+            商品説明・・・・・・・・・・・・・・・・
           .item-table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td hoge
+                  %td
+                    -# = link_to users_path, class: "user-nickname" do  　他人のユーザーページを見れるようにするなら追加予定
+                    = @product.saler.nickname
                 %tr
                   %th カテゴリー
                   %td
-                    = link_to "#" do 
-                      ベビー・キッズ
+                    = link_to "#{@parent.name}", "#", class: "parent-category"
                     %br/
-                    = link_to "#" do
-                      ベビー服(男女兼用)  ~95cm
+                    = link_to "＞#{@child.name}", "#", class: "child-category"
                     %br/
-                    = link_to "#" do
-                      アウター
+                    = link_to "＞#{@grandchild.name}", "#", class: "grandchild-category"
                 %tr
                   %th ブランド
                   %td
+                    = link_to "#{@product.brand}", "#", class: "brand-link"
                 %tr
                   %th 商品のサイズ
                   %td
                 %tr
                   %th 商品の状態
-                  %td 未使用に近い
+                  %td
+                    = @product.condition
                 %tr
                   %th 配送料の負担
                   %td 送料込み（出品者負担）
