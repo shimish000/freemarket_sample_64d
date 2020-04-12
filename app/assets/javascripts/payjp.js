@@ -1,8 +1,6 @@
 document.addEventListener(
   "DOMContentLoaded", e => {
     if (document.getElementById("token_submit") != null) { 
-      console.log(222)
-      console.log(gon.payjp_public_key)
       Payjp.setPublicKey(gon.payjp_public_key);
       let btn = document.getElementById("token_submit");
       btn.addEventListener("click", e => {
