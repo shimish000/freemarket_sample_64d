@@ -8,7 +8,7 @@
             トップページ
           %i#bread-arrow
         %li.breadcrumbss-item
-          =link_to users_path(:id), class:"pastlist" do
+          =link_to users_path(current_user.id), class:"pastlist" do
             マイページ
           %i#bread-arrow
         %li.breadcrumbss-item.active{"aria-current": "page"} 支払い方法
@@ -27,7 +27,7 @@
             %li
               .form-main
                 .figure
-                  = image_tag "ameexp.svg", alt: "ameexp", class: "ameexpc"
+                  -# = image_tag "ameexp.svg", alt: "ameexp", class: "ameexpc"
                 .payment-nummber
                   = "**** **** **** " + @default_card_information.last4
                 - exp_month = @default_card_information.exp_month.to_s

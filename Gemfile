@@ -90,6 +90,8 @@ gem 'jquery-rails'
 
 
 gem 'payjp'
+gem 'dotenv-rails'
+gem 'gon'
 
 
 gem 'active_hash'

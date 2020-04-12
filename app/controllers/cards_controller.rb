@@ -7,6 +7,7 @@ class CardsController < ApplicationController
   end
   
   def new
+    gon.payjp_public_key = Rails.application.credentials.payjp[:PAYJP_KEY]
     @parents = Category.where(ancestry: nil)
   end
 
