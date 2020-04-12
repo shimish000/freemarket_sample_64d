@@ -39,8 +39,8 @@ class ProductsController < ApplicationController
             @category_parent_array << parent.name
       end
 
-      @category_child_array = @product.category.parent.parent.children
-      @category_grandchild_array = @product.category.parent.children
+      @category_children_array = @product.category.parent.parent.children
+      @category_grandchildren_array = @product.category.parent.children
 
     else
       redirect_to product_path (@product)
