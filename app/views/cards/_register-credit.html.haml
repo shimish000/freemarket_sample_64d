@@ -1,14 +1,13 @@
 .register-credit-content
   .i-chapter-head
     クレジットカード情報入力
-  %form.l-single-inner
+  = form_with(url: pay_user_cards_path, html: { class: 'l-single-inner', name: "inputForm"}) do |f|
     .single-contenttt
       .form-group-regi1
-        %label.labelsize
-          カード番号
+        = f.label "カード番号", class: "labelsize"
         %span.spannn
           必須
-        %input{placeholder: :"半角数字のみ"}
+        = f.text_field :card_number, id: "card_number", placeholder: '半角数字のみ'
         %ul.creditcard-list
           %li
             = image_tag "visa.svg", alt: "visa", class: "visac"
@@ -25,49 +24,27 @@
           %li
             = image_tag "discover.svg", alt: "discover", class: "discoverc"
       .form-group-regi2
-        %label.labelsize
-          有効期限
+        = f.label "有効期限", class: "labelsize"
         %span.spannn
           必須
         .selectym
-          .selectm
-            %select.selectmon
-              %option{value: :"01"} 01
-              %option{value: :"02"} 02
-              %option{value: :"03"} 03
-              %option{value: :"04"} 04
-              %option{value: :"05"} 05
-              %option{value: :"06"} 06
-              %option{value: :"07"} 07
-              %option{value: :"08"} 08
-              %option{value: :"09"} 09
-              %option{value: :"10"} 10
+          .selectm  
+            = f.select :exp_month, [["01","01"], ["02", "02"], ["03", "03"], ["04", "04"], ["05", "05"], ["06", "06"], ["07", "07"], ["08", "08"], ["09", "09"], ["10", "10"], ["11", "11"], ["12", "12"]], id: "exp_month"
             %span.ymtext
               月
           .selectm
-            %select.selectmon
-              %option{value: :"20"} 20
-              %option{value: :"21"} 21
-              %option{value: :"22"} 22
-              %option{value: :"23"} 23
-              %option{value: :"24"} 24
-              %option{value: :"25"} 25
-              %option{value: :"26"} 26
-              %option{value: :"27"} 27
-              %option{value: :"28"} 28
-              %option{value: :"29"} 29
-              %option{value: :"30"} 30
+            = f.select :exp_year, [["2020","2020"], ["2021", "2021"], ["2022", "2022"], ["2023", "2023"], ["2024", "2024"], ["2025", "2025"], ["2026", "2026"], ["2027", "2027"], ["2028", "2028"], ["2029", "2029"], ["2030", "2030"]], id: "exp_year"
             %span.ymtext
               年
       .form-group-regi3
-        %label.labelsize
-          セキュリティーコード
+        = f.label "セキュリティーコード", class: "labelsize"
         %span.spannn
           必須
-        %input.inputtt{placeholder: :"カード背面4桁もしくは3桁の番号"}
+        = f.text_field :number, id: "cvc", class: "inputtt", placeholder: 'カード背面4桁もしくは3桁の番号'
         .signup-seqcode
           %span.credit-question
             ?
           カードの裏面の番号とは？
-      %button.btnnn-green
-        追加する
+      = f.submit "追加する", id: "token_submit"
+      
+
