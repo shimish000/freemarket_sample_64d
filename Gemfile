@@ -78,10 +78,22 @@ gem 'mini_magick'
 gem 'carrierwave'
 
 gem'haml-rails'
+
+gem 'erb2haml'
 gem'font-awesome-sass'
 
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
 gem 'jquery-rails'
+
+
+gem 'payjp'
+gem 'dotenv-rails'
+gem 'gon'
+
+
 gem 'active_hash'
 gem 'pry-rails'
 

@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, :birth_year_id, :birth_month_id, :birth_day_id, presence: true
+  has_one :buyer
+  has_one :phone
   has_one :phone
   has_one :address
   has_many :buyed_products, foreign_key: "buyer_id", class_name: "Products"
@@ -30,3 +32,4 @@ class User < ApplicationRecord
   belongs_to_active_hash :birth_month
   belongs_to_active_hash :birth_day
 end
+

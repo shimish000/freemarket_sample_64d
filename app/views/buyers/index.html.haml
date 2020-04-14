@@ -7,11 +7,13 @@
         .buy-item__inner
           .item-box
             .item-box__img
-              = image_tag src= 'https://static.mercdn.net/thumb/photos/m94088928415_1.jpg?1578891440'
+              = image_tag "#{@product.images[0].image_url.url}"
             .detail
-              .detail__item-name ehka sopoジャンパー  
+              .detail__item-name
+                = @product.name 
               .detail__item-price
-                %span￥15,000
+                %span
+                  = "¥#{@product.price}"
                 %span.detail__item-price__shopping-fee (税込) 送料込み
 
       %section.payment
@@ -21,7 +23,8 @@
               %li.buy-price-row
                 .payment-amount 支払い金額
                 .buy-price-cell
-                  %span{"data-buy-pay": "880"} ￥15,000
+                  %span{"data-buy-pay": "880"}
+                    = "¥#{@product.price}"
             %ul.point-inner
               %li.point-inner-parent
                 .checkbox-default
@@ -31,6 +34,7 @@
             %section.buy-content{"data-buy": "pay-method"}
               .buy-content__inner
                 %h1 支払い方法
+                if 
                 =link_to "#" do
                   %p.buy-user-info-text
                     %i.fas.fa-plus-circle
