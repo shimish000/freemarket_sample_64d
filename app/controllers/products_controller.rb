@@ -11,8 +11,8 @@ class ProductsController < ApplicationController
   def show
     @parents = Category.where(ancestry: nil)
     @category = @product.category
-  #   @parent = Category.find(2)
   end
+
 
 
   def new

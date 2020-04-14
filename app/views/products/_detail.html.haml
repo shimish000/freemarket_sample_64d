@@ -57,8 +57,13 @@
                 (税込)
               %span
                 送料込み
-          = link_to product_buyers_path(product_id: @product.id) , class: "item-box__buy-btn" do
-            購入画面に進む
+          .item-box-btn
+            - if user_signed_in? && current_user.id == @product.saler_id
+              = link_to "編集", edit_product_path(@product.id), method: :get, class: "item-box-btn-edit"
+              = link_to "削除", product_path(@product.id), method: :delete, class: "item-box-btn-delete"
+            - else
+              = link_to "購入画面に進む", product_buyers_path(product_id: @product.id) , class: "item-box-btn__buy-btn"
+        
 
           .item-detail 
             = @product.detail
