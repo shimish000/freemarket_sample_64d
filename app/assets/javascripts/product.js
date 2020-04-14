@@ -176,4 +176,21 @@ $(function() {
       $('#brand_wrapper').remove();
     }
   });
+
+// 商品詳細の画像
+  $(function() {
+    $('img.childimage').mouseover(function(){
+    var selectedSrc = $(this).attr('src').replace(/^(.+)_thumb(\.gif|\.jpg|\.png+)$/, "$1"+"$2");
+    $('img.product-detail__top__item-image-main--photo').stop().fadeOut(50,
+    function(){
+    $('img.product-detail__top__item-image-main--photo').attr('src', selectedSrc);
+    $('img.product-detail__top__item-image-main--photo').stop().fadeIn(200);
+    }
+    );
+    $(this).css({"border":"1px solid #fff"});
+    });
+    $('img.childimage').mouseout(function(){
+    $(this).css({"border":""});
+    });
+  });
 });

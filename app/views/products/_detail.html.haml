@@ -31,19 +31,27 @@
           %h2.item-box__name 
             = @product.name
           .item-box__body
-            %ul
-              %li
-                = image_tag @product.images.first.image_url.url, width: "285px"
-                %ul
-                  %li
-                    -# = image_tag @product.images.second.image_url.url, width: "285px"
-                  %li
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", width: "75"
-                  %li
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", width: "75"
+            .product-detail__top__item-image
+              .product-detail__top__item-image-main
+                - @product.images.each_with_index do |img,i|
+                  = image_tag(img.image_url.url, size: '300x300', class: "product-detail__top__item-image-main--photo" )
+            
+              
+                .product-detail__top__item-image-list
+                  - @product.images.each_with_index do |img, i|
+                    .product-detail__top__item-image-list__inner
+                      = image_tag(img.image_url.url, size: '60x60',class: "childimage")
+                  
+                
+            
+            -# - if @product.status != 0
+            -#   .product-detail__top__item-image--sold-out
+            -#   .product-detail__top__item-image--sold-text SOLD
+            
+                    
           .item-box__price
             %span.price
-              ¥30000
+              = @product.price
             .item-box__price-detail
               %span
                 (税込)
@@ -53,7 +61,7 @@
             購入画面に進む
 
           .item-detail 
-            商品説明・・・・・・・・・・・・・・・・
+            = @product.detail
           .item-table
             %table
               %tbody
@@ -80,18 +88,19 @@
                 %tr
                   %th 商品の状態
                   %td
-                    = @product.condition
+                    = @product.condition.name
                 %tr
                   %th 配送料の負担
-                  %td 送料込み（出品者負担）
+                  %td 
+                    = @product.shipping_fee.name
                 %tr
                   %th 発送元の地域
                   %td
-                    = link_to "#" do
-                      岩手県
+                    = @product.shipping_s_area.name
                 %tr
                   %th 発送日の目安
-                  %td 4-7日で発送
+                  %td 
+                    = @product.shipping_date.name
           .optional-area
             %ul
               %li#like-btn.optional-btn.like-btn
