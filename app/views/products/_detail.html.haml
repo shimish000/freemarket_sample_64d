@@ -41,14 +41,12 @@
                   - @product.images.each_with_index do |img, i|
                     .product-detail__top__item-image-list__inner
                       = image_tag(img.image_url.url, size: '60x60',class: "childimage")
-                  
                 
-            
+                -# soldの見た目が完成した際、追加で書こうと思っている箇所で、残してます！
             -# - if @product.status != 0
             -#   .product-detail__top__item-image--sold-out
             -#   .product-detail__top__item-image--sold-text SOLD
-            
-                    
+                
           .item-box__price
             %span.price
               = @product.price
