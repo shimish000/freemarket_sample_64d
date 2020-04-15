@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :set_category, only: [:show]
   before_action :index_category_set, only: :index
 
   def index
@@ -9,7 +10,9 @@ class ProductsController < ApplicationController
   
   def show
     @parents = Category.where(ancestry: nil)
+    @category = @product.category
   end
+
 
 
   def new
@@ -57,6 +60,7 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
+  
 
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
@@ -75,6 +79,13 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
+
+  def set_category
+    @grandchild = Category.find(@product.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
+  end
+
 
   def index_category_set
     array = [1, 2, 3, 4]
