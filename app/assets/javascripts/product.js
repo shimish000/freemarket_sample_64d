@@ -119,7 +119,7 @@ $(function() {
     var parentCategory = document.getElementById('parent_category').value; 
     if (parentCategory != "---"){ 
       $.ajax({
-        url: 'get_category_children',
+        url: '/products/get_category_children',
         type: 'GET',
         data: { parent_name: parentCategory },
         dataType: 'json'
@@ -150,7 +150,7 @@ $(function() {
     var childId = $('#child_category option:selected').data('category');
     if (childId != "---"){ 
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/products/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
