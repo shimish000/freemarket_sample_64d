@@ -1,6 +1,8 @@
 .wrapper
   .default-container
     =render "products/header_login"
+    - breadcrumb :mypage
+    = breadcrumbs pretext: "You are here:",separator: " &rsaquo; "
     .bread-crumbsss
       %ul.breadcrumbss
         %li.breadcrumbss-item

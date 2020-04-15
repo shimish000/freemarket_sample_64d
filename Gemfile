@@ -98,6 +98,10 @@ gem 'active_hash'
 gem 'pry-rails'
 
 # パンくず
+gem 'gretel'
+# カテゴリ
 gem 'ancestry'
+
+
 
 
