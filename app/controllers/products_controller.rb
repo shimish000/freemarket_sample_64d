@@ -81,7 +81,7 @@ class ProductsController < ApplicationController
   end
 
   def set_category
-    @grandchild = Category.find("#{@product.category_id}")
+    @grandchild = Category.find(@product.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
   end
