@@ -2,10 +2,12 @@ class AddressesController < ApplicationController
 
   def new
     @address = Address.new
+    @parents = Category.where(ancestry: nil)
   end
 
   def create
     Address.create(address_params)
+    @parents = Category.where(ancestry: nil)
   end
   
   private

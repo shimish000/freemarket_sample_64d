@@ -2,26 +2,26 @@
   %ul
     %li
       = link_to root_path do
-        FURIMA
+        トップページ
     %li
       %i.fa.fa-angle-right
     %li
       = link_to "#" do
-        ベビー・キッズ 
+        = @parent.name
     %li
       %i.fa.fa-angle-right
     %li
       = link_to "#" do
-        ベビー服(男女兼用)  ~95cm
+        = @child.name
     %li
       %i.fa.fa-angle-right
     %li
       = link_to "#" do
-        アウター
+        = @grandchild.name
     %li
       %i.fa.fa-angle-right
     %li
-      %p product3
+      = @product.name
 .main
   .show-main
     .content-leftqq

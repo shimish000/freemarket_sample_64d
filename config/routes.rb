@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'products#index'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -6,8 +8,7 @@ Rails.application.routes.draw do
     get 'phones', to: 'users/registrations#new_phone'
     post 'phones', to: 'users/registrations#create_phone'
   end
-  root to: 'products#index'
-
+  
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
