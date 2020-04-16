@@ -47,10 +47,8 @@ $(function(){
       fileReader.onloadend = function() {
         var src = fileReader.result
         var html= `<div class='item-image' data-image="${file.name}">
-                    <div class=' item-image__content'>
-                      <div class='item-image__content--icon'>
-                        <img src=${src} width="115px" height="100px" >
-                      </div>
+                    <div class=' item-image__content'>                    
+                      <img src=${src} width="115px" height="100px" >      
                     </div>
                     <div class='item-image__operetion'>
                       <div class='item-image__operetion--delete'>削除</div>                 

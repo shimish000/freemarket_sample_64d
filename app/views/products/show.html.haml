@@ -1,4 +1,27 @@
 .wrapper
+
+  .container
+    .container__box
+      .item-box-container
+        %h1.item-name
+          = @product.name
+        .item-box-container__item-main-content
+          .item-box-container__item-main-content-clearfix
+           
+            .item-box-container__item-main-content-clearfix__image
+              .item-box-container__item-main-content-clearfix__image__top
+                
+                .item-box-container__item-main-content-clearfix__image__dot-active
+            .item-box-container__item-main-content-clearfix__table
+              %table{border: "1", style: "border-collapse: collapse"}
+                %tr
+                  %th 出品者名
+                  %td.item-box-container__item-main-content-clearfix__table__td
+
+            .postManage
+              = link_to "編集", edit_product_path(@product.id), class: "postManage__edit"
+              = link_to "削除", product_path(@product.id), method: :delete, class: "postManage__delete"
+              
   = render "detail"
   = render "app_banner"
   = render "footer"

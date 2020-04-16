@@ -9,34 +9,26 @@
               %span 必須
             %p.photos_2
               最大10枚までアップロードできます
-
             #image-box
-              .file_preview
-                %ul#preview_list
-                
-                  - i = 0
-                  - @product.images[0..4].each do |image|
-                    %li.upload-sell-product{id: i}
-                      - i += 1
-                      .preview
-                        .item__image
-                          = image_tag @product.images.first.image_url.url,size:'115x100'
-                        .preview__delete
-                          .item-image__operetion--delete
-                            削除
+              - @product.images.each do |image|
+                .item-image
+                  .item-image__content
+                    = image_tag image.image_url.url, size:'115x100'
+                  .item-image__operetion
+                    .item-image__operetion--delete
+                      削除
 
-                .item-num-0#image-box__container
-                  = f.fields_for :images do |i|
-                    .photos_3
-                      = i.file_field :image_url, type: 'file', style: "display:none", id:"aaa", name: "product[images_attributes][][image_url]", value:""
-                      %label{for: "aaa",class:"kkk"}
-                        = icon('fas', 'camera', class: 'icon')
-                        .photos_3_intext
-                          ドラッグアンドドロップ
-                          %br
-                          またはクリックしてファイルをアップロード
-                  
+              #image-box__container{class: "item-num-#{@product.images.length}"}
+                .photos_3
+                  %label{for: "aaa",class:"kkk"}
+                    = icon('fas', 'camera', class: 'icon')
+                    .photos_3_intext
+                      ドラッグアンドドロップ
+                      %br
+                      またはクリックしてファイルをアップロード
 
+                      = f.fields_for :images do |i|
+                        = i.file_field :image_url, type: 'file', style: "display:none", id:"aaa", value:""
                   
 
         %hr.form__underbar
@@ -69,13 +61,20 @@
             .listing-product-detail__category.formLabel
               = f.label 'カテゴリー', class: 'listing-default__label'
               %span.style_tag.listing-default--require 必須
-              .listing-select-wrapper.select_area
 
-                .listing-select-wrapper__box
-                  = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              .listing-select-wrapper.select_area
+                .listing-select-wrapper__boxx
+                  = f.select :category_id, @category_parent_array, {selected:@parent.name}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                   %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-           
-            
+              .listing-select-wrapper.select_area#children_wrapper
+                .listing-select-wrapper__added
+                  = f.select :category_id, @category_child_array, {selected:@child.name}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                  %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+              .listing-select-wrapper.select_area#grandchildren_wrapper
+                .listing-select-wrapper__box1
+                  = f.select :category_id, @category_grandchild_array, {selected:@grandchild.name}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                  %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+          
           .detail_2
             .form-group.brand--container.formLabel
               %label ブランド
