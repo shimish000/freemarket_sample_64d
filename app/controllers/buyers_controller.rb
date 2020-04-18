@@ -14,9 +14,10 @@ class BuyersController < ApplicationController
 
   def pay
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+    customer = Payjp::Customer.retrieve(@card.customer_id)
     Payjp::Charge.create(
-      amount: @product.price, 
-      card: params['payjp-token'],
+      amount: @product.price,
+      customer: customer.id, 
       currency: 'jpy',
     )
     redirect_to done_product_buyers_path
