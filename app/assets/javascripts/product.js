@@ -119,7 +119,7 @@ $(function() {
     var parentCategory = document.getElementById('parent_category').value; 
     if (parentCategory != "---"){ 
       $.ajax({
-        url: 'get_category_children',
+        url: '/products/get_category_children',
         type: 'GET',
         data: { parent_name: parentCategory },
         dataType: 'json'
@@ -150,7 +150,7 @@ $(function() {
     var childId = $('#child_category option:selected').data('category');
     if (childId != "---"){ 
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/products/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
@@ -175,5 +175,22 @@ $(function() {
       $('#size_wrapper').remove();
       $('#brand_wrapper').remove();
     }
+  });
+
+// 商品詳細の画像
+  $(function() {
+    $('img.childimage').mouseover(function(){
+      var selectedSrc = $(this).attr('src').replace(/^(.+)_thumb(\.gif|\.jpg|\.png+)$/, "$1"+"$2");
+      $('img.product-detail__top__item-image-main--photo').stop().fadeOut(50,
+        function(){
+          $('img.product-detail__top__item-image-main--photo').attr('src', selectedSrc);
+          $('img.product-detail__top__item-image-main--photo').stop().fadeIn(200);
+        }
+      );
+      $(this).css({"border":"1px solid #fff"});
+    });
+    $('img.childimage').mouseout(function(){
+      $(this).css({"border":""});
+    });
   });
 });
