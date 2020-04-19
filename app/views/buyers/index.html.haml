@@ -7,21 +7,24 @@
         .buy-item__inner
           .item-box
             .item-box__img
-              = image_tag src= 'https://static.mercdn.net/thumb/photos/m94088928415_1.jpg?1578891440'
+              = image_tag "#{@product.images[0].image_url.url}"
             .detail
-              .detail__item-name ehka sopoジャンパー  
+              .detail__item-name
+                = @product.name 
               .detail__item-price
-                %span￥15,000
+                %span
+                  = "¥#{@product.price}"
                 %span.detail__item-price__shopping-fee (税込) 送料込み
 
       %section.payment
         .payment__inner
-          %form.buy-form
+          .buy-form
             %ul.buy-price-table
               %li.buy-price-row
                 .payment-amount 支払い金額
                 .buy-price-cell
-                  %span{"data-buy-pay": "880"} ￥15,000
+                  %span{"data-buy-pay": "880"}
+                    = "¥#{@product.price}"
             %ul.point-inner
               %li.point-inner-parent
                 .checkbox-default
@@ -31,20 +34,31 @@
             %section.buy-content{"data-buy": "pay-method"}
               .buy-content__inner
                 %h1 支払い方法
-                =link_to "#" do
+                - if @default_card_information.blank?
+                  %br /
+                - else
+                  = "**** **** **** " + "#{@default_card_information.last4}"
+                  %br
+                  - exp_month = @default_card_information.exp_month.to_s
+                  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                  = "有効期限 " + exp_month + " / " + exp_year
+                  %br 
+                =link_to user_cards_path(:user_id), class:"my-nav__list__item" do
                   %p.buy-user-info-text
                     %i.fas.fa-plus-circle
+                    %span.buy-register-text 変更する
                     
-                    %span.buy-register-text 登録してください
             %section.buy-content
               .buy-content__inner
                 %h1 配送先
-                =link_to  "#" do
+                =link_to new_user_address_path(:user_id), class:"my-nav__list__item" do
                   %p.buy-user-info-text
                     %i.fas.fa-plus-circle
                     %span.buy-register-text 登録してください
 
             .purchase
-              %button.btn-default.btn-red.bold{disabled: "disabled",type: "submit"} 購入する
+              = form_tag(action: :pay, method: :post) do
+                %button.buy-button{type:"submit"} 購入する
+              
   = render "second_footer"
                 

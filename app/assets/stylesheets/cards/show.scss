@@ -1,0 +1,70 @@
+.form-content{
+  width: 700px;
+  height: 360px;
+  background: #fff;
+  &__head{
+    font-weight: bold;
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    color: #333;
+  }
+  &__middle{
+    padding: 64px;
+    height: 307px;
+    .card-list{
+      max-width: 320px;
+      margin: 0 auto;
+      font-weight: bold;
+    }
+    .payment-list{
+      li{
+        padding: 24px 0;
+        border-bottom: 1px solid #eee;
+        list-style: none;
+        height: 120px;
+        .form-main{
+          position: relative;
+          max-width: 320px;
+          margin: 0 auto;
+          height: 70px;
+          .figure{
+            height: 20px;
+          img{
+            width: 20px;
+            height: 20px;
+          }
+          }
+          .payment-nummber{
+            margin: 8px 0 0;
+            font-size: 16px;
+            height: 16px;
+          }
+          .delete-btn{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 4px 11px;
+            background: #fff;
+            border-radius: 3px;
+            border: 1px solid #3ccace;
+            color: #3ccace;
+            cursor: pointer;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .method-of-payment{
+      a{
+        display: block;
+        margin: 40px 0 0;
+        text-align: right;
+        color: #0099e8;
+        text-decoration: none;
+        font-size: 14px;
+      }
+    }
+  }
+}
