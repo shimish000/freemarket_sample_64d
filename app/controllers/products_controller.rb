@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
 
  def create
     @product = Product.new(product_params)
-    if @product.save
+    if @product.save!
       redirect_to root_path
     else
       redirect_to new_product_path
@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
 
   def edit
     if user_signed_in? && @product.saler_id == current_user.id
-
+      
       # 親セレクトボックスの初期値(配列)
       @category_parent_array = ["選択してください"]
       # categoriesテーブルから親カテゴリーのみを抽出、配列に格納
@@ -54,8 +54,7 @@ class ProductsController < ApplicationController
       @product.category.siblings.each do |grandchild|
         @category_grandchild_array << grandchild.name
       end
-      
-
+        
     else
       redirect_to product_path (@product)   
     end
@@ -64,7 +63,6 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      binding.pry
       redirect_to product_path
     else
       render :edit

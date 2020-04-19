@@ -8,28 +8,32 @@
               %label 出品画像
               %span 必須
             %p.photos_2
-              最大10枚までアップロードできます
-            #image-box
-              - @product.images.each do |image|
-                .item-image
-                  .item-image__content
-                    = image_tag image.image_url.url, size:'115x100'
-                  .item-image__operetion
-                    .item-image__operetion--delete
-                      削除
-
-              #image-box__container{class: "item-num-#{@product.images.length}"}
-                .photos_3
-                  %label{for: "aaa",class:"kkk"}
+              最大5枚までアップロードできます
+              
+            .post__drop__box__container
+              .prev-content
+                - @product.images.each do |image|
+                  .preview-box
+                    .upper-box
+                      = image_tag image.image_url.url, width: "112", height: "112", alt: "preview"
+                    .lower-box
+                      .delete-box
+                        .delete-btn
+                          削除
+              .label-content
+                = f.label :"images_attributes_#{@product.images.length}_image", class: "label-box", id: "label-box--#{@product.images.length}" do
+                  .photo_3
                     = icon('fas', 'camera', class: 'icon')
-                    .photos_3_intext
+                    .photos_3_intext 
                       ドラッグアンドドロップ
                       %br
                       またはクリックしてファイルをアップロード
-
-                      = f.fields_for :images do |i|
-                        = i.file_field :image_url, type: 'file', style: "display:none", id:"aaa", value:""
-                  
+              .hidden-content
+                = f.fields_for :images do |i|
+                  = i.file_field :image_url, class: "hidden-field"
+                  = i.check_box :_destroy, class: "hidden-checkbox"
+                - @product.images.length.upto(4) do |i|
+                  %input{name: "product[images_attributes][#{i}][image_url]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
 
         %hr.form__underbar
 

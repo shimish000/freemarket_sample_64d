@@ -8,20 +8,26 @@
               %label 出品画像
               %span 必須
             %p.photos_2
-              最大10枚までアップロードできます
-              #image-box
-                .item-num-0#image-box__container
-                  = f.fields_for :images do |i|
-                    .photos_3
-                      = i.file_field :image_url, type: 'file', style: "display:none", id:"aaa", name: "product[images_attributes][][image_url]", value:""
-                      %label{for: "aaa",class:"kkk"}
-                        = icon('fas', 'camera', class: 'icon')
-                        .photos_3_intext
-                          ドラッグアンドドロップ
-                          %br
-                          またはクリックしてファイルをアップロード
+              最大5枚までアップロードできます
 
-                  
+            .post__drop__box__container
+              .prev-content
+              .label-content
+                %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                  .photo_3
+                    = icon('fas', 'camera', class: 'icon')
+                    .photos_3_intext 
+                      ドラッグアンドドロップ
+                      %br
+                      またはクリックしてファイルをアップロード
+
+              .hidden-content
+                = f.fields_for :images do |i|
+                  = i.file_field :image_url, class: "hidden-field", id:"product_images_attributes_0_image"
+                  %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image_url]", id: "product_images_attributes_1_image" }
+                  %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image_url]", id: "product_images_attributes_2_image" }
+                  %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image_url]", id: "product_images_attributes_3_image" }
+                  %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image_url]", id: "product_images_attributes_4_image" }
 
         %hr.form__underbar
 
@@ -140,8 +146,7 @@
             .right_bar_2 ー
 
           .price_4
-            %button{type:"submit"} 
-              出品する
+            = f.submit '出品する' , class:"button"
             = link_to root_path do
               もどる
               
