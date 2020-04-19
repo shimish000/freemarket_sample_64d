@@ -73,6 +73,28 @@
             & img {
               object-fit: contain;
             }
+            // 詳細画面にもsoldを追加予定
+            // .product-box_photo__sold{
+            //   margin-top: -26px;
+            //   margin-right: 225px;
+            //   width: 0;
+            //   height: 0;
+            //   border-top: 60px solid #3CCACE ;
+            //   border-right: 60px solid transparent;
+            //   border-bottom: 60px solid transparent;
+            //   border-left: 60px solid #3CCACE ;
+            //   z-index:100;
+            //   position: relative;
+            //   top:-320px;
+            //   &__inner{
+            //     transform: rotate(-45deg);
+            //     font-size: 28px;
+            //     margin:-25px 0px 0px -55px;
+            //     color: #fff;
+            //     letter-spacing: 2px;
+            //     font-weight: 600;
+            //   }
+            // }
           }
           &-list {
             width: 300px;
@@ -111,6 +133,16 @@
       }
       &-btn{
         display: flex;
+        &-sold-btn{
+          margin: 16px 0;
+          background: gray;
+          color: #fff;
+          line-height: 56px;
+          text-align: center;
+          font-weight: 600;
+          font-size: 24px;
+          width: 100%;
+        }
         &-edit{
           background: #3CCACE;
           display: block;
