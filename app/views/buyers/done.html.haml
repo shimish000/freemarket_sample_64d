@@ -6,7 +6,9 @@
         %h2 購入が完了しました
         .done-content
           %p ありがとうございます
-          %p 支払い金額 90000円
+          %p 支払い金額 
+          %span
+            = "¥#{@product.price}"
           = link_to root_path , class: "sns-btn" do
             トップページへ戻る
   = render "second_footer"
