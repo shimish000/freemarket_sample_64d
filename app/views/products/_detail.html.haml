@@ -35,32 +35,35 @@
               .product-detail__top__item-image-main
                 - @product.images.each_with_index do |img,i|
                   = image_tag(img.image_url.url, size: '300x300', class: "product-detail__top__item-image-main--photo" )
-            
+                -# 詳細画面にもsoldを追加予定
+                -# -if @product.buyer_id.present? 
+                -#   .product-box_photo__sold
+                -#     .product-box_photo__sold__inner
+                -#       SOLD
               
                 .product-detail__top__item-image-list
                   - @product.images.each_with_index do |img, i|
                     .product-detail__top__item-image-list__inner
                       = image_tag(img.image_url.url, size: '60x60',class: "childimage")
                 
-                -# soldの見た目が完成した際、追加で書こうと思っている箇所で、残してます！
-            -# - if @product.status != 0
-            -#   .product-detail__top__item-image--sold-out
-            -#   .product-detail__top__item-image--sold-text SOLD
-                
           .item-box__price
             %span.price
-              = @product.price
+              = "¥#{@product.price}"
             .item-box__price-detail
               %span
                 (税込)
               %span
                 送料込み
           .item-box-btn
-            - if user_signed_in? && current_user.id == @product.saler_id
-              = link_to "編集", edit_product_path(@product.id), method: :get, class: "item-box-btn-edit"
-              = link_to "削除", product_path(@product.id), method: :delete, class: "item-box-btn-delete"
-            - else
-              = link_to "購入画面に進む", product_buyers_path(product_id: @product.id) , class: "item-box-btn__buy-btn"
+            -if @product.buyer_id.present?
+              %p.item-box-btn-sold-btn
+                売り切れました
+            - else    
+              - if user_signed_in? && current_user.id == @product.saler_id
+                = link_to "編集", edit_product_path(@product.id), method: :get, class: "item-box-btn-edit"
+                = link_to "削除", product_path(@product.id), method: :delete, class: "item-box-btn-delete"
+              - else
+                = link_to "購入画面に進む", product_buyers_path(product_id: @product.id) , class: "item-box-btn__buy-btn"
         
 
           .item-detail 

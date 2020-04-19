@@ -24,6 +24,7 @@ class BuyersController < ApplicationController
   end
 
   def done
+    @product.update( buyer_id: current_user.id)
   end
 
   private

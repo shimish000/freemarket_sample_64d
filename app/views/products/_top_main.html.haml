@@ -93,8 +93,6 @@
       %ul.product-lists
         - @cat_no1.each do |product|
           %li.list
-
-          
             = link_to product_path(product.id) do
               %figure.list__img
                 = image_tag "#{product.images[0].image_url.url}"
@@ -109,4 +107,8 @@
                       %i.fas.fa-star.like-icon
                       0
                   %p (税込)
-    
+            -if product.buyer_id.present? 
+              .product-box_photo__sold
+                .product-box_photo__sold__inner
+                  SOLD
+  
