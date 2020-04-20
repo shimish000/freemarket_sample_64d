@@ -38,9 +38,10 @@ $(function(){
 // 投稿編集時
   if (window.location.href.match(/\/products\/\d+\/edit/)){
     //登録済み画像のプレビュー表示欄の要素を取得する
-    var prevContent = $('.label-content').prev();
+    var $lc = $('.label-content');
+    var prevContent = $lc.prev();
     labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-    $('.label-content').css('width', labelWidth);
+    $lc.css('width', labelWidth);
     //プレビューにidを追加
     $('.preview-box').each(function(index, box){
       $(box).attr('id', `preview-box__${index}`);
@@ -52,16 +53,17 @@ $(function(){
     var count = $('.preview-box').length;
     //プレビューが5あるときは、投稿ボックスを消しておく
     if (count == 5) {
-      $('.label-content').hide();
+      $lc.hide();
     }
   }
 
   // ラベルのwidth操作
   function setLabel() {
     //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
-    var prevContent = $('.label-content').prev();
+    var $lc = $('.label-content');
+    var prevContent = $lc.prev();
     labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-    $('.label-content').css('width', labelWidth);
+    $lc.css('width', labelWidth);
   }
 
   // プレビューの追加
@@ -69,8 +71,10 @@ $(function(){
     setLabel();
     //hidden-fieldのidの数値のみ取得
     var id = $(this).attr('id').replace(/[^0-9]/g, '');
+    var $lc = $('.label-content');
+    var $lb = $('.label-box');
     //labelボックスのidとforを更新
-    $('.label-box').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
+    $lb.attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
     //選択したfileのオブジェクトを取得
     var file = this.files[0];
     var reader = new FileReader();
@@ -84,7 +88,7 @@ $(function(){
         var count = $('.preview-box').length;
         var html = buildHTML(id);
         //ラベルの直前のプレビュー群にプレビューを追加
-        var prevContent = $('.label-content').prev();
+        var prevContent = $lc.prev();
         $(prevContent).append(html);
       }
       //イメージを追加
@@ -92,7 +96,7 @@ $(function(){
       var count = $('.preview-box').length;
       //プレビューが5個あったらラベルを隠す 
       if (count == 5) { 
-        $('.label-content').hide();
+        $lc.hide();
       }
 
       //プレビュー削除したフィールドにdestroy用のチェックボックスがあった場合、チェックを外す
@@ -105,7 +109,7 @@ $(function(){
       //ラベルのidとforの値を変更
       if(count < 5){
         //プレビューの数でラベルのオプションを更新する
-        $('.label-box').attr({id: `label-box--${count}`,for: `product_images_attributes_${count}_image`});
+        $lb.attr({id: `label-box--${count}`,for: `product_images_attributes_${count}_image`});
       }
     }
   });
@@ -113,6 +117,8 @@ $(function(){
   // 画像の削除
   $(document).on('click', '.delete-box', function() {
     var count = $('.preview-box').length;
+    var $lc = $('.label-content');
+    var $lb = $('.label-box');
     setLabel(count);
     //product_images_attributes_${id}_image から${id}に入った数字のみを抽出
     var id = $(this).attr('id').replace(/[^0-9]/g, '');
@@ -130,12 +136,12 @@ $(function(){
       var count = $('.preview-box').length;
       //5個めが消されたらラベルを表示
       if (count == 4) {
-        $('.label-content').show();
+        $lc.show();
       }
       setLabel(count);
       if(id < 5){
         //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
-        $('.label-box').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
+        $lb.attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
       }
     } else {
 
@@ -143,14 +149,14 @@ $(function(){
       $(`#product_images_attributes_${id}__destroy`).prop('checked',true);
       //5個めが消されたらラベルを表示
       if (count == 4) {
-        $('.label-content').show();
+        $lc.show();
       }
       //ラベルのwidth操作
       setLabel();
       //ラベルのidとforの値を変更
       //削除したプレビューのidによって、ラベルのidを変更する
       if(id < 5){
-        $('.label-box').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
+        $lb.attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
       }
     }
   });
