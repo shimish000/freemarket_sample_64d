@@ -88,38 +88,27 @@
     .product-box
       .product-head
         = link_to '#' do
+  
           %h3.title レディース新着アイテム
       %ul.product-lists
         - @cat_no1.each do |product|
           %li.list
-            - if user_signed_in? && current_user.id == product.saler_id
-              = link_to product_path(product.id) do
-                %figure.list__img
-                  = image_tag "#{product.images[0].image_url.url}"
-                .list__body
-                  %h3.name 
-                    = product.name
-                  .details
-                    %ul
-                      %li
-                        = "¥#{product.price}"
-                      %li
-                        %i.fas.fa-star.like-icon
-                        0
-                    %p (税込)
-            - else
-              = link_to product_path(product.id) do
-                %figure.list__img
-                  = image_tag "#{product.images[0].image_url.url}"
-                .list__body
-                  %h3.name 
-                    = product.name
-                  .details
-                    %ul
-                      %li
-                        = "¥#{product.price}"
-                      %li
-                        %i.fas.fa-star.like-icon
-                        0
-                    %p (税込)
-      
+
+            = link_to product_path(product.id) do
+              %figure.list__img
+                = image_tag "#{product.images[0].image_url.url}"
+              .list__body
+                %h3.name 
+                  = product.name
+                .details
+                  %ul
+                    %li
+                      = "¥#{product.price}"
+                    %li
+                      %i.fas.fa-star.like-icon
+                      0
+                  %p (税込)
+            -if product.buyer_id.present? 
+              .product-box_photo__sold
+                .product-box_photo__sold__inner
+                  SOLD
