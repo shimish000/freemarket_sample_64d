@@ -93,6 +93,7 @@
       %ul.product-lists
         - @cat_no1.each do |product|
           %li.list
+
             = link_to product_path(product.id) do
               %figure.list__img
                 = image_tag "#{product.images[0].image_url.url}"
@@ -111,4 +112,3 @@
               .product-box_photo__sold
                 .product-box_photo__sold__inner
                   SOLD
-  
