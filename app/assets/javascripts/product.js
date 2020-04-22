@@ -1,34 +1,23 @@
 $(function() {
-    function buildChildHTML(child){
-      var html =`<a class="child_category" id="${child.id}" 
-                  href="/category/${child.id}">${child.name}</a>`;
-      return html;
+  function buildChildHTML(child){
+    var html =`<a class="child_category" id="${child.id}" 
+                href="/category/${child.id}">${child.name}</a>`;
+    return html;
+  }
+  function buildGrandChildHTML(child){
+    var html =`<a class="grand_child_category" id="${child.id}"
+               href="/category/${child.id}">${child.name}</a>`;
+    return html;
+  }
+
+  $("#catBtn").mouseover(function(){
+    if($(".parents_list").css('display') == 'none'){
+      $(".parents_list").show();
     }
-   
-    $("#catBtn").mouseover(function(){
-      if($(".parents_list").css('display') == 'none'){
-        $(".parents_list").show();
-      }
-    });
+  });
 
-    
-    // カテゴリのトップページの実装で後に使います！
-
-    // $(".category_list").mouseout(function(){
-    //   $(".category_list").hide();
-    // });
-
-    // $('.categoriesss').hover(
-    //   function() {
-    //     $(this).append(html);
-    //   },
-    //   function() {
-    //     $(this).find(".parent_category").remove();
-    //   }
-    // );
-    
-
-
+  $(document).on("mouseenter", ".category_list", function () {
+    console.log("test")
     $(".parent_category").on("mouseover", function() {
       var id = this.id
       $(".now-selected-green").removeClass("now-selected-green")
@@ -49,13 +38,6 @@ $(function() {
       });
     });
   
-    
-    function buildGrandChildHTML(child){
-      var html =`<a class="grand_child_category" id="${child.id}"
-                 href="/category/${child.id}">${child.name}</a>`;
-      return html;
-    }
-  
     $(document).on("mouseover", ".child_category", function () {
       var id = this.id
       $(".now-selected-green2").removeClass("now-selected-green2");
@@ -73,6 +55,9 @@ $(function() {
         $(document).on("mouseover", ".child_category", function () {
           $(".grand_child_category").remove();
         });
+        // $(document).on("mouseenter", ".category_list", function () {
+        //   console.log("test")
+        // });
       });
     });  
 
@@ -81,6 +66,58 @@ $(function() {
       $(".now-selected-green3").removeClass("now-selected-green3");
       $('#' + id).addClass("now-selected-green3");
     });
+    
+    $(document).on("mouseleave", ".category_list", function () {
+      console.log("test2")
+      $(".parents_list").hide();
+      $('.children_list').hide(); 
+      $('.grand_children_list').hide();
+    });
+  });
+
+
+    
+
+    
+    
+    
+    // カテゴリのトップページの実装で後に使います！
+
+    // $(".category_list").mouseout(function(){
+    //   $(".category_list").hide();
+    // });
+
+    // $('.categoriesss').hover(
+    //   function() {
+    //     $(this).append(html);
+    //   },
+    //   function() {
+    //     $(this).find(".parent_category").remove();
+    //   }
+    // );
+
+    // $(function() {
+    //   $("#catBtn").hover(function() {
+    //     $(".parents_list").toggle();
+    //   });
+    //   $(".parents_list").hide();
+    //   $(".parents_list").hover(function() {
+    //       $(">.parents_list:not(:animated)", this).stop(true, true).slideDown("fast");
+    //       $(">.parents_list", this).addClass("active");
+    //   }, function() {
+    //       $(">.category_list:not(:animated)", this).stop(true, true).slideUp("fast");
+    //       $(">.parents_list", this).removeClass("active");
+    // });
+    // $(".parents_list").hide();
+  //   $("#catBtn").hover(function(){
+  //     $("#catBtn:not(:animated)",this).slideDown("fast")
+  //     },
+  //     function(){
+  //       $("ul",this).slideUp("fast");
+  //   })
+  // // });
+    
+
 
   // 商品出品のカテゴリ
 
