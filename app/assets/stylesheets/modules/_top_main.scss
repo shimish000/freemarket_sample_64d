@@ -260,6 +260,7 @@
         width: 220px;
         display: inline-block;
         float: left;
+        position: relative;
         a {
           background-color: #fff;
           display: inline-block;
@@ -271,11 +272,6 @@
             margin: 0;
             z-index: auto;
             img {
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
               width: 100%;
               z-index: auto;
               height: 150px;
@@ -317,7 +313,6 @@
           }
         }
         .product-box_photo__sold{
-          margin-top: 80px;
           width: 0;
           height: 0;
           border-top: 60px solid #3CCACE ;
@@ -325,8 +320,9 @@
           border-bottom: 60px solid transparent;
           border-left: 60px solid #3CCACE ;
           z-index:100;
-          position: relative;
-          top:-320px;
+          position: absolute;
+          top: 0;
+          left: 0;
           &__inner{
             transform: rotate(-45deg);
             font-size: 28px;

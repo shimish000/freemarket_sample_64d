@@ -36,10 +36,10 @@
                 - @product.images.each_with_index do |img,i|
                   = image_tag(img.image_url.url, size: '300x300', class: "product-detail__top__item-image-main--photo" )
                 -# 詳細画面にもsoldを追加予定
-                -# -if @product.buyer_id.present? 
-                -#   .product-box_photo__sold
-                -#     .product-box_photo__sold__inner
-                -#       SOLD
+                -if @product.buyer_id.present? 
+                  .product-box_photo__sold
+                    .product-box_photo__sold__inner
+                      SOLD
               
                 .product-detail__top__item-image-list
                   - @product.images.each_with_index do |img, i|
