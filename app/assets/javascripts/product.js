@@ -17,7 +17,6 @@ $(function() {
   });
 
   $(document).on("mouseenter", ".category_list", function () {
-    console.log("test")
     $(".parent_category").on("mouseover", function() {
       var id = this.id
       $(".now-selected-green").removeClass("now-selected-green")
@@ -55,9 +54,6 @@ $(function() {
         $(document).on("mouseover", ".child_category", function () {
           $(".grand_child_category").remove();
         });
-        // $(document).on("mouseenter", ".category_list", function () {
-        //   console.log("test")
-        // });
       });
     });  
 
@@ -68,56 +64,11 @@ $(function() {
     });
     
     $(document).on("mouseleave", ".category_list", function () {
-      console.log("test2")
       $(".parents_list").hide();
-      $('.children_list').hide(); 
-      $('.grand_children_list').hide();
+      $('.child_category').remove(); 
+      $('.grand_child_category').remove();
     });
   });
-
-
-    
-
-    
-    
-    
-    // カテゴリのトップページの実装で後に使います！
-
-    // $(".category_list").mouseout(function(){
-    //   $(".category_list").hide();
-    // });
-
-    // $('.categoriesss').hover(
-    //   function() {
-    //     $(this).append(html);
-    //   },
-    //   function() {
-    //     $(this).find(".parent_category").remove();
-    //   }
-    // );
-
-    // $(function() {
-    //   $("#catBtn").hover(function() {
-    //     $(".parents_list").toggle();
-    //   });
-    //   $(".parents_list").hide();
-    //   $(".parents_list").hover(function() {
-    //       $(">.parents_list:not(:animated)", this).stop(true, true).slideDown("fast");
-    //       $(">.parents_list", this).addClass("active");
-    //   }, function() {
-    //       $(">.category_list:not(:animated)", this).stop(true, true).slideUp("fast");
-    //       $(">.parents_list", this).removeClass("active");
-    // });
-    // $(".parents_list").hide();
-  //   $("#catBtn").hover(function(){
-  //     $("#catBtn:not(:animated)",this).slideDown("fast")
-  //     },
-  //     function(){
-  //       $("ul",this).slideUp("fast");
-  //   })
-  // // });
-    
-
 
   // 商品出品のカテゴリ
 
