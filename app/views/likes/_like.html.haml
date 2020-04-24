@@ -1,6 +1,6 @@
 - if user_signed_in?
   - if product.like_user(current_user.id)
-    .itembutton-container__left__dislike
+    .itembutton-container__left__like
       =link_to product_like_path(current_user, product, like), method: "DELETE", remote: true do
         %i.fas.fa-star
         %span お気に入り
