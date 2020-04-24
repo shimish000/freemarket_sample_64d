@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_024741) do
+ActiveRecord::Schema.define(version: 2020_04_24_053414) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_04_10_024741) do
     t.string "municipality", null: false
     t.string "address", null: false
     t.string "building_name"
-    t.integer "address_phone"
+    t.string "address_phone"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 2020_04_10_024741) do
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_likes_on_product_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "phones", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "phone", null: false
     t.bigint "user_id"
@@ -84,6 +93,7 @@ ActiveRecord::Schema.define(version: 2020_04_10_024741) do
     t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes_count"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

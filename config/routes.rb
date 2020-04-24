@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         get 'done', to: 'buyers#done' 
       end
     end  
+    resources :likes, only: [:create, :destroy]
   end 
   
   resources :users, only: [:index, :destroy] do

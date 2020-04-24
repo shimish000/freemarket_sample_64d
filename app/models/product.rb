@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   belongs_to :buyer, optional: true, class_name: "User",foreign_key: 'buyer_id'
   belongs_to :category
   has_many :images, dependent: :destroy
+  has_many :likes, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy:true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -11,4 +12,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :shipping_s_area
   belongs_to_active_hash :shipping_date
   
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+   end
 end
