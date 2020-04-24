@@ -21,12 +21,12 @@
           = link_to "#", id:"catBtn" do
             = icon('fas', 'list-ul', class: 'h-n-l_icon')
             カテゴリーから探す
-            .category_list
-              .parents_list
+             %ul.category_list
+              %li.parents_list
                 - @parents.each do |parent|
                   = link_to "#{parent.name}", categories_path(parent), class: "parent_category",id: "#{parent.id}"
-              .children_list
-              .grand_children_list
+              %li.children_list
+              %li.grand_children_list
 
         %li.brandsss
           = link_to "#", id:"brandBtn" do
