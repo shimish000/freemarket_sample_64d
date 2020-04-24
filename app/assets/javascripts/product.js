@@ -1,34 +1,22 @@
 $(function() {
-    function buildChildHTML(child){
-      var html =`<a class="child_category" id="${child.id}" 
-                  href="/category/${child.id}">${child.name}</a>`;
-      return html;
+  function buildChildHTML(child){
+    var html =`<a class="child_category" id="${child.id}" 
+                href="/category/${child.id}">${child.name}</a>`;
+    return html;
+  }
+  function buildGrandChildHTML(child){
+    var html =`<a class="grand_child_category" id="${child.id}"
+               href="/category/${child.id}">${child.name}</a>`;
+    return html;
+  }
+
+  $("#catBtn").mouseover(function(){
+    if($(".parents_list").css('display') == 'none'){
+      $(".parents_list").show();
     }
-   
-    $("#catBtn").mouseover(function(){
-      if($(".parents_list").css('display') == 'none'){
-        $(".parents_list").show();
-      }
-    });
+  });
 
-    
-    // カテゴリのトップページの実装で後に使います！
-
-    // $(".category_list").mouseout(function(){
-    //   $(".category_list").hide();
-    // });
-
-    // $('.categoriesss').hover(
-    //   function() {
-    //     $(this).append(html);
-    //   },
-    //   function() {
-    //     $(this).find(".parent_category").remove();
-    //   }
-    // );
-    
-
-
+  $(document).on("mouseenter", ".category_list", function () {
     $(".parent_category").on("mouseover", function() {
       var id = this.id
       $(".now-selected-green").removeClass("now-selected-green")
@@ -48,13 +36,6 @@ $(function() {
         })
       });
     });
-  
-    
-    function buildGrandChildHTML(child){
-      var html =`<a class="grand_child_category" id="${child.id}"
-                 href="/category/${child.id}">${child.name}</a>`;
-      return html;
-    }
   
     $(document).on("mouseover", ".child_category", function () {
       var id = this.id
@@ -81,6 +62,13 @@ $(function() {
       $(".now-selected-green3").removeClass("now-selected-green3");
       $('#' + id).addClass("now-selected-green3");
     });
+    
+    $(document).on("mouseleave", ".category_list", function () {
+      $(".parents_list").hide();
+      $('.child_category').remove(); 
+      $('.grand_child_category').remove();
+    });
+  });
 
   // 商品出品のカテゴリ
 
