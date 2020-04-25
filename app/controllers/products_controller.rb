@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   def show
     @parents = Category.where(ancestry: nil)
     @category = @product.category
+    @comment = Comment.new
   end
 
 
