@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
+    @products = Product.search(params[:search])
     @parents = Category.where(ancestry: nil)
   end
   
@@ -14,6 +15,10 @@ class ProductsController < ApplicationController
     @category = @product.category
   end
 
+  def search
+    @products = Product.search(params[:keyword])
+    @parents = Category.where(ancestry: nil)
+  end
 
 
   def new

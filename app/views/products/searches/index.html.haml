@@ -1,0 +1,78 @@
+%header.pcHeader
+  .headerInner
+    .mainHeader
+      %h1.m-h_icon
+        = link_to root_path do
+          = image_tag "logo.png"
+
+
+      .searchBox
+        = form_with(url: products_searches_path, local: true, method: :get, class: "search-form") do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__input"
+          .searchBox__icon 
+            = form.label "icon" do
+              = icon('fas', 'search', class: 'icon')
+              = form.submit value = "", class: "search-btn" ,id:"icon"
+
+        %ul.resultLists
+    .nav
+      %ul.listsLeft
+        %li.categoriesss
+          = link_to "categories", id:"catBtn" do
+            = icon('fas', 'list-ul', class: 'h-n-l_icon')
+            カテゴリーから探す
+            
+            .category_list
+              .parents_list
+                - @parents.each do |parent|
+                  = link_to "#{parent.name}", products_searches_path(parent), class: "parent_category",id: "#{parent.id}"
+              .children_list
+              .grand_children_list
+              
+        %li.brandsss
+          = link_to "#", id:"brandBtn" do
+            = icon('fas', 'tag', class: 'h-n-l_icon')
+            ブランドから探す
+            
+          
+      %ul.listsRight_log
+        %li
+          = link_to "#" do 
+            = icon('far', 'heart', class: 'h-n_icon')
+            いいね！一覧
+        %li
+          = link_to "#" do 
+            = icon('far', 'bell', class: 'h-n_icon')
+            お知らせ
+        %li
+          = link_to "#" do 
+            = icon('fas', 'check', class: 'h-n_icon')
+            やることリスト
+        %li   
+          = link_to users_path(:id) do
+            = icon('fas', 'user', class: 'h_icon')
+            マイページ
+
+%ul.contents.row
+  - @products.each do |product|
+    %li.list
+      = link_to product_path(product.id) do
+        %figure.list__img
+          = image_tag "#{product.images[0].image_url.url}"
+        .list__body
+          %h3.name 
+            = product.name
+          .details
+            %ul
+              %li
+                = "¥#{product.price}"
+              %li
+                %i.fas.fa-star.like-icon
+                0
+            %p (税込)
+
+
+= render "products/app_banner"
+= render "products/footer"
+
+
