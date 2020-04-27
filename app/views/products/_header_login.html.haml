@@ -7,13 +7,13 @@
           = image_tag "logo.png"
      
       .searchBox
-        %form{"accept-charset": "UTF-8", action:"#", method:"get"}
-          %input{name:"utf8",type:"hidden",value:"✓"}/
-          %input#searchInput.searchBox__input{name:"key", placeholder:"キーワードから探す"}/
-          %button{type:"submit"}
-            .searchBox__icon 
-              = image_tag "icon-search 1.png"
-          %input{name:"authenticity_token", type:"hidden", value:"SSuOmGK1w/I26KuBb26X15s7ogBn1Xg/zZ0X0iUaurgeXwHcMYyu5WAn7FMHSQVqNndbczep7xjkiyrYNwgkUA=="}/
+        = form_with(url: products_searches_path, local: true, method: :get, class: "search-form") do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__input"
+          .searchBox__icon 
+            = form.label "icon" do
+              = icon('fas', 'search', class: 'icon')
+              = form.submit value = "", class: "search-btn" ,id:"icon"
+        
       %ul.resultLists
     .nav
       %ul.listsLeft
@@ -52,6 +52,3 @@
           = link_to users_path(:id) do
             = icon('fas', 'user', class: 'h_icon')          
             マイページ
-  
-   
-  

@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :set_category, only: [:show]
   before_action :index_category_set, only: :index
+  
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
@@ -51,6 +52,8 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
+
+  
 
 
   def destroy
