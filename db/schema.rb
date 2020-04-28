@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_084255) do
     t.string "municipality", null: false
     t.string "address", null: false
     t.string "building_name"
-    t.string "address_phone"
+    t.integer "address_phone"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
