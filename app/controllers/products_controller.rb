@@ -115,6 +115,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def set_parents
+    @parents = Category.where(ancestry: nil)
+  end
+
   def set_category
     @grandchild = Category.find(@product.category_id)
     @child = @grandchild.parent
