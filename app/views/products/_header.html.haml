@@ -6,7 +6,7 @@
           = image_tag "logo.png"
      
       .searchBox
-        = form_with(url: search_products_path, local: true, method: :get, class: "search-form") do |form|
+        = form_with(url:  products_searches_path, local: true, method: :get, class: "search-form") do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__input"
           .searchBox__icon 
             = form.label "icon" do
