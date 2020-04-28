@@ -1,5 +1,5 @@
-%body.sell_page
-  .sell-page-main
+%body.edit_page
+  .edit-page-main
     .form
       = form_for @product do |f|
         .form__header
@@ -9,25 +9,32 @@
               %span 必須
             %p.photos_2
               最大5枚までアップロードできます
-
+              
             .post__drop__box__container
               .prev-content
+                - @product.images.each do |image|
+                  .preview-box
+                    .upper-box
+                      = image_tag image.image_url.url, width: "112", height: "112", alt: "preview"
+                    .lower-box
+                      .delete-box
+                        .delete-btn
+                          削除
+                          
               .label-content
-                %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                = f.label :"images_attributes_#{@product.images.length}_image", class: "label-box", id: "label-box--#{@product.images.length}" do
                   .photo_3
                     = icon('fas', 'camera', class: 'icon')
                     .photos_3_intext 
                       ドラッグアンドドロップ
                       %br
                       またはクリックしてファイルをアップロード
-
               .hidden-content
                 = f.fields_for :images do |i|
-                  = i.file_field :image_url, class: "hidden-field", id:"product_images_attributes_0_image"
-                  %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image_url]", id: "product_images_attributes_1_image" }
-                  %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image_url]", id: "product_images_attributes_2_image" }
-                  %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image_url]", id: "product_images_attributes_3_image" }
-                  %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image_url]", id: "product_images_attributes_4_image" }
+                  = i.file_field :image_url, class: "hidden-field"
+                  = i.check_box :_destroy, class: "hidden-checkbox"
+                - @product.images.length.upto(4) do |i|
+                  %input{name: "product[images_attributes][#{i}][image_url]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
 
         %hr.form__underbar
 
@@ -59,12 +66,20 @@
             .listing-product-detail__category.formLabel
               = f.label 'カテゴリー', class: 'listing-default__label'
               %span.style_tag.listing-default--require 必須
+
               .listing-select-wrapper.select_area
-                .listing-select-wrapper__box
-                  = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                .listing-select-wrapper__boxx
+                  = f.select :category_id, @category_parent_array, {selected:@parent.name}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                   %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-           
-            
+              .listing-select-wrapper.select_area#children_wrapper
+                .listing-select-wrapper__added
+                  = f.select :category_id, @category_child_array, {selected:@child.name}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                  %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+              .listing-select-wrapper.select_area#grandchildren_wrapper
+                .listing-select-wrapper__box1
+                  = f.select :category_id, @category_grandchild_array, {selected:@grandchild.name}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                  %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+          
           .detail_2
             .form-group.brand--container.formLabel
               %label ブランド
@@ -146,9 +161,10 @@
             .right_bar_2 ー
 
           .price_4
-            = f.submit '出品する' , class:"button"
-            = link_to root_path do
-              もどる
+            %button{type:"submit"} 
+              変更する
+            = link_to product_path do
+              キャンセル
               
           %p.attention
             禁止されている

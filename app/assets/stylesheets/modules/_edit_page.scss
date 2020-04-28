@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
 }
-.sell_page{
+.edit_page{
   position: relative;
   min-height: 100%;
   color: rgb(51, 51, 51);
@@ -21,7 +21,7 @@
   overflow: hidden;
 }
 
-.sell-page-main{
+.edit-page-main{
   background-color: rgb(255, 255, 255);
   max-width: 700px;
   margin: 0 auto;
@@ -33,7 +33,7 @@
 
   // 出品画像
   
-  &__header{  
+  &__header{
     padding: 40px;
     
     &__contents{
@@ -76,8 +76,13 @@
           margin-inline-end: 0px;
         }
       }
+      
+      #image-box{
+        display:flex;
+        flex-wrap:wrap;
+      }
 
-      .photo_3{
+      .kkk{
         margin-top: 16px;
         height: 150px;
         align-content: center;
@@ -104,8 +109,52 @@
         width: 100%;
         }
       } 
+
+      .item-num-0{
+        width: 100%;
+      }
+      .item-num-1{
+        width: 491px;
+      }
+      .item-num-2{
+        width: 363px;
+      }
+      .item-num-3{
+        width: 234px;
+      }
+      .item-num-4{
+        width: 106px;
+      }
+      //下段のfile_field
+      .item-num-5{
+        width: 100%;
+      }
+      .item-num-6{
+        width: 491px;
+      }
+      .item-num-7{
+        width: 363px;
+      }
+      .item-num-8{
+        width: 234px;
+      }
+      .item-num-9{
+        width: 106px;
+      }
+
+      .item-image{
+        height: 150px;
+        margin-top: 35px;
+      }
+
+      .item-image__operetion--delete{
+        text-align: center;
+        color:rgb(0, 149, 238);
+        margin-top: 5px;
+        cursor: pointer
+      }
     }  
-  }
+}
 
    &__underbar{ 
     border-top-color: #efefef;
@@ -256,10 +305,44 @@
         display: inline-flex;
         width: 100%;
         position: relative;
+        
 
-        .listing-select-wrapper__box{
+        .listing-select-wrapper__boxx{
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          color: #222;
+          font-size: 16px;
+          height: 48px;
+          line-height: 1;
+          margin: 0;
+          outline: none;
           width: 100%;
-          &--select{
+        }
+        
+      
+        .listing-select-wrapper__added{
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          color: #222;
+          font-size: 16px;
+          height: 48px;
+          line-height: 1;
+          margin: 0;
+          outline: none; 
+          width: 100%;
+        }
+
+          .listing-select-wrapper__box1{
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -273,64 +356,19 @@
             line-height: 1;
             margin: 0;
             outline: none;
-            padding: 0 56px 0 16px;
             width: 100%;
           }
+ 
+        .fas.fa-chevron-down{
+          margin: auto;
+          pointer-events: none;
+          position: absolute;
+          right: 16px;
+          top: 16px;
         }
       }
-      .listing-select-wrapper__added{
-        margin-top: 16px;
-        align-items: center;
-        display: inline-flex;
-        width: 100%;
-        position: relative;
-        .listing-select-wrapper__box{
-          width: 100%;
-          #child_category{
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            color: #222;
-            font-size: 16px;
-            height: 48px;
-            line-height: 1;
-            margin: 0;
-            outline: none;
-            padding: 0 56px 0 16px;
-            width: 100%;
-          }
-          #grandchild_category{
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            color: #222;
-            font-size: 16px;
-            height: 48px;
-            line-height: 1;
-            margin: 0;
-            outline: none;
-            padding: 0 56px 0 16px;
-            width: 100%;
-          }
-
-        }
-      }
-      .fas.fa-chevron-down{
-        margin: auto;
-        pointer-events: none;
-        position: absolute;
-        right: 16px;
-        top: 16px;
-      }
-    }
+    }   
+  
 
     .detail_2{
       margin-top: 32px;
@@ -463,6 +501,7 @@
       }
     }
   }
+
 
   // 配送について
   
@@ -799,7 +838,7 @@
     width: 360px;
     margin: 0px auto 24px;
 
-      button{
+      .button{
         background-color: #3CCACE;
         color: #fff;
         margin-bottom: 24px;
@@ -862,80 +901,15 @@
           text-decoration: none;
         }
       }
-    }
-
-
-  //image投稿欄のCSS
-  .post__drop__box__container{
-    display: block;
-    margin: 16px auto 0;
-    display: flex;
-    flex-wrap: wrap;
-
-  //プレビュー表示欄のCSS
-  .prev-content {
-    display: flex;
-    margin-top: 10px;
-    .preview-box {
-      height: 162px;
-      width: 112px;
-      margin: 0 15px 10px 0;
-      .upper-box {
-        height: 112px;
-        width: 100%;
-        img{
-          width: 112px;
-          height: 112px;
-        }
-      }
-      .lower-box {
-        display: flex;
-        text-align: center;
-        .delete-box {
-          color: #00b0ff;
-          width: 100%;
-          height: 50px;
-          line-height: 50px;
-          border: 1px solid #eee;
-          background: #f5f5f5;
-          cursor: pointer;
-        }
-      }
-    }
   }
+}
 
-    //投稿クリックエリアのCSS
-    .label-content{
-      margin-bottom: 10px;
-      width: 620px;
-
-      .label-box{ 
-
-        &__text-visible {
-          position: absolute;
-          top: 50%;
-          left: 16px;
-          right: 16px;
-          text-align: center;
-          font-size: 14px;
-          line-height: 1.5;
-          font-weight: bold;
-          -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-          pointer-events: none;
-          white-space: pre-wrap;
-          word-wrap: break-word;
-        }
-      }
-    }
-    //  file_fieldのcss
-    .hidden-content {
-      .hidden-field {
-        display: none;
-      }
-      .hidden-checkbox {
-        display: none;
-      }
-    }
-  }
-} 
+.preview {
+  width: 115px;
+  height: 100px;
+  padding: 1rem 0 0;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-top: 20px;
+  background:white;
+}
