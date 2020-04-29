@@ -104,10 +104,10 @@
                   %ul
                     %li
                       = "¥#{product.price}"
-                    -# %li.item-button-container
-                    -#   .item-button-container__left
-                    -#     = render partial: 'likes/like', locals: { product: @product, products: @products, likes: @likes, like: @like}
-                      0
+                    .item-button-container__left__like
+                      %i.fas.fa-star
+                        %span
+                          = product.likes_count
                   %p (税込)
             -if product.buyer_id.present? 
               .product-box_photo__sold
