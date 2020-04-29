@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  after_action :get_product
   def create
     @like = Like.new(user_id: current_user.id, product_id: params[:product_id])
     if @like.save
@@ -6,7 +7,7 @@ class LikesController < ApplicationController
       flash.now[:alert] = @like.errors.full_messages
     end
     @likes = Like.where(product_id: params[:product_id])
-    get_product
+    # get_product
   end
 
   def destroy
@@ -16,7 +17,7 @@ class LikesController < ApplicationController
       flash.now[:alert] = '削除できませんでした。'
     end
     @likes = Like.where(product_id: params[:product_id])
-    get_product
+    # get_product
   end
 
   def get_product
