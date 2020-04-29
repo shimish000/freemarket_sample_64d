@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one :phone
   has_one :phone
   has_one :address
+  has_many :comments
   has_many :buyed_products, foreign_key: "buyer_id", class_name: "Products"
   has_many :saling_products, foreign_key: "saler_id", class_name: "Product"
   has_many :sold_products, foreign_key: "saler_id", class_name: "Product"

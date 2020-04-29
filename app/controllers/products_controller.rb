@@ -1,19 +1,25 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
-  before_action :set_category, only: [:show]
-  before_action :index_category_set, only: :index
   before_action :set_category, only: [:show, :edit]
+  before_action :index_category_set, only: :index
+
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
+    @products = Product.search(params[:search])
     @parents = Category.where(ancestry: nil)
   end
   
   def show
     @parents = Category.where(ancestry: nil)
     @category = @product.category
+    @comment = Comment.new
   end
 
+  def search
+    @products = Product.search(params[:keyword])
+    @parents = Category.where(ancestry: nil)
+  end
 
 
   def new
@@ -72,6 +78,8 @@ class ProductsController < ApplicationController
     end
   end
 
+  
+
 
   def destroy
     if @product.destroy
@@ -105,6 +113,10 @@ class ProductsController < ApplicationController
   
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def set_parents
+    @parents = Category.where(ancestry: nil)
   end
 
   def set_category

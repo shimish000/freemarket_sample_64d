@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   belongs_to :saler, class_name: "User", foreign_key: 'saler_id'
   belongs_to :buyer, optional: true, class_name: "User",foreign_key: 'buyer_id'
   belongs_to :category
+  has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :likes, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy:true
@@ -11,6 +12,14 @@ class Product < ApplicationRecord
   belongs_to_active_hash :shipping_fee
   belongs_to_active_hash :shipping_s_area
   belongs_to_active_hash :shipping_date
+
+  def self.search(search)
+    if search
+      Product.where('name LIKE(?)', "%#{search}%")
+    else
+      Product.all
+    end
+  end
   
   def like_user(user_id)
     likes.find_by(user_id: user_id)

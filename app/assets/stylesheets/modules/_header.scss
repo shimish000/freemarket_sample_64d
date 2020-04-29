@@ -36,7 +36,7 @@
   margin-left: auto;
   width: 100%;
 
-  button {
+  .search-btn {
     width: 36px;
     border: 0;
     cursor: pointer;
@@ -57,16 +57,25 @@
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
+    position: relative;
+    
   }
 
   
   &__icon{
     margin-left: auto;
     width: 100%;
+    display: contents;
     
-    img{
-      width: 100%;
-      vertical-align: bottom;
+    i{
+      position: absolute;
+      right:8px;
+      top: 15px;
+      color: #fff;
+      font-size: 20px;
+    }
+    label{
+      cursor: pointer;
     }
   }
   .resultLists{

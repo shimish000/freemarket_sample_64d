@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 2020_04_24_053414) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_comments_on_product_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image_url"
     t.bigint "product_id"
@@ -121,5 +131,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_053414) do
 
   add_foreign_key "buyers", "cards"
   add_foreign_key "buyers", "users"
+  add_foreign_key "comments", "products"
+  add_foreign_key "comments", "users"
   add_foreign_key "images", "products"
 end
