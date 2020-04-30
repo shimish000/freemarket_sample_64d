@@ -137,5 +137,5 @@ class ProductsController < ApplicationController
         products = Product.where(category_id: ids).order("id DESC").limit(10)
         instance_variable_set("@cat_no#{num}", products)
       end
-   end
+  end
 end
