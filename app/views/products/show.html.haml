@@ -116,38 +116,38 @@
                     %i.fa.fa-flag
                     不適切な商品の通報
           .messages-boxx
-          .message-box
-            .message-item
-              .clearfix
-                - @product.comments.each do |comment|
-                  .message-nickname
-                    = comment.user.nickname
-                  - if comment.user_id == @product.saler_id
-                    .message-saler 
-                      出品者
+            .message-box
+              .message-item
+                .clearfix
+                  - @product.comments.each do |comment|
+                    .message-nickname
+                      = comment.user.nickname
+                    - if comment.user_id == @product.saler_id
+                      .message-saler 
+                        出品者
 
-                  %ul.message-body
-                    %li.message-body-text
-                      = comment.content
-                    %li.message-icons
-                      %time.message-icon-left
-                        = icon('far', 'clock', class: 't-icon')
-                        = time_ago_in_words(comment.created_at) + "前"
-                        
-                      .message-icon-right
-                        = icon('far', 'flag', class: 'f-icon')
-         
-        .comment-box 
-          %p.notice-msg
-            相手のことを考え丁寧なコメントを心がけましょう。
+                    %ul.message-body
+                      %li.message-body-text
+                        = comment.content
+                      %li.message-icons
+                        %time.message-icon-left
+                          = icon('far', 'clock', class: 't-icon')
+                          = time_ago_in_words(comment.created_at) + "前"
+                          
+                        .message-icon-right
+                          = icon('far', 'flag', class: 'f-icon')
+          
+          .comment-box 
+            %p.notice-msg
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br/
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
             %br/
-            不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          %br/
 
-          - if user_signed_in?
-            = form_for @comment, url: product_comments_path(@product)do |f|
-              = f.text_area :content, class: "form-content"
-              = f.submit "コメントする", class: "comment-btn"
+            - if user_signed_in?
+              = form_for @comment, url: product_comments_path(@product)do |f|
+                = f.text_area :content, class: "form-content"
+                = f.submit "コメントする", class: "comment-btn"
         %ul.links
           %li
             = link_to "#" do
