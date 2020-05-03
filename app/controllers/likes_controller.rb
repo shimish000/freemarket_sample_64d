@@ -2,11 +2,12 @@ class LikesController < ApplicationController
   
   def create
     @like = Like.new(user_id: current_user.id, product_id: params[:product_id])
-    if @like.save!
-    else
+    unless @like.valid?
       flash.now[:alert] = @like.errors.full_messages
     end
-    @likes = Like.where(product_id: params[:product_id])
+    # binding.pry
+    @user_like = Like.create(user_id: current_user.id, product_id: params[:product_id])
+
     get_product
   end
 
@@ -16,7 +17,6 @@ class LikesController < ApplicationController
     else
       flash.now[:alert] = '削除できませんでした。'
     end
-    @likes = Like.where(product_id: params[:product_id])
     get_product
   end
 

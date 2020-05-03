@@ -109,7 +109,7 @@
               %ul
                 %li.item-button-container
                   .item-button-container__left
-                    = render partial: 'likes/like', locals: { product: @product, products: @products, likes: @likes, like: @like}
+                    = render partial: 'likes/like', locals: { product: @product, user_like: @user_like}
               %ul.optional
                 %li.optional-btn
                   = link_to "#" do

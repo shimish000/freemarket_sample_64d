@@ -14,6 +14,8 @@ class ProductsController < ApplicationController
     @parents = Category.where(ancestry: nil)
     @category = @product.category
     @comment = Comment.new
+    @user_like = @product.like_user(current_user.id)
+    @like = Like.new
   end
 
   def search
