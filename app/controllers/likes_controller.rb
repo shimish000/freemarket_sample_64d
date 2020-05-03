@@ -3,7 +3,7 @@ class LikesController < ApplicationController
   def create
     @like = Like.new(user_id: current_user.id, product_id: params[:product_id])
     unless @like.valid?
-      flash.now[:alert] = @like.errors.full_messages
+      flash.now[:alert] = '保存に失敗しました'
     end
     # binding.pry
     @user_like = Like.create(user_id: current_user.id, product_id: params[:product_id])
