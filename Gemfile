@@ -100,4 +100,4 @@ gem 'pry-rails'
 # パンくず
 gem 'ancestry'
 
-
+gem 'rails-i18n'

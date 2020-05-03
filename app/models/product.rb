@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
+  has_many :likes, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy:true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -20,4 +21,7 @@ class Product < ApplicationRecord
     end
   end
   
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+   end
 end

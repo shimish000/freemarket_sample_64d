@@ -1,0 +1,22 @@
+- if user_signed_in?
+  - if user_like && user_like.id
+    .itembutton-container__left__like
+      =link_to product_like_path(product, user_like), method: "DELETE", remote: true do
+        %i.fas.fa-star
+        %span お気に入り
+        %span 
+          = product.likes_count
+  - else
+    .itembutton-container__left__like
+      =link_to product_likes_path(product), method: "POST", remote: true do
+        %i.far.fa-star
+        %span お気に入り
+        %span
+          = product.likes_count
+    
+-else
+  .item-button-container__left__like
+    %i.far.fa-star
+      %span いいね！
+      %span 
+        = product.like_count

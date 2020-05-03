@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
     @parents = Category.where(ancestry: nil)
     @category = @product.category
     @comment = Comment.new
+    @user_like = @product.like_user(current_user.id)
   end
 
   def search
@@ -37,7 +38,7 @@ class ProductsController < ApplicationController
 
  def create
     @product = Product.new(product_params)
-    if @product.save!
+    if @product.save
       redirect_to root_path
     else
       redirect_to new_product_path
@@ -137,5 +138,5 @@ class ProductsController < ApplicationController
         products = Product.where(category_id: ids).order("id DESC").limit(10)
         instance_variable_set("@cat_no#{num}", products)
       end
-   end
+  end
 end

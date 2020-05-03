@@ -104,9 +104,10 @@
                   %ul
                     %li
                       = "¥#{product.price}"
-                    %li
-                      %i.fas.fa-star.like-icon
-                      0
+                    .item-button-container__left__like
+                      %i.far.fa-star
+                        %span
+                          = product.likes_count
                   %p (税込)
             -if product.buyer_id.present? 
               .product-box_photo__sold
