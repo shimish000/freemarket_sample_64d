@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
   }
   devise_scope :user do
     get 'phones', to: 'users/registrations#new_phone'
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
     end  
   end 
   
-  resources :users, only: [:index, :destroy] do
+  resources :users, only: [:index, :destroy, :new] do
     resources :addresses, only: [:new, :create]
     resources :cards, only: [:index, :new, :create, :show, :destroy] do
       collection do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_024741) do
+ActiveRecord::Schema.define(version: 2020_04_23_153755) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_04_10_024741) do
     t.string "municipality", null: false
     t.string "address", null: false
     t.string "building_name"
-    t.integer "address_phone"
+    t.string "address_phone"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
@@ -87,6 +87,15 @@ ActiveRecord::Schema.define(version: 2020_04_10_024741) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "first_name", null: false
@@ -112,4 +121,5 @@ ActiveRecord::Schema.define(version: 2020_04_10_024741) do
   add_foreign_key "buyers", "cards"
   add_foreign_key "buyers", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "sns_credentials", "users"
 end

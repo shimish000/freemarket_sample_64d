@@ -31,9 +31,20 @@
               %span.form-require 必須
               = f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "input-default", value:""
             .form-group
-              = f.label :password, "パスワード" 
-              %span.form-require 必須
-              = f.password_field :password, placeholder: "英数字7文字以上", class: "input-default", autocomplete: "off"
+              - if @sns_id.present?
+                = hidden_field_tag :sns_auth, true
+              - else
+                .field
+                  = f.label :password
+                  - if @minimum_password_length
+                    %em
+                      (#{@minimum_password_length} characters minimum)
+                  %br/
+                  = f.password_field :password, autocomplete: "new-password"
+                .field
+                  = f.label :password_confirmation
+                  %br/
+                  = f.password_field :password_confirmation, autocomplete: "new-password"
             %p.form-info-text
               ※ 英字と数字の両方を含めて設定してください
             .form-group
